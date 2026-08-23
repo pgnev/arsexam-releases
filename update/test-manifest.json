@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "3.1.0-rc.8",
+  "version": "3.1.0-rc.9",
   "minimumSupportedVersion": "3.0.1",
-  "packageUrl": "https://github.com/pgnev/arsexam-desktop/releases/download/v3.1.0-rc.8/ArsExam_Update_3.1.0-rc.8_win-x64.zip",
-  "packageSha256": "B457939D11DDF4124D0A6403F97B9A2F779951559B5232E4E429A3CDEC0E9FC9",
+  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.1.0-rc.9/ArsExam_Update_3.1.0-rc.9_win-x64.zip",
+  "packageSha256": "F2F877985CEEC04C7E0AA682BEEBD1775FA5BC1F41A53DA1970A5911E37037D3",
   "requiresInstaller": true,
-  "installerUrl": "https://github.com/pgnev/arsexam-desktop/releases/download/v3.1.0-rc.8/ArsExam_Setup_3.1.0-rc.8_win-x64.exe",
-  "installerSha256": "C953C3B2DD891CA9CBA3A8F2336B0C420EF90B9135FF93D7C20FD4649D0C058F",
-  "releaseNotes": "ArsExam 3.1.0-rc.8 — existing Test release retained as a temporary migration baseline while the public update channel moves to pgnev/arsexam-releases.",
-  "publishedAtUtc": "2026-08-23T17:53:00Z"
+  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.1.0-rc.9/ArsExam_Setup_3.1.0-rc.9_win-x64.exe",
+  "installerSha256": "B1B7E7D5B9D7A8E4CCC8805B4180A69799B7EEC2AEC37AA942AF332AAC33B881",
+  "releaseNotes": "ArsExam 3.1.0-rc.9 — Test: privacy-preserving diagnostics, hardened Desktop/Portable updates, and public distribution migration.",
+  "publishedAtUtc": "2026-08-23T22:00:13.2178544Z"
 }
