@@ -34,11 +34,21 @@ ArsExam support should never ask for your old plaintext password.
 
 Password-recovery capabilities depend on the installed ArsExam version.
 
-In versions where **secure support-assisted online recovery** is enabled, physical access to the computer alone is not intended to be sufficient for a normal user-facing password reset. ArsExam creates an opaque one-time recovery request and support may issue a time-limited, one-time code only after the applicable verification procedure.
+In a version where **secure support-assisted online recovery** is enabled, the user must first enroll a recovery e-mail while signed in and after confirming the current ArsExam password. The recovery service stores a SHA-256 hash of the normalized address rather than the plaintext mailbox address.
 
-A Request ID is **not proof of identity** and must not, by itself, be treated as sufficient grounds for issuing a reset code.
+For a later forgotten-password request:
 
-Legacy Recovery Kit material must not be sent casually by e-mail and must not be requested as a substitute for proper identity/recovery verification.
+1. ArsExam creates an opaque, time-limited Request ID only if that installation already has an enrolled recovery contact.
+2. The user provides the Request ID and the previously enrolled recovery e-mail to support.
+3. The trusted backend compares a server-side hash of the supplied address with the pre-enrolled hash.
+4. If they do not match, **no reset code is issued**.
+5. If they match, the one-time code must be sent **only to that same pre-enrolled mailbox**.
+
+A Request ID is **not proof of identity**. Knowledge of the e-mail address is also not sufficient by itself; the requester must be able to receive the one-time code at the pre-enrolled mailbox.
+
+Support must not send a recovery code to a new/alternative address supplied only during the forgotten-password request. If the user no longer controls the enrolled mailbox, the normal forgot-password flow must fail closed and any contact-change request must be handled as a separate exceptional support case.
+
+Legacy Recovery Kit material must not be sent casually by e-mail and must not be requested as a substitute for this recovery procedure.
 
 ## Security reports
 
