@@ -34,19 +34,19 @@ ArsExam support should never ask for your old plaintext password.
 
 Password-recovery capabilities depend on the installed ArsExam version.
 
-In a version where **secure support-assisted online recovery** is enabled, the user must first enroll a recovery e-mail while signed in and after confirming the current ArsExam password. The recovery service stores a SHA-256 hash of the normalized address rather than the plaintext mailbox address.
+In a version where **secure support-assisted online recovery** is enabled, the user must first enroll a recovery e-mail while signed in and after confirming the current ArsExam password. During enrollment the address is processed over HTTPS; the recovery identity table does not retain it as plaintext. The backend instead stores a keyed **HMAC-SHA-256** binding generated with a separate server-side key protected in Supabase Vault.
 
 For a later forgotten-password request:
 
 1. ArsExam creates an opaque, time-limited Request ID only if that installation already has an enrolled recovery contact.
 2. The user provides the Request ID and the previously enrolled recovery e-mail to support.
-3. The trusted backend compares a server-side hash of the supplied address with the pre-enrolled hash.
+3. The trusted backend recomputes the HMAC of the supplied address with the Vault-protected key and compares it with the pre-enrolled binding.
 4. If they do not match, **no reset code is issued**.
 5. If they match, the one-time code must be sent **only to that same pre-enrolled mailbox**.
 
 A Request ID is **not proof of identity**. Knowledge of the e-mail address is also not sufficient by itself; the requester must be able to receive the one-time code at the pre-enrolled mailbox.
 
-Support must not send a recovery code to a new/alternative address supplied only during the forgotten-password request. If the user no longer controls the enrolled mailbox, the normal forgot-password flow must fail closed and any contact-change request must be handled as a separate exceptional support case.
+The normal desktop/pre-login flow cannot replace an existing recovery contact and does not reveal whether a newly supplied address equals the enrolled one. Support must not send a recovery code to a new/alternative address supplied only during the forgotten-password request. If the user no longer controls the enrolled mailbox, the normal forgot-password flow must fail closed and any contact-change request must be handled as a separate exceptional support case.
 
 Legacy Recovery Kit material must not be sent casually by e-mail and must not be requested as a substitute for this recovery procedure.
 
