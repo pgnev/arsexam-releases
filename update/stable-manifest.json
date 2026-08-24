@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "channel": "stable",
+  "version": "3.0.2",
+  "minimumSupportedVersion": "3.0.1",
+  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.0.2/ArsExam_Update_3.0.2_win-x64.zip",
+  "packageSha256": "D3309E0061F4CF7E41CE500C9855827A4DC3FED95119A2AE0C3B3E0C8184E621",
+  "requiresInstaller": false,
+  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.0.2/ArsExam_Setup_3.0.2_win-x64.exe",
+  "installerSha256": "50B07D0396E396768A6CB0639F335E9FA1DB23908B149D7CF2FB5D09217A6706",
+  "releaseNotes": "ArsExam 3.0.2 — migration-only Stable patch. The public update/distribution channel is pgnev/arsexam-releases; existing legacy Stable clients remain supported through a temporary full-Setup bridge.",
+  "publishedAtUtc": "2026-08-24T06:19:22.1743373Z"
+}
