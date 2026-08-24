@@ -1,30 +1,78 @@
-# ArsExam Releases
+# ArsExam — Official Releases & Updates
 
-Public distribution and update repository for **ArsExam**, a proprietary Windows desktop application.
+This repository is the **official public distribution and update channel** for ArsExam Desktop.
+
+**ArsExam** is a Windows desktop application for managing digital resources related to the Bulgarian State Matriculation Examination in Theory of the Profession — **“Musical Art”**.
 
 **Author and developer:** Petko Ganev  
-**Contact:** petkoganev@gmail.com  
+**Support:** petkoganev@gmail.com  
 **Copyright © 2026 Petko Ganev. All rights reserved.**
 
-## Purpose
+> This repository contains distribution material only. It is **not** the ArsExam source-code repository and does not grant an open-source license to the ArsExam application.
 
-This repository is intentionally limited to public distribution material such as:
+## Repository purpose
 
-- official ArsExam Setup and update packages;
+The repository is intentionally limited to public release infrastructure:
+
+- official Windows Setup and update packages;
 - Stable/Test update manifests;
-- release notes;
-- public legal, privacy, support and third-party notices.
+- release notes and checksums;
+- public legal/privacy/support notices;
+- compatibility metadata required by supported ArsExam clients.
 
-The ArsExam application source code is **not** licensed as open source and is not intended to be published in this repository.
+Source code, private development artifacts, credentials, signing material, support correspondence, diagnostic events and user data must never be published here.
 
 ## Licensing
 
-ArsExam is proprietary software and is distributed under the ArsExam End User License Agreement (EULA). Third-party components bundled with or used by ArsExam remain subject to their respective licenses and copyright notices.
+ArsExam is **proprietary software**. Use of distributed ArsExam binaries is governed by the ArsExam End User License Agreement (EULA).
 
-No MIT, GPL, Apache, or other open-source license applies to the original ArsExam application source code merely because this public distribution repository is hosted on GitHub.
+Hosting this repository on GitHub does **not** place ArsExam under MIT, GPL, Apache or another open-source license. Third-party libraries and components retain their respective licenses and copyright notices.
 
-## Updates
+See `LICENSE.md`, `COPYRIGHT.md` and the legal documents distributed with each official release.
 
-ArsExam is offline-first. Internet access is not required for normal use. When update checking is enabled, the application retrieves public update metadata and packages from this distribution repository over HTTPS and verifies package integrity before installation.
+## Offline-first model
 
-Do not publish source code, development branches, credentials, signing material, private diagnostics, or user data in this repository.
+ArsExam is designed so that normal work with examination banks, media, generated documents, imports, exports and backups remains local to the user's device.
+
+Internet access is limited to explicitly defined functions such as:
+
+- checking/downloading official updates;
+- opt-in crash/error diagnostics;
+- secure support-assisted password recovery where enabled.
+
+ArsExam does not use this repository to upload examination content or user databases.
+
+## Update channels
+
+Current clients use these public manifests:
+
+```text
+https://raw.githubusercontent.com/pgnev/arsexam-releases/main/update/stable-manifest.json
+https://raw.githubusercontent.com/pgnev/arsexam-releases/main/update/test-manifest.json
+```
+
+A manifest reference is not, by itself, sufficient trust for an update: the ArsExam updater also validates version metadata, expected package integrity and release context before installation.
+
+## Release integrity
+
+Official public releases are produced from the private canonical source repository through a controlled Windows validation pipeline. Publication is blocked unless the required technical, privacy, legal and operational release gates are satisfied.
+
+The public publisher verifies the source workflow/run context, source commit SHA and version/tag consistency before immutable release assets are published.
+
+## Security and support
+
+For product support, use `petkoganev@gmail.com` or the in-application **Help → Contact support** flow.
+
+Do **not** send passwords, Recovery Kits, complete databases, examination-bank archives or other sensitive working material by e-mail unless specifically requested through a documented secure support procedure.
+
+Security issues should be reported privately; do not disclose exploitable details in a public GitHub issue. See `SECURITY.md`.
+
+## Repository roles
+
+- `pgnev/arsexam-releases` — current official public distribution/update repository.
+- `pgnev/arsexam-desktop` — legacy compatibility repository for older clients; not the current distribution authority.
+- canonical ArsExam source/development repository — private.
+
+## Current publication policy
+
+No release asset, update manifest promotion or version tag should be treated as official merely because it exists in a development context. Only assets published through the controlled release process in this repository are part of the supported public distribution channel.
