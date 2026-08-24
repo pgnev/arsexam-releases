@@ -15,14 +15,24 @@ This repository is the **official public distribution and update channel** for A
 | Channel | Published version | Status |
 |---|---:|---|
 | **Stable** | **3.0.2** | current supported Stable release |
-| **Test** | **3.1.0-rc.9** | current published Test release |
+| **Test** | **3.1.0-rc.9** | historical Test prerelease still referenced by the Test feed; RC10 hardening is in progress |
 
-A newer development/release-candidate build is **not official merely because it exists in private development**. In particular, ArsExam 3.1.0-rc.10 remains unpublished until all required technical, privacy, support, legal and operational release gates have been completed.
+A newer development/release-candidate build is **not official merely because it exists in private development**. ArsExam 3.1.0-rc.10 remains unpublished until all required technical, privacy, support, legal and operational release gates have been completed.
 
 The authoritative current versions are always the values in:
 
 - `update/stable-manifest.json`
 - `update/test-manifest.json`
+
+### Test rc.9 advisory
+
+`3.1.0-rc.9` is a historical prerelease, not Stable and not the target production architecture.
+
+Its original release notes refer to an earlier source/distribution topology and to an opt-in diagnostics/usage-telemetry client design. The official rc.9 binary does **not** embed a production remote diagnostics endpoint; remote delivery requires separate external environment configuration. The current public Privacy Policy documents the published rc.9 behavior and corrects the earlier draft public description.
+
+RC10 hardening removes usage/behavior telemetry from the candidate architecture, introduces the final crash/error-only consent model, and is intended to replace rc.9 on the Test channel only after all release gates pass. Until then, users who do not specifically need prerelease validation should prefer Stable 3.0.2.
+
+Historical rc.9 assets and hashes remain unchanged as release/audit evidence.
 
 ## Repository purpose
 
@@ -52,7 +62,7 @@ Public legal documents:
 - `SECURITY.md`
 - `SUPPORT.md`
 
-The legal documents included with a particular released build remain authoritative for that build.
+The legal documents included with a particular released build remain part of that build's release evidence. The public-root notices may additionally clarify the current supported/public state when historical prerelease material was incomplete or superseded.
 
 ## Offline-first model
 
@@ -61,8 +71,8 @@ ArsExam is designed so that normal work with examination banks, media, generated
 Internet access is limited to explicitly defined and documented functions, depending on the released version, such as:
 
 - checking/downloading official updates;
-- opt-in crash/error diagnostics where enabled and consented;
-- secure support-assisted password recovery where enabled.
+- opt-in diagnostics where present in a Test build;
+- secure support-assisted password recovery only in a version where that feature has actually been released.
 
 ArsExam does not use this repository to upload examination content, user databases, documents, media or diagnostic payloads.
 
@@ -91,9 +101,7 @@ Public release assets are treated as immutable release evidence. A development b
 
 The public update repository receives no examination banks, questions, answers, generated documents, media or local databases during a normal update check.
 
-Crash/error diagnostics, when available in a released version, are governed separately by the ArsExam Privacy Policy and require the documented consent model. Usage/behavior analytics must not be inferred from the mere presence of update infrastructure.
-
-For the complete disclosure applicable to distributed builds, see `PRIVACY_POLICY_BG.md` and the copy shipped with the corresponding application release.
+Privacy behavior is **version-specific**. The public `PRIVACY_POLICY_BG.md` states the current public-channel behavior and distinguishes published Stable/Test functions from unpublished RC10 candidate integrations.
 
 ## Security and support
 
