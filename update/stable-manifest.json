@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "minimumSupportedVersion": "3.0.1",
-  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.0.2/ArsExam_Update_3.0.2_win-x64.zip",
-  "packageSha256": "D3309E0061F4CF7E41CE500C9855827A4DC3FED95119A2AE0C3B3E0C8184E621",
-  "requiresInstaller": false,
-  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.0.2/ArsExam_Setup_3.0.2_win-x64.exe",
-  "installerSha256": "50B07D0396E396768A6CB0639F335E9FA1DB23908B149D7CF2FB5D09217A6706",
-  "releaseNotes": "ArsExam 3.0.2 — migration-only Stable patch. The public update/distribution channel is pgnev/arsexam-releases; existing legacy Stable clients remain supported through a temporary full-Setup bridge.",
-  "publishedAtUtc": "2026-08-24T06:19:22.1743373Z"
+  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.1.0/ArsExam_Update_3.1.0_win-x64.zip",
+  "packageSha256": "8CCB17D12ADCBF2E7D8CCBF788EE8A697E49B50AA5B1B5892EDA53B09281D309",
+  "requiresInstaller": true,
+  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.1.0/ArsExam_Setup_3.1.0_win-x64.exe",
+  "installerSha256": "9DB54ADCA90EB48DDC6E3CDDA30947AA4824C153B371B9F9112AE43115BB99D0",
+  "releaseNotes": "ArsExam 3.1.0 — официално Stable издание с интегрирани и проверявани обновления. Първоначалното публично издание може да бъде без Authenticode; използвайте само официалния GitHub release и SHA-256 проверката от manifest-а.",
+  "publishedAtUtc": "2026-08-26T04:07:23.3586118Z"
 }
