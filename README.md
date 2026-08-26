@@ -14,31 +14,30 @@
 
 | Канал | Версия | Статус |
 |---|---:|---|
-| **Stable** | **3.1.0** | текущо публикувано официално Stable издание |
+| **Stable** | **3.1.1** | текущо публикувано официално Stable издание |
 | **Test** | **3.1.0-rc.9** | исторически Test prerelease, към който все още сочи Test feed-ът |
-| **3.1.1** | — | финален Stable candidate в private release validation; **още не е публичен release** |
 
 Авторитетни за текущо публикуваните версии са:
 
 - `update/stable-manifest.json`
 - `update/test-manifest.json`
 
-Branch, PR, CI build или private candidate не е официален release. Версия 3.1.1 ще стане официален Stable едва след exact-source validation, immutable `v3.1.1` release и умишлена Stable feed promotion.
+Branch, PR, CI build или private candidate не е официален release. Версия 3.1.1 е публикувана след exact-source validation, immutable `v3.1.1` release и умишлена Stable feed promotion чрез canonical public publisher.
 
 ## Инсталиране
 
-Официалният ArsExam Setup поддържа **clean install**. Не е необходимо потребителят първо да инсталира 3.1.0, за да може впоследствие да използва 3.1.1.
+Официалният ArsExam Setup поддържа **clean install**. Не е необходимо потребителят първо да инсталира 3.1.0, за да използва 3.1.1.
 
 Единният Setup предлага:
 
 - **Desktop** — per-user инсталация с отделни application и persistent-data папки;
 - **Portable** — самостоятелна portable структура за папка/USB носител.
 
-Когато 3.1.1 бъде публикуван, upgrade **3.1.0 → 3.1.1** ще използва пълния Setup, защото release-ът съдържа и Launcher/deployment-owned промени. Това е upgrade requirement, а не prerequisite за clean install.
+При upgrade **3.1.0 → 3.1.1** се използва пълният Setup, защото release-ът съдържа и Launcher/deployment-owned промени. Това е upgrade requirement, а не prerequisite за clean install.
 
 ## Какво носи ArsExam 3.1.1
 
-Следните функции описват **3.1.1 Stable candidate** и не трябва да се приемат за вече налични в 3.1.0 само защото са описани тук:
+Следните функции са част от **ArsExam 3.1.1 Stable**:
 
 ### Offline-first и локална сигурност
 
@@ -141,9 +140,9 @@ Public publisher проверява:
 
 ## Code signing
 
-Не се твърди Authenticode signing, освен когато exact release evidence действително го доказва. ArsExam 3.1.0 Stable е публикуван unsigned по действащата проектна policy.
+Не се твърди Authenticode signing, освен когато exact release evidence действително го доказва. ArsExam 3.1.1 Stable е публикуван unsigned по действащата проектна policy.
 
-За unsigned Stable използвайте само официалния release в `pgnev/arsexam-releases`; Setup/update hashes остават обвързани с release manifest-а чрез SHA-256. HTTPS/SHA-256 осигуряват transport/integrity проверки, но не са равнозначни на Authenticode publisher identity.
+За unsigned Stable използвайте само официалния release в `pgnev/arsexam-releases`; Setup/update hashes са обвързани с release manifest-а чрез SHA-256. HTTPS/SHA-256 осигуряват transport/integrity проверки, но не са равнозначни на Authenticode publisher identity.
 
 ## Repository purpose
 
