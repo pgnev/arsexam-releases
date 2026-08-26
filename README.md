@@ -1,58 +1,169 @@
 # ArsExam — Official Releases & Updates
 
-This repository is the **official public distribution and update channel** for ArsExam Desktop.
+Това repository е **официалният публичен канал за дистрибуция и обновяване** на ArsExam Desktop.
 
-**ArsExam** is a Windows desktop application for managing digital resources related to the Bulgarian State Matriculation Examination in Theory of the Profession — **“Musical Art”**.
+**ArsExam** е Windows настолен софтуер за управление на дигитални ресурси, свързани с Държавен зрелостен изпит по Теория на професията **„Музикално изкуство“**.
 
-**Author and developer:** Petko Ganev  
-**Support:** petkoganev@gmail.com  
+**Автор и разработчик:** Petko Ganev  
+**Поддръжка:** petkoganev@gmail.com  
 **Copyright © 2026 Petko Ganev. All rights reserved.**
 
-> This repository contains distribution material only. It is **not** the ArsExam source-code repository and does not grant an open-source license to the ArsExam application.
+> Тук се публикуват само официални дистрибуционни материали. Това **не е** source-code repository и не предоставя open-source лиценз за оригиналния ArsExam код.
 
-## Current official publication status
+## Текущ официален статус
 
-| Channel | Published version | Status |
+| Канал | Версия | Статус |
 |---|---:|---|
-| **Stable** | **3.0.2** | current supported Stable release |
-| **Test** | **3.1.0-rc.9** | historical Test prerelease still referenced by the Test feed; RC10 hardening is in progress |
+| **Stable** | **3.1.0** | текущо публикувано официално Stable издание |
+| **Test** | **3.1.0-rc.9** | исторически Test prerelease, към който все още сочи Test feed-ът |
+| **3.1.1** | — | финален Stable candidate в private release validation; **още не е публичен release** |
 
-A newer development/release-candidate build is **not official merely because it exists in private development**. ArsExam 3.1.0-rc.10 remains unpublished until all required technical, privacy, support, legal and operational release gates have been completed.
-
-The authoritative current versions are always the values in:
+Авторитетни за текущо публикуваните версии са:
 
 - `update/stable-manifest.json`
 - `update/test-manifest.json`
 
-### Test rc.9 advisory
+Branch, PR, CI build или private candidate не е официален release. Версия 3.1.1 ще стане официален Stable едва след exact-source validation, immutable `v3.1.1` release и умишлена Stable feed promotion.
 
-`3.1.0-rc.9` is a historical prerelease, not Stable and not the target production architecture.
+## Инсталиране
 
-Its original release notes refer to an earlier source/distribution topology and to an opt-in diagnostics/usage-telemetry client design. The official rc.9 binary does **not** embed a production remote diagnostics endpoint; remote delivery requires separate external environment configuration. The current public Privacy Policy documents the published rc.9 behavior and corrects the earlier draft public description.
+Официалният ArsExam Setup поддържа **clean install**. Не е необходимо потребителят първо да инсталира 3.1.0, за да може впоследствие да използва 3.1.1.
 
-RC10 hardening removes usage/behavior telemetry from the candidate architecture, introduces the final crash/error-only consent model, and is intended to replace rc.9 on the Test channel only after all release gates pass. Until then, users who do not specifically need prerelease validation should prefer Stable 3.0.2.
+Единният Setup предлага:
 
-Historical rc.9 assets and hashes remain unchanged as release/audit evidence.
+- **Desktop** — per-user инсталация с отделни application и persistent-data папки;
+- **Portable** — самостоятелна portable структура за папка/USB носител.
+
+Когато 3.1.1 бъде публикуван, upgrade **3.1.0 → 3.1.1** ще използва пълния Setup, защото release-ът съдържа и Launcher/deployment-owned промени. Това е upgrade requirement, а не prerequisite за clean install.
+
+## Какво носи ArsExam 3.1.1
+
+Следните функции описват **3.1.1 Stable candidate** и не трябва да се приемат за вече налични в 3.1.0 само защото са описани тук:
+
+### Offline-first и локална сигурност
+
+- основната работа с профил, банки, генератори, import/export, Backup/Restore и Desktop↔Portable Transfer остава локална;
+- профилната парола не се записва plaintext и използва versioned salted PBKDF2-HMAC-SHA256 verification;
+- 3.1.0 password hashes остават съвместими и могат да бъдат надградени след успешен login;
+- основната SQLite база използва защитен SQLCipher-capable encrypted data path чрез local security envelope/key hierarchy;
+- профилната парола не е директният database encryption key.
+
+### Recovery Key
+
+- забравена парола се възстановява локално чрез Recovery Key;
+- няма Supabase recovery e-mail, Request ID или support-code backend;
+- има един активен Recovery Key за профила;
+- успешното password recovery обезсилва използвания ключ и генерира нов независим Recovery Key;
+- authenticated replacement на Recovery Key изисква текущата профилна парола;
+- Recovery Key не се пази като възстановимо plaintext копие от ArsExam.
+
+### Protected Backup и Restore
+
+- ръчните Backup-и използват защитен `.arsexam-backup` формат;
+- всеки Backup има собствен AE-BK номер и собствена автоматично генерирана Backup парола;
+- Backup password-ът е отделен от profile password и Recovery Key;
+- encrypted Backup Registry пази metadata и owner credentials за собствените Backup-и;
+- потребителските действия за показване/копиране/експортиране на Backup password изискват current-password step-up;
+- Safety Backups защитават rollback преди рискови операции;
+- normal data Restore не възстановява стар profile password/Recovery Key security state.
+
+### Desktop ↔ Portable Transfer
+
+3.1.1 добавя защитен Transfer между Desktop и Portable ArsExam, работещи на един и същ Windows компютър, като Portable е на свързан USB носител:
+
+- Transfer ID + временен Transfer code;
+- локална IPC/Named Pipes координация и USB presence/heartbeat;
+- 30-минутен source-side session lifetime;
+- bounded wrong-code attempts/cooldown;
+- encrypted authenticated transfer package;
+- full staging/validation преди active-data mutation;
+- Safety Backup + rollback/recovery journal;
+- финален SUCCESS/ACK преди приложението да покаже, че USB може да бъде изваден безопасно.
+
+### Регистри
+
+- Backup Registry;
+- Transfer Registry без plaintext Transfer-code history;
+- Import Registry с read-only operational history.
+
+### UI корекции
+
+- коригирано показване на текста „дигитални ресурси“ при Windows scaling;
+- DPI/work-area handling за редакторите на Модул 2 — първа и втора част;
+- preventive work-area coverage за редакторите на Модул 1 и Модул 3.
+
+### Важна storage граница
+
+Криптираната SQLite база **не означава**, че standalone файловете в `Media` са индивидуално криптирани при покой. За чувствителен removable storage използвайте и подходяща Windows/storage защита, например BitLocker/BitLocker To Go.
+
+## Интернет функции
+
+Core работата на ArsExam е offline-first. Интернет се използва само за ясно отделени функции според конкретната release версия:
+
+- проверка/изтегляне на официални обновления от GitHub;
+- opt-in crash/error диагностика чрез Sentry EU/DE, когато е активирана.
+
+3.1.1 няма online password-recovery backend и няма usage/behavior analytics.
+
+## Update канали
+
+Stable:
+
+```text
+https://raw.githubusercontent.com/pgnev/arsexam-releases/main/update/stable-manifest.json
+```
+
+Test:
+
+```text
+https://raw.githubusercontent.com/pgnev/arsexam-releases/main/update/test-manifest.json
+```
+
+Stable и Test са отделни канали. Test е opt-in и не трябва тихо да подменя Stable policy.
+
+Update trust не се основава само на URL: pipeline-ът валидира version/channel contract, HTTPS delivery, package shape, SHA-256 и applicable deployment requirements преди activation.
+
+## Release integrity и provenance
+
+Официалните публични releases се произвеждат от private canonical source чрез контролиран Windows validation/publisher pipeline.
+
+Public publisher проверява:
+
+- source workflow/run identity;
+- exact source SHA;
+- version/tag relationship;
+- immutable release context;
+- Setup/update assets;
+- SHA-256 binding;
+- anti-downgrade feed promotion.
+
+Публикуваните release assets се третират като immutable. Корекция се публикува с нов version/tag, а не чрез тихо подменяне на съществуващи bytes.
+
+## Code signing
+
+Не се твърди Authenticode signing, освен когато exact release evidence действително го доказва. ArsExam 3.1.0 Stable е публикуван unsigned по действащата проектна policy.
+
+За unsigned Stable използвайте само официалния release в `pgnev/arsexam-releases`; Setup/update hashes остават обвързани с release manifest-а чрез SHA-256. HTTPS/SHA-256 осигуряват transport/integrity проверки, но не са равнозначни на Authenticode publisher identity.
 
 ## Repository purpose
 
-This repository is intentionally limited to public release infrastructure:
+Този repository е ограничен до публична release инфраструктура:
 
-- official Windows Setup and update packages;
-- Stable/Test update manifests;
-- release notes and checksums;
-- public legal/privacy/support notices;
-- compatibility metadata required by supported ArsExam clients.
+- Windows Setup и update packages;
+- Stable/Test manifests;
+- release notes/checksums;
+- публични legal/privacy/support/security notices;
+- compatibility metadata за поддържани ArsExam клиенти.
 
-Source code, private development artifacts, credentials, signing material, support correspondence, diagnostic events and user data must never be published here.
+Тук не трябва да се публикуват source code, private development artifacts, credentials, signing material, diagnostic events или user/examination data.
 
 ## Licensing
 
-ArsExam is **proprietary software**. Use of distributed ArsExam binaries is governed by the ArsExam End User License Agreement (EULA).
+ArsExam е **proprietary software**. Официалните binaries се използват съгласно ArsExam End User License Agreement (EULA).
 
-Hosting this repository on GitHub does **not** place ArsExam under MIT, GPL, Apache or another open-source license. Third-party libraries and components retain their respective licenses and copyright notices.
+Публичното GitHub repository не поставя ArsExam под MIT, GPL, Apache или друг open-source лиценз. Third-party компонентите запазват собствените си лицензи и notices.
 
-Public legal documents:
+Публични документи:
 
 - `LICENSE.md`
 - `COPYRIGHT.md`
@@ -62,63 +173,26 @@ Public legal documents:
 - `SECURITY.md`
 - `SUPPORT.md`
 
-The legal documents included with a particular released build remain part of that build's release evidence. The public-root notices may additionally clarify the current supported/public state when historical prerelease material was incomplete or superseded.
-
-## Offline-first model
-
-ArsExam is designed so that normal work with examination banks, media, generated documents, imports, exports and backups remains local to the user's device.
-
-Internet access is limited to explicitly defined and documented functions, depending on the released version, such as:
-
-- checking/downloading official updates;
-- opt-in diagnostics where present in a Test build;
-- secure support-assisted password recovery only in a version where that feature has actually been released.
-
-ArsExam does not use this repository to upload examination content, user databases, documents, media or diagnostic payloads.
-
-## Update channels
-
-Current clients use these public manifests:
-
-```text
-https://raw.githubusercontent.com/pgnev/arsexam-releases/main/update/stable-manifest.json
-https://raw.githubusercontent.com/pgnev/arsexam-releases/main/update/test-manifest.json
-```
-
-A manifest reference is not, by itself, sufficient trust for an update. The ArsExam update process also validates the expected version/channel metadata, HTTPS transport, package integrity and the applicable release/deployment contract before activation.
-
-Stable and Test are separate channels. Test releases are prerelease builds intended for controlled validation and must not silently replace the Stable publication policy.
-
-## Release integrity and provenance
-
-Official public releases are produced from the **private canonical source repository** through a controlled Windows validation pipeline.
-
-Publication is blocked unless the applicable release prerequisites are satisfied. The public publisher verifies the source workflow/run context, source commit SHA, version/tag relationship and expected release assets before publication.
-
-Public release assets are treated as immutable release evidence. A development build, pull-request artifact or private branch is not an official release.
-
 ## Privacy
 
-The public update repository receives no examination banks, questions, answers, generated documents, media or local databases during a normal update check.
+Нормална update проверка не качва в това repository въпросни банки, отговори, generated documents, Media, local databases, Recovery Keys, Backup passwords или Transfer codes.
 
-Privacy behavior is **version-specific**. The public `PRIVACY_POLICY_BG.md` states the current public-channel behavior and distinguishes published Stable/Test functions from unpublished RC10 candidate integrations.
+Privacy behavior е version-specific. Публичната Privacy Policy и документите, включени в конкретен release, трябва да съответстват на реалното поведение на тази release версия.
 
-## Security and support
+## Security и support
 
-For product support, use **petkoganev@gmail.com** or the in-application **Help → Contact support** flow where available.
+Поддръжка: **petkoganev@gmail.com**.
 
-Do **not** send passwords, Recovery Kits, complete databases, examination-bank archives, documents or other sensitive working material by e-mail unless specifically requested through a documented secure support procedure.
+Не изпращайте по e-mail profile passwords, Recovery Keys, Backup passwords, Transfer codes, цели бази данни или ненужно изпитно съдържание.
 
-Security issues should be reported privately; do not disclose exploitable details in a public GitHub issue. See `SECURITY.md`.
+Security проблеми следва да се докладват частно; не публикувайте exploitable details в публичен GitHub issue. Вижте `SECURITY.md`.
 
-## Repository roles
+## Repository роли
 
-- `pgnev/arsexam-releases` — **current official public distribution/update authority**;
-- `pgnev/arsexam-desktop` — legacy compatibility repository for older clients; **not** the current distribution authority;
-- canonical ArsExam source/development repository — private and not a public distribution surface.
+- `pgnev/arsexam-releases` — **официален публичен distribution/update authority**;
+- `pgnev/arsexam-source` — private canonical source/development repository;
+- `pgnev/arsexam-desktop` — legacy compatibility repository, не независим release authority.
 
 ## Publication rule
 
-A release asset, tag or manifest is official only when it has been published through the controlled ArsExam release process in this repository and the corresponding channel manifest has been intentionally promoted.
-
-No private RC, CI artifact or development tag should be presented as a supported public release before that process is complete.
+Release asset, tag или manifest е официален само когато е публикуван чрез контролирания ArsExam release процес и съответният channel manifest е умишлено promoted.
