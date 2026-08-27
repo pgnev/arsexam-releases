@@ -4,7 +4,7 @@
 
 **petkoganev@gmail.com**
 
-For normal product support, prefer the in-application **Help → Contact support** flow when it is available in the installed version. It can include the ArsExam version/distribution context and a support identifier without automatically exposing examination content.
+For normal product support, prefer the in-application **Help → Contact support** flow when it is available in the installed version.
 
 ## What to include
 
@@ -13,46 +13,51 @@ A useful support request should contain only the minimum information necessary t
 - ArsExam version and distribution mode (Desktop/Portable);
 - a short description of the problem;
 - exact steps that reproduce it;
-- the error text shown by ArsExam, when relevant;
+- the exact error text shown by ArsExam, when relevant;
 - a minimal privacy-safe diagnostic/support bundle only when relevant and intentionally attached by the user.
 
 ## Do not send
 
 Do **not** send by e-mail:
 
-- plaintext passwords;
-- Recovery Kits or recovery secrets;
-- complete databases;
-- full examination-bank archives;
-- confidential examination content that is not strictly required for the case;
-- signing material, API keys or credentials;
+- plaintext profile passwords;
+- Recovery Keys;
+- Backup passwords;
+- Transfer codes;
+- complete databases or full Backup archives unless a specific support case strictly requires one and a safe transfer method has been agreed;
+- confidential examination content that is not strictly required;
+- signing material, API keys or unrelated credentials;
 - unrelated personal data.
 
-ArsExam support should never ask for your old plaintext password.
+ArsExam support should never ask for your old plaintext password, Recovery Key, Backup password or Transfer code.
 
-## Password recovery
+## Password recovery in ArsExam 3.2.0
 
-Password-recovery capabilities depend on the installed ArsExam version.
+Forgotten-password recovery is **local** and uses the active Recovery Key for the profile.
 
-In a version where **secure support-assisted online recovery** is enabled, the user must first enroll a recovery e-mail while signed in and after confirming the current ArsExam password. During enrollment the address is processed over HTTPS; the recovery identity table does not retain it as plaintext. The backend instead stores a keyed **HMAC-SHA-256** binding generated with a separate server-side key protected in Supabase Vault.
+ArsExam 3.2.0 does **not** use:
 
-For a later forgotten-password request:
+- Supabase password recovery;
+- recovery e-mail enrollment;
+- Request ID;
+- support-issued reset codes;
+- a universal server-side/master password.
 
-1. ArsExam creates an opaque, time-limited Request ID only if that installation already has an enrolled recovery contact.
-2. The user provides the Request ID and the previously enrolled recovery e-mail to support.
-3. The trusted backend recomputes the HMAC of the supplied address with the Vault-protected key and compares it with the pre-enrolled binding.
-4. If they do not match, **no reset code is issued**.
-5. If they match, the one-time code must be sent **only to that same pre-enrolled mailbox**.
+After a successful recovery, the old password and the Recovery Key used for that recovery become invalid, and a new Recovery Key is generated.
 
-A Request ID is **not proof of identity**. Knowledge of the e-mail address is also not sufficient by itself; the requester must be able to receive the one-time code at the pre-enrolled mailbox.
+For new 3.2+ profiles, the active Recovery Key can also be kept in an encrypted profile-bound local vault. If the user still knows the current profile password, ArsExam can authenticate the user and show/re-export the active key from **Settings → Password and recovery**. Older profiles without a Recovery Key vault may require one authenticated Recovery Key replacement before this management capability is available.
 
-The normal desktop/pre-login flow cannot replace an existing recovery contact and does not reveal whether a newly supplied address equals the enrolled one. Support must not send a recovery code to a new/alternative address supplied only during the forgotten-password request. If the user no longer controls the enrolled mailbox, the normal forgot-password flow must fail closed and any contact-change request must be handled as a separate exceptional support case.
+If both the current profile password and the valid Recovery Key are lost, support has no hidden bypass capable of unlocking the profile.
 
-Legacy Recovery Kit material must not be sent casually by e-mail and must not be requested as a substitute for this recovery procedure.
+## Backup and Transfer assistance
+
+A Backup password is specific to its Backup and is not interchangeable with the profile password or Recovery Key. A Transfer code is temporary and is not a password-recovery credential.
+
+When reporting Backup/Restore/Transfer problems, include identifiers and status/error text where useful, but do not send the secret credentials themselves.
 
 ## Security reports
 
-Suspected security vulnerabilities should be reported privately to the same contact with a clear subject such as `ArsExam security report`. Do not publish exploitable details in a public GitHub issue. See `SECURITY.md`.
+Suspected security vulnerabilities should be reported privately to the same contact with subject `ArsExam security report`. Do not publish exploitable details in a public GitHub issue. See `SECURITY.md`.
 
 ## Availability
 
