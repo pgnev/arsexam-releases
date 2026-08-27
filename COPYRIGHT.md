@@ -9,4 +9,6 @@ ArsExam is proprietary software. Unless a file, component, library, asset, or no
 
 Third-party libraries, frameworks, runtime components, fonts, standards implementations, and other third-party materials remain the property of their respective copyright holders and are governed by their respective licenses.
 
-This public repository exists only for official distribution, updates, release notes and public legal notices. Publication of binaries or documents here does not grant permission to copy, modify, redistribute, reverse-engineer, sublicense, or create derivative works from the original ArsExam application except to the extent expressly permitted by the ArsExam EULA or mandatory law.
+Publication of binaries or documents in the official distribution repository does not grant permission to copy, modify, redistribute, reverse-engineer, decompile, disassemble, extract or reconstruct source code, circumvent technical protection measures, sublicense, sell, or create derivative versions of the original ArsExam application, except to the extent expressly permitted by the ArsExam EULA, a specific third-party license, or applicable mandatory law.
+
+The statutory/mandatory-law carve-out is intentional: nothing in this notice is intended to exclude rights that applicable law does not permit to be waived or contractually restricted.
