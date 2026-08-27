@@ -14,23 +14,22 @@
 
 | Канал | Версия | Статус |
 |---|---:|---|
-| **Stable** | **3.2.0** | текущо официално Stable издание |
-| **Test** | **3.2.0** | временно синхронизиран със Stable; няма активен prerelease |
+| **Stable** | **3.2.1** | текущо официално Stable издание |
+| **Test** | **3.2.0** | няма активен prerelease; каналът остава върху последния умишлено promoted Test manifest |
 
 Авторитетни за каналите са `update/stable-manifest.json` и `update/test-manifest.json`.
 
 Branch, PR, CI build или private candidate не е официален release. Съществуващите Stable release assets не се подменят тихо; корекция се публикува с нова version/tag линия.
 
-## Инсталиране
+## ArsExam 3.2.1 Stable
 
-Официалният ArsExam Setup поддържа **clean install** и предлага:
+ArsExam 3.2.1 е hotfix издание върху 3.2.x линията. То запазва offline-first архитектурата и добавя корекции за:
 
-- **Desktop** — per-user Windows инсталация с отделни program и persistent-data папки;
-- **Portable** — самостоятелна структура за избрана папка/USB носител.
-
-Не са необходими Python, Node.js, Microsoft Access или предварително инсталиран .NET Runtime. Word/Excel са нужни само за външно отваряне/редактиране на съответните генерирани документи.
-
-## ArsExam 3.2.0
+- управление на staged/import пакети върху защитената локална база без plaintext SQLite bypass;
+- редактиране и изтриване на staged записи/пакети без `SQLite Error 26: file is not a database`;
+- безопасно Desktop uninstall почистване на launcher/update-owned program files;
+- защита на чужди/немаркирани `versions` директории при custom install path;
+- version ownership marker без UTF-8 BOM за надеждно разпознаване от installer/uninstaller логиката.
 
 ### Offline-first и защитено локално хранилище
 
@@ -38,75 +37,49 @@ Branch, PR, CI build или private candidate не е официален release
 
 - plaintext профилната парола не се съхранява;
 - локалната автентикация използва versioned salted PBKDF2-HMAC-SHA256 verification;
-- основната SQLite база използва SQLCipher-capable encrypted connection path след отключване на local security envelope;
+- основната SQLite база използва криптиран SQLite3 Multiple Ciphers connection path след отключване на local security envelope;
 - профилната парола не е директният database-encryption key;
 - purpose-separated keys се използват за database, Backup Registry, Transfer Registry и Recovery Key vault.
 
-### Recovery Key — 3.2
+### Recovery Key
 
-Възстановяването на забравена парола е **локално**. ArsExam 3.2.0 не използва Supabase, recovery e-mail, Request ID, support code или универсален server-side/master key.
+Възстановяването на забравена парола е **локално**. ArsExam 3.2.1 не използва Supabase, recovery e-mail, Request ID, support code или универсален server-side/master key.
 
-Recovery Key:
+Recovery Key е single-use при успешно password recovery; използваният ключ и старата парола стават невалидни, генерира се нов ключ, а при нови 3.2+ профили активният ключ може да бъде пазен в **AES-256-GCM encrypted profile-bound vault** и след проверка с текущата профилна парола да бъде показан, копиран, повторно записан като TXT и отпечатан/запазен като PDF.
 
-- се генерира локално;
-- е single-use при успешно password recovery;
-- използваният ключ и старата парола стават невалидни след успешна ротация;
-- генерира се нов Recovery Key;
-- при нови 3.2+ профили активният ключ има и **AES-256-GCM encrypted profile-bound vault**;
-- след проверка с текущата профилна парола може да бъде показан, копиран, повторно записан като TXT и отпечатан/запазен като PDF;
-- не е Backup password и не е Transfer code.
+### Protected Backup / Restore / Transfer
 
-При профил, създаден от по-стара версия без Recovery Key vault, старият ключ не може да бъде реконструиран от verifier-а; при известна текуща парола потребителят може безопасно да го замени с нов.
-
-### Protected Backup / Backup Registry / Restore
-
-Ръчните Backup-и използват защитен `.arsexam-backup` формат с отделен Backup номер и отделна Backup парола.
-
-Backup Registry поддържа търсене, дата, extended multi-selection, preview, изтриване на ръчни Backup-и и защитено показване/експорт на owner credentials. Чувствителните действия използват една step-up проверка с текущата профилна парола за отворения Registry прозорец.
-
-Restore започва от registry-style chooser и поддържа:
-
-- preview преди mutation;
-- **Merge / „Допълни“** — добавя липсващи записи без тихо презаписване на конфликтни файлове;
-- **Safe Replace / „Замени безопасно“** — създава Safety Backup преди подмяна;
-- автоматичен rollback при failure след започнала mutation;
-- външен Backup с неговата собствена Backup парола.
-
-Data-only Restore не връща стара профилна парола или стар Recovery Key.
-
-### Desktop ↔ Portable Transfer
-
-Защитеният Transfer между Desktop и Portable на един Windows компютър използва отделен Transfer ID, временен Transfer code, local IPC/heartbeat, encrypted authenticated package, staging/validation, Safety Backup и rollback/recovery journal. Transfer code не се пази в историята като plaintext credential.
+Ръчните Backup-и използват защитен `.arsexam-backup` формат с отделен Backup номер и отделна Backup парола. Restore поддържа preview, Merge/„Допълни“, Safe Replace/„Замени безопасно“, Safety Backup и rollback при failure. Desktop↔Portable Transfer използва отделен Transfer ID/code, authenticated encrypted package, staging/validation и rollback/recovery механизъм.
 
 ### Crash/error диагностика
 
-Crash/error diagnostics са **OFF по подразбиране** и се активират само с opt-in. ArsExam 3.2.0 не изпраща usage/behavior analytics за използвани екрани, банки или функции.
+Crash/error диагностиката е **opt-in** и е изключена по подразбиране. ArsExam не изпраща usage/behavior analytics за използвани екрани, банки или функции.
 
-Remote crash/error delivery е възможно само при валидно конфигуриран Sentry EU/DE канал и текущо потребителско съгласие. Приложението използва ограничен allow-list payload и не добавя профилна парола, Recovery Key, Backup passwords, Transfer codes, question-bank content, Media, screenshots или clipboard.
+При включена диагностика local history е ограничена до **20** минимизирани отчета за не повече от **30 дни**. Remote delivery е възможен само към одобрения Sentry EU/DE host pattern `*.ingest.de.sentry.io` и само при валидно текущо потребителско съгласие.
 
 ### Важна storage граница
 
 Криптираната SQLite база **не означава**, че standalone файловете в `Media` са индивидуално криптирани при покой. При чувствителен removable storage използвайте и подходяща Windows/storage защита, например BitLocker/BitLocker To Go.
 
-## Обновления
+## Инсталиране и обновления
 
-ArsExam използва официалната GitHub release/update инфраструктура. Update flow валидира HTTPS source, version/channel contract, package shape и SHA-256 преди activation и използва versioned deployment/launcher health-check/rollback механизъм.
+Официалният ArsExam Setup поддържа **clean install** и предлага Desktop или Portable режим. Не са необходими Python, Node.js, Microsoft Access или предварително инсталиран .NET Runtime.
 
-При настройка **„Автоматично — проверка на 12 часа“** проверката се извършва на 12-часов интервал. Липсата на интернет не блокира основната offline работа.
+Update flow валидира официалния HTTPS source, version/channel contract, package shape и SHA-256 преди activation и използва versioned deployment/launcher health-check/rollback механизъм.
 
 ### Code signing
 
-Не се твърди Authenticode signing, освен когато exact release evidence действително го доказва. ArsExam 3.2.0 Stable е публикуван unsigned по действащата release policy; изтегляйте го само от официалния release тук и проверявайте manifest/SHA-256 binding-а.
+Не се твърди Authenticode signing, освен когато exact release evidence действително го доказва. ArsExam 3.2.1 Stable е публикуван unsigned по действащата release policy; изтегляйте го само от официалния release и проверявайте manifest/SHA-256 binding-а.
 
 ## Release integrity и provenance
 
-Официалните releases се произвеждат от private canonical source чрез контролиран Windows validation/publisher pipeline. Public publisher проверява source workflow/run identity, exact source SHA, version/tag relationship, release context, Setup/update assets и SHA-256 binding преди feed promotion.
+Официалните releases се произвеждат от private canonical source чрез контролиран Windows validation/publisher pipeline. Public publisher проверява exact source SHA, version/tag relationship, immutable release context, Setup/update assets и SHA-256 binding преди feed promotion.
 
-Публикуваните release bytes се третират като immutable. Поправка на 3.2.0 трябва да бъде нова версия, а не тихо заменен `v3.2.0` asset.
+Публикуваните Stable bytes се третират като immutable. Поправка на 3.2.1 трябва да бъде нова версия, а не тихо заменен `v3.2.1` asset.
 
 ## Licensing, privacy, security и support
 
-ArsExam е **proprietary software**. Официалните binaries се използват съгласно EULA. Third-party компонентите запазват собствените си лицензи.
+ArsExam е **proprietary software**. Официалните binaries се използват съгласно EULA. Освен доколкото приложимото императивно право изрично допуска друго, не се предоставя право за обратно инженерство, декомпилация, дизасемблиране, реконструиране на изходен код, заобикаляне на технически защити или създаване на производни версии на оригиналното приложение. Third-party компонентите запазват собствените си лицензи и предоставените от тях права.
 
 Публични документи:
 
@@ -124,7 +97,8 @@ ArsExam е **proprietary software**. Официалните binaries се изп
 
 - `pgnev/arsexam-releases` — **официален публичен distribution/update authority**;
 - `pgnev/arsexam-source` — private canonical source/development repository;
-- `pgnev/arsexam-desktop` — legacy compatibility repository, не независим release authority.
+- `pgnev/arsexam-desktop` — legacy compatibility repository, не независим release authority;
+- `pgnev/arsexam` — исторически web/Base44 repository, не текущ Desktop authority.
 
 ## Publication rule
 
