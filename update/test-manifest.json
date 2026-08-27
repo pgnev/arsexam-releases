@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "3.1.0-rc.9",
+  "version": "3.2.0",
   "minimumSupportedVersion": "3.0.1",
-  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.1.0-rc.9/ArsExam_Update_3.1.0-rc.9_win-x64.zip",
-  "packageSha256": "F2F877985CEEC04C7E0AA682BEEBD1775FA5BC1F41A53DA1970A5911E37037D3",
+  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.2.0/ArsExam_Update_3.2.0_win-x64.zip",
+  "packageSha256": "641432FD5582DF70E771295E83FEE321F37E13CFC1037A31E51BFA0F1BBEB33E",
   "requiresInstaller": true,
-  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.1.0-rc.9/ArsExam_Setup_3.1.0-rc.9_win-x64.exe",
-  "installerSha256": "B1B7E7D5B9D7A8E4CCC8805B4180A69799B7EEC2AEC37AA942AF332AAC33B881",
-  "releaseNotes": "ArsExam 3.1.0-rc.9 — Test: privacy-preserving diagnostics, hardened Desktop/Portable updates, and public distribution migration.",
-  "publishedAtUtc": "2026-08-23T22:00:13.2178544Z"
+  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.2.0/ArsExam_Setup_3.2.0_win-x64.exe",
+  "installerSha256": "89FFB45081CF54C9F86069100B71CE65AEC5A29B82191AEA2EBFE9A34BE1C982",
+  "releaseNotes": "Test каналът временно е синхронизиран с официалния ArsExam 3.2.0 Stable. Няма активен prerelease; старият 3.1.0-rc.9 е изведен от употреба.",
+  "publishedAtUtc": "2026-08-27T08:41:00Z"
 }
