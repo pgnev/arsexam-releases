@@ -98,7 +98,7 @@ ArsExam е **proprietary software**. Официалните binaries се изп
 - `pgnev/arsexam-releases` — **официален публичен distribution/update authority**;
 - `pgnev/arsexam-source` — private canonical source/development repository;
 - `pgnev/arsexam-desktop` — legacy compatibility repository, не независим release authority;
-- `pgnev/arsexam` — исторически web/Base44 repository, не текущ Desktop authority.
+- `pgnev/arsexam` — исторически web repository, не текущ Desktop authority.
 
 ## Publication rule
 
