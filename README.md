@@ -12,20 +12,37 @@
 
 ## Текущ официален статус
 
-| Канал | Версия | Статус |
+| Линия | Версия | Статус |
 |---|---:|---|
 | **Stable** | **3.5.0** | текущото официално Stable издание, публикувано на 31.08.2026 |
-| **Test** | **3.2.0** | няма активен prerelease; Test manifest остава върху последната умишлено promoted версия |
+| **Development candidate** | **3.5.1** | **NOT RELEASED** — активен private-source acceptance candidate; няма публикувани 3.5.1 binaries/tag/feed |
+| **Test feed** | **3.2.0** | няма активен 3.5.1 prerelease; manifest-ът не се променя само заради development branch |
 
-Авторитетни за каналите са `update/stable-manifest.json` и `update/test-manifest.json`.
+Авторитетни за инсталираните update канали са `update/stable-manifest.json` и `update/test-manifest.json`.
 
-ArsExam 3.3.0 е предходният public Stable. Версия 3.4.0 не беше публикувана отделно; приетата ѝ функционалност е включена в 3.5.0.
+Branch, PR, CI build или private candidate не е официален release. Публикуваните Stable assets не се подменят тихо; корекция се публикува с нов version/tag след отделно приемане.
 
-Branch, PR, CI build или private candidate не е официален release. Публикуваните Stable assets не се подменят тихо; корекция се публикува с нов version/tag.
+## ArsExam 3.5.1 — development / acceptance candidate
+
+**3.5.1 все още не е публичен release.** Тази секция описва текущата разработвана patch линия, за да няма разминаване между public distribution документацията и canonical source roadmap-а.
+
+Текущият 3.5.1 candidate е maintenance/UX/Recycler correctness patch върху 3.5.0 и включва:
+
+- по-пълно управление на versioned difficulty methodologies — създаване, версиране, редактиране, защитено multi-delete и K/C/S/L/D легенда;
+- независимо разгъване на top-level sidebar секциите;
+- по-компактен и потребителски ориентиран Module 1 bank/generator UX;
+- DataGrid header hardening: кратките колони в Module 1 и Import използват гарантирани четими ширини, вместо да се смачкват/пренасят по средата на дума;
+- Module 2.1 Recycler: dedicated official answer key има приоритет над по-нискоавторитетни embedded/director варианти; общият `Ключ / критерий` се изгражда четимо от разчетените подвъпроси;
+- Module 2.2 Recycler: task-local PDF visual recovery за Theory/Harmony, включително bare task-number anchors и review-gated crop fallback, когато няма отделен embedded image/score region;
+- updater cleanup: 3.5.1 използва само manifest-и от `pgnev/arsexam-releases`; legacy fallback към `pgnev/arsexam-desktop` е премахнат от candidate source.
+
+Преди 3.5.1 да стане Stable са задължителни нов exact-head Windows build/test/Setup, upgrade matrix, реален преглед на засегнатите Recycler/UI сценарии и изрично owner разрешение за merge/tag/public release.
+
+**Не са разрешени към този момент:** `v3.5.1` release, 3.5.1 binaries в този repository или Stable manifest promotion.
 
 ## ArsExam 3.5.0 Stable
 
-ArsExam 3.5.0 въвежда новия работен модел за проследимо съдържание и generator eligibility, разширен Recycler/import review, versioned difficulty methodology, Bulgarian-first UX и schema-v8 Backup/Restore hardening.
+ArsExam 3.5.0 въвежда работния модел за проследимо съдържание и generator eligibility, разширен Recycler/import review, versioned difficulty methodology, Bulgarian-first UX и schema-v8 Backup/Restore hardening.
 
 ### Workflow и generator eligibility
 
@@ -88,9 +105,7 @@ Legacy snapshot v1 остава четим чрез compatibility reconstruction
 
 ## Изтегляне на ArsExam 3.5.0
 
-Официалният release е:
-
-`https://github.com/pgnev/arsexam-releases/releases/tag/v3.5.0`
+Официалният release е `v3.5.0` в този repository.
 
 Основни assets:
 
@@ -98,11 +113,9 @@ Legacy snapshot v1 остава четим чрез compatibility reconstruction
 - `ArsExam_Update_3.5.0_win-x64.zip`
 - `update-manifest.json`
 
-Stable feed:
+Stable feed е `update/stable-manifest.json` на branch `main`.
 
-`https://raw.githubusercontent.com/pgnev/arsexam-releases/main/update/stable-manifest.json`
-
-## Release integrity
+## Release integrity — ArsExam 3.5.0
 
 Официалният 3.5.0 release е произведен от private canonical source чрез контролирания release pipeline.
 
@@ -114,8 +127,6 @@ Final source/tag binding:
 - exact-tag Windows Release #916: SUCCESS;
 - test suite: **602 passed / 0 failed / 0 skipped**;
 - Public Distribution #511: SUCCESS.
-
-Публичният publisher проверява exact tag/source SHA, immutable release context, Setup/update assets и SHA-256 binding преди Stable feed promotion.
 
 ### SHA-256 — ArsExam 3.5.0
 
@@ -132,15 +143,15 @@ Windows може да покаже SmartScreen/Unknown Publisher предупр�
 
 HTTPS + SHA-256 са transport/integrity controls; те не са Authenticode publisher-identity signing.
 
+Състоянието на подписването за бъдеща 3.5.1 се определя само от нейното собствено final exact-release evidence, ако версията бъде одобрена за публикуване.
+
 ## Privacy и diagnostics
 
 ArsExam е **offline-first**. Основните банки, генератори, Recycler, Backup/Restore и Desktop/Portable data workflows работят локално.
 
 Crash/error диагностиката е **opt-in** и е изключена по подразбиране. ArsExam не изпраща usage/behavior analytics за използвани екрани, банки или workflow states.
 
-При включена remote diagnostics production ingest е ограничен до одобрения Sentry EU/DE host pattern `*.ingest.de.sentry.io` и изисква текущо съгласие.
-
-Password recovery е локално чрез Recovery Key; ArsExam 3.5.0 не използва Supabase, recovery e-mail, Request ID или support-issued reset code за password recovery.
+Password recovery е локално чрез Recovery Key; ArsExam 3.5.x не използва Supabase, recovery e-mail, Request ID или support-issued reset code за password recovery.
 
 ## Licensing, privacy, security и support
 
@@ -160,11 +171,11 @@ ArsExam е **proprietary software**. Официалните binaries се изп
 
 ## Repository роли
 
-- `pgnev/arsexam-releases` — **официален публичен distribution/update authority**;
+- `pgnev/arsexam-releases` — **единствен официален публичен distribution/update authority**;
 - `pgnev/arsexam-source` — private canonical source/development repository;
-- `pgnev/arsexam-desktop` — legacy compatibility repository, не независим release authority;
+- `pgnev/arsexam-desktop` — retired legacy compatibility repository; 3.5.1 candidate няма runtime update fallback към него и то може да бъде decommissioned след final dependency audit;
 - `pgnev/arsexam` — исторически web repository, не текущ Desktop authority.
 
 ## Publication rule
 
-Release asset, tag или manifest е официален само когато е публикуван чрез контролирания ArsExam release процес и съответният channel manifest е умишлено promoted.
+Release asset, tag или manifest е официален само когато е публикуван чрез контролирания ArsExam release процес и съответният channel manifest е умишлено promoted. Development описание на 3.5.1 в този README **не е release и не променя Stable 3.5.0**.
