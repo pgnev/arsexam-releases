@@ -1,7 +1,9 @@
 # Политика за поверителност — ArsExam Desktop
 
-**Публична редакция:** 27.08.2026 г. — ArsExam 3.2.1 Stable  
-**Обхват:** текущият Stable 3.2.1; Test каналът остава върху 3.2.0 и използва същата 3.2.x privacy/security архитектура, освен ако release-specific notice не посочи друго.
+Редакция: 31.08.2026 г. — ArsExam 3.5.0 Stable
+В сила от: публичното публикуване на ArsExam 3.5.0
+
+Тази редакция описва техническото поведение на ArsExam 3.5.0 Stable и се доставя с официалния Setup.
 
 ## 1. Администратор и контакт
 
@@ -12,47 +14,58 @@
 
 ArsExam Desktop е **offline-first** приложение. Основните работни данни се съхраняват локално и по принцип не достигат до автора.
 
-Когато училище, организация или друго лице въвежда лични данни на трети лица в локални банки, документи, медия или архиви, то самостоятелно отговаря за правното основание, минимизацията, достъпа, сроковете за съхранение и останалите си задължения за това съдържание.
+Когато училище, организация или друго лице въвежда лични данни на трети лица в локални банки, документи, Media или Backup-и, то самостоятелно отговаря за правното основание, минимизацията, достъпа, сроковете за съхранение и останалите си задължения за това съдържание.
 
 ## 2. Данни, които остават локално
 
-В зависимост от използваните функции ArsExam 3.2.1 може да съхранява на устройството:
+В зависимост от използваните функции ArsExam може да съхранява на устройството:
 
 - локален профил: име, e-mail за контакт, институция/дирекция, телефон и настройки;
-- salted/versioned PBKDF2-derived данни за локална автентикация; plaintext профилната парола не се записва;
-- local security-envelope state и wrapped/verifier материали, необходими за криптираното хранилище и Recovery Key механизма;
-- при нови 3.2+ профили — AES-256-GCM encrypted profile-bound Recovery Key vault;
-- въпросни банки, задачи, теми, answer keys, generated tests и регистри в SQLite базата;
+- salted/versioned password-verifier/hash данни; plaintext профилната парола не се записва;
+- local security-envelope state и wrapped/verifier материали за криптираното хранилище и Recovery Key механизма;
+- encrypted profile-bound Recovery Key vault, когато е наличен за профила;
+- въпросни банки, задачи, теми, answer keys и generated tests;
+- schema-v8 workflow status и generator eligibility за official-bank content;
+- versioned difficulty methodologies, automatic assessments, rationale и expert overrides;
+- Recycler/import staging, review context и operation history според използваната функция;
 - изображения, аудио и други `Media` файлове;
-- импортни и експортни файлове;
-- защитени ръчни Backup файлове и вътрешни Safety Backups;
+- import/export файлове;
+- защитени Manual Backup-и и вътрешни Safety Backup-и;
 - криптиран Backup Registry, включително локално защитени owner Backup credentials;
-- криптиран Transfer Registry с история без plaintext Transfer codes;
-- настройки за обновяване;
-- локален технически log;
-- настройка за crash/error диагностика и, когато е включена, ограничена локална история на минимизирани диагностични отчети.
+- Transfer Registry/history без plaintext Transfer codes;
+- update settings/cache;
+- локален technical log;
+- diagnostics consent/settings и, когато функцията е включена, ограничена локална история на минимизирани diagnostic reports.
 
-Тези работни данни не се изпращат автоматично до автора като част от нормалната работа.
+Тези работни данни не се изпращат автоматично до автора като част от нормалната offline работа.
 
-Профилният e-mail е **контактна информация**, а не online recovery identity. Забравена парола се възстановява локално чрез Recovery Key и не се създава e-mail recovery заявка към външен backend.
+Профилният e-mail е **контактна информация**, а не online recovery identity. Забравена парола се възстановява локално чрез Recovery Key и не създава e-mail recovery request към външен backend.
+
+### Recycler, import и workflow state
+
+Recycler/import review работи локално върху предоставените от потребителя материали. Source document, key, OCR/Media evidence и staged review context могат да съдържат изпитно или друго работно съдържание.
+
+ArsExam 3.5 пази explicit per-record workflow/outcome information, за да не изчезват анализирани записи без видим резултат. Това е локална operational traceability функция; не е remote analytics.
+
+Локалният Windows OCR, използван от Recycler за поддържаните изображения, не изпраща source images към cloud OCR услуга като част от описания Recycler path.
 
 ## 3. Защита на локалното хранилище
 
-ArsExam 3.2.1 използва application-level encryption за основната SQLite база и отделни защитени локални registry/security файлове.
+ArsExam използва application-level encryption за основната SQLite база и отделни защитени локални registry/security файлове.
 
-Профилната парола не е директният database-encryption key. ArsExam използва локална key hierarchy и purpose-separated derivations/wrapping за различните защитени функции.
+Профилната парола не е директният database-encryption key. ArsExam използва local key hierarchy и purpose-separated derivation/wrapping за различните защитени функции.
 
 ### Важна граница
 
-Standalone файловете в локалните `Media` папки **не трябва да се считат за индивидуално криптирани при покой само защото SQLite базата е криптирана**. Те могат да съдържат чувствителни работни материали и следва да бъдат защитавани и чрез подходящи Windows/storage контроли, например BitLocker/BitLocker To Go, когато рискът го изисква.
+Standalone файловете в локалните `Media` папки **не трябва да се считат за индивидуално криптирани при покой само защото SQLite базата е криптирана**. При чувствителни removable devices използвайте подходящи Windows/storage controls, например BitLocker/BitLocker To Go, когато рискът го изисква.
 
 Ръчните `.arsexam-backup` архиви и защитените transfer packages използват собствено authenticated encryption и не са обикновени plaintext ZIP архиви.
 
-Application-level encryption не защитава от malware/keylogger или процес с достатъчни права, който контролира вече отключена ArsExam/Windows сесия и може да чете данните в момента на легитимното им използване.
+Application-level encryption не защитава от malware/keylogger или процес с достатъчни права, който вече контролира отключена ArsExam/Windows сесия.
 
 ## 4. Recovery Key и забравена парола
 
-Функцията **„Забравена парола?“** работи локално. ArsExam 3.2.1 не използва Supabase, recovery e-mail, Request ID, support code или друг online control plane за password recovery.
+Функцията **„Забравена парола?“** работи локално. Текущият ArsExam 3.5 client не използва Supabase, recovery e-mail, Request ID, support code или друг online control plane за password recovery.
 
 Recovery Key:
 
@@ -63,50 +76,66 @@ Recovery Key:
 - не се изпраща на автора, GitHub или Sentry;
 - не е Backup password и не е Transfer code.
 
-За нови 3.2+ профили активният Recovery Key може да бъде пазен и в отделен **AES-256-GCM encrypted profile-bound vault**. Това не е plaintext копие. След успешна проверка с текущата профилна парола ArsExam може да покаже активния Recovery Key и да позволи повторно копиране, TXT export и print/PDF.
-
-При по-стар профил без такъв vault старият Recovery Key не може да бъде реконструиран от verifier-а. Ако текущата профилна парола е известна, потребителят може да извърши authenticated replacement и да получи нов Recovery Key с текущата 3.2 защита.
+Когато профилът поддържа encrypted profile-bound Recovery Key vault, след successful step-up authentication с текущата профилна парола ArsExam може да покаже активния Recovery Key и да позволи повторно копиране/export/print.
 
 Ако потребителят изгуби едновременно профилната си парола и валидния Recovery Key, авторът няма универсален server-side/master-key механизъм за отключване на профила.
 
 ## 5. Ръчни Backup-и, Backup Registry и Restore
 
-Ръчните Backup-и са локално генерирани защитени архиви. Всеки ръчен Backup има собствен Backup номер и собствена криптографски генерирана Backup парола.
+Manual Backup е local protected `.arsexam-backup` archive. Всеки Backup има собствен Backup number и cryptographically generated Backup password.
 
-Backup паролата е отделна от профилната парола и Recovery Key. За Backup-и, създадени от текущия профил, ArsExam може да пази recoverable копие на тази Backup парола в **криптиран локален Backup Registry**, за да позволи по-късно показване/копиране/експорт след step-up authentication с текущата профилна парола.
+Backup password е отделна от profile password и Recovery Key. За Backup-и, създадени от текущия профил, ArsExam може да пази recoverable копие в **криптиран локален Backup Registry**, за да позволи последващо reveal/copy/export след step-up authentication.
 
-Restore поддържа preview преди mutation, Merge/„Допълни“ и Safe Replace/„Замени безопасно“. Преди mutating restore се създава Safety Backup. Data-only Restore не възстановява стара профилна парола или стар Recovery Key от Backup-а.
+### Data-only Backup v2 в ArsExam 3.5
 
-## 6. Desktop ↔ Portable Transfer
+Backup snapshot v2 пази work data, включително official-bank schema-v8 workflow/generator-eligibility и difficulty methodology/assessment state, необходими за коректно Restore на 3.5 работното съдържание.
 
-Защитеният Transfer между Desktop и Portable е предназначен за ArsExam инстанции на един и същ Windows компютър, като Portable версията може да е върху свързан USB носител.
+Data-only Backup **не възстановява като стара security identity**:
 
-Transfer flow използва local IPC/markers, отделен Transfer ID, временен Transfer code, authenticated encrypted transport package, staging/validation, Safety Backup и rollback/recovery механизъм. Transfer code не се записва в историята като plaintext credential.
+- profile password/hash;
+- Recovery Key/security envelope;
+- Backup Registry secret vault;
+- diagnostics/update settings;
+- import-history credentials.
+
+Import batch history не е част от този data-only semantic contract; когато се възстановява workflow state, `source_batch_id` не се пренася като dangling operational reference.
+
+Restore поддържа Preview, Merge/„Допълни“ и Safe Replace/„Замени безопасно“. Преди mutating Restore се създава Safety Backup. Merge запазва current target active methodology и existing-record companion state; conflicting same-ID/version methodology definition се блокира преди mutation.
+
+Legacy v1 data-only snapshots остават четими, но липсващата schema-v8 provenance се реконструира по compatibility rules; ArsExam не твърди, че старият формат е съдържал данни, които исторически не е записвал.
+
+## 6. Desktop / Portable data movement
+
+Desktop и Portable data movement е локална функция и не използва GitHub update feed като transport за user work data.
+
+Защитеният Transfer между Desktop и Portable използва отделен Transfer ID, временен Transfer code, local staging/validation, Safety Backup и rollback/recovery mechanics според съответния workflow. Transfer code не се записва в историята като plaintext credential.
+
+Поддържаният direct Portable→Desktop import path копира persistent work categories след Safety Backup и не внася device-local UpdateCache/Diagnostics от source Portable data root. Schema-v8 workflow/difficulty state се пренася като част от SQLite work data.
 
 ## 7. Crash/error диагностика
 
-Crash/error диагностиката е **opt-in** и е изключена по подразбиране. ArsExam 3.2.1 не събира отделна usage/behavior analytics телеметрия за това кои екрани, банки или функции използвате.
+Crash/error диагностиката е **opt-in** и е изключена по подразбиране. ArsExam не събира отделна usage/behavior analytics телеметрия за това кои екрани, банки, workflow states или функции използвате.
 
-При включена диагностика ArsExam може да създава минимизиран отчет при необработена грешка, срив или изрично стартиран тестов diagnostic event.
+При включена диагностика ArsExam може да създава минимизиран report при необработена грешка, crash или изрично стартиран test diagnostic event.
 
-Допустимият allow-listed набор е ограничен до технически полета като идентификатор/UTC време на отчета, версия и distribution mode, общ OS/runtime context, exception type и санитизиран stack trace.
+Допустимият allow-listed набор е ограничен до технически полета като report ID/UTC time, application version/distribution mode, общ OS/runtime context, exception type и sanitized stack trace.
 
-ArsExam **не добавя към remote diagnostic payload**:
+ArsExam **не добавя като предназначен remote diagnostic payload**:
 
 - име/e-mail/телефон/институция от локалния профил;
-- профилна парола или password hash;
+- profile password/hash;
 - Recovery Key;
 - Backup passwords;
 - Transfer codes;
-- въпроси, отговори, answer keys или съдържание на банки;
-- база данни или Backup/Transfer packages;
-- изображения, аудио, screenshots или clipboard.
+- въпроси, answers, keys или bank/workflow content;
+- database или Backup/Transfer packages;
+- images/audio/screenshots/clipboard.
 
-При валидно текущо съгласие ArsExam може да пази до **20** локални минимизирани диагностични отчета за не повече от **30 дни**. При изключване на crash/error диагностиката локалната минимизирана история се изчиства съгласно приложната логика, а бъдещото дистанционно изпращане се прекратява.
+При валидно текущо съгласие ArsExam може да пази до **20** локални минимизирани diagnostic reports за не повече от **30 дни**. При изключване на функцията бъдещото remote изпращане се прекратява и локалната minimized history се управлява според приложната retention логика.
 
-Remote delivery е възможно само ако конкретният build е конфигуриран с валиден **Sentry EU/DE** ingest канал и потребителят е дал изрично съгласие. Production ingest е технически ограничен до германските Sentry endpoint-и с host pattern `*.ingest.de.sentry.io`; ArsExam не приема произволен външен endpoint или произволен Sentry ingest host за този канал.
+Remote delivery е възможно само ако конкретният build е конфигуриран с валиден **Sentry EU/DE** ingest channel и потребителят е дал изрично съгласие. Production ingest е ограничен до host pattern `*.ingest.de.sentry.io`.
 
-Доставчик на Sentry е Functional Software, Inc. Стандартни мрежови данни, включително IP адресът на връзката, могат технически да бъдат обработени от доставчика и неговата инфраструктура, дори ArsExam да не добавя IP като поле в диагностичното събитие.
+Доставчик на Sentry е Functional Software, Inc. Standard network data, включително IP адресът на връзката, могат технически да бъдат обработени от доставчика/инфраструктурата, дори ArsExam да не добавя IP като поле в event-а.
 
 Информация за Sentry:
 
@@ -118,58 +147,58 @@ Remote delivery е възможно само ако конкретният build
 
 ## 8. Официални обновления
 
-ArsExam може да използва интернет за проверка и изтегляне на официални обновления от публичната GitHub release/update инфраструктура.
+ArsExam може да използва internet за проверка и изтегляне на official updates от public GitHub release/update infrastructure.
 
-При настройка **„Автоматично — проверка на 12 часа“** ArsExam извършва автоматична проверка на 12 часа; ако при стартиране са изминали 12 часа от последната проверка, проверката може да се извърши тогава.
+При настройка **„Автоматично — проверка на 12 часа“** потребителският update-check cadence е 12 часа.
 
-Update request-ът не включва question-bank съдържание, Recovery Key, Backup passwords, Transfer codes или локалния профил като приложен payload. Както при всяка HTTPS връзка, GitHub и мрежовата инфраструктура могат технически да обработят IP адрес, дата/час и стандартна request metadata съгласно собствените си условия и policies.
+Update request-ът не включва question-bank content, workflow/difficulty content, Recovery Key, Backup passwords, Transfer codes или local profile като приложен payload. Както при всяка HTTPS връзка, GitHub и network infrastructure могат технически да обработят IP address, date/time и standard request metadata според собствените си policies.
 
-Официалният public distribution/update repository е `pgnev/arsexam-releases`.
+Official public distribution/update repository е `pgnev/arsexam-releases`. `pgnev/arsexam-desktop` може да остане legacy read-only compatibility fallback за supported older clients, но не е current release authority.
 
 ## 9. Поддръжка и e-mail кореспонденция
 
-Ако доброволно изпратите e-mail до поддръжката, авторът може да обработи e-mail адреса и името, видими в съобщението, съдържанието на запитването, дата/час, стандартни mail metadata и файловете, които Вие самостоятелно сте решили да приложите.
+Ако доброволно изпратите e-mail до support, авторът може да обработи e-mail address/name, съдържанието на request-а, date/time, standard mail metadata и файловете, които Вие сами сте решили да приложите.
 
-Не изпращайте profile passwords, Recovery Keys, Backup passwords, Transfer codes, цели бази, пълни Backup архиви или ненужни лични/изпитни данни по обикновена електронна поща.
+Не изпращайте profile passwords, Recovery Keys, Backup passwords, Transfer codes, цели databases, protected Backup-и или ненужни лични/изпитни данни по ordinary e-mail.
 
-Кореспонденцията се пази само доколкото е необходима за обработване на случая и последваща техническа справка, по правило до **12 месеца след последната съществена кореспонденция**, освен ако по-дълъг срок е необходим по закон или за установяване, упражняване или защита на правни претенции.
+Support correspondence се пази само доколкото е необходима за обработване на случая и последваща техническа справка, по правило до **12 месеца след последната съществена кореспонденция**, освен ако по-дълъг срок е необходим по закон или за установяване, упражняване или защита на правни претенции.
 
 ## 10. Външни получатели и международна обработка
 
-В зависимост от използваната функция външни доставчици могат да бъдат:
+В зависимост от използваната network функция външни providers могат да бъдат:
 
-- **GitHub** — официални update manifests/releases и изтегляне на update payload;
-- **Sentry EU/DE** — само при изрично включена remote crash/error диагностика и валидно конфигуриран release;
-- e-mail доставчиците на страните — когато потребителят доброволно води support кореспонденция.
+- **GitHub** — official update manifests/releases и update downloads;
+- **Sentry EU/DE** — само при explicit opt-in remote diagnostics и valid configured release;
+- e-mail providers на страните — при доброволна support correspondence.
 
-ArsExam 3.2.1 **не използва Supabase за password recovery**.
+ArsExam 3.5 **не използва Supabase за password recovery**.
 
-Външните доставчици могат да използват инфраструктура в различни държави съгласно собствените им договорни/privacy механизми. ArsExam не гарантира, че всяка мрежова metadata операция остава физически само в България или ЕИП, когато външният provider не предоставя такава гаранция.
+Външните providers могат да използват инфраструктура в различни държави според собствените си договорни/privacy mechanisms. ArsExam не гарантира, че всяка standard network metadata operation остава физически само в България/ЕИП, когато provider не предоставя такава гаранция.
 
 ## 11. Срокове и изтриване
 
-Локалните работни данни, Backup-и, регистри и настройки остават под контрола на потребителя и се пазят до изтриване/деинсталиране/почистване според съответната функция.
+Local work data, Backups, registries и settings остават под user control и се пазят до deletion/uninstall/cleanup според съответната функция.
 
-Локалната diagnostic history е ограничена до **20** минимизирани отчета и до **30 дни** съгласно приложната retention логика и се управлява според diagnostics consent/settings.
+Local diagnostic history е ограничена до до 20 minimized reports и до 30 дни според diagnostics consent/settings.
 
-Support кореспонденцията се пази според необходимостта за конкретния случай и описания по-горе ориентировъчен срок.
+Support correspondence се пази според необходимостта за конкретния случай и описания ориентировъчен срок.
 
 ## 12. Права на субектите на данни
 
-Когато авторът действително обработва Ваши лични данни и GDPR е приложим, според конкретния случай можете да имате право на информация и достъп, коригиране, изтриване, ограничаване, възражение, преносимост и оттегляне на съгласие за обработка, основана на съгласие.
+Когато авторът действително обработва Ваши personal data и GDPR е приложим, според конкретния случай можете да имате право на информация/access, correction, deletion, restriction, objection, portability и withdrawal of consent за processing, основана на consent.
 
 За искания: **petkoganev@gmail.com**.
 
-Ако считате, че приложимите правила за защита на личните данни са нарушени, можете да подадете жалба до компетентния надзорен орган, включително Комисията за защита на личните данни в Република България, когато тя е компетентна.
+Ако считате, че приложимите правила са нарушени, можете да подадете complaint до компетентния supervisory authority, включително Комисията за защита на личните данни в Република България, когато тя е компетентна.
 
 ## 13. Данни на ученици и други трети лица
 
-ArsExam не използва публичните update/support/diagnostics канали с цел да събира изпитното съдържание или личните данни, които потребителят въвежда в локалните банки/документи.
+ArsExam не използва public update/support/diagnostics channels с цел да събира изпитното съдържание или personal data, които user въвежда в local banks/documents/Media.
 
-Потребителят или организацията, която определя съдържанието на локалните материали, носи собствена отговорност за правното основание, минимизацията, достъпа и retention-а на данни на ученици/други трети лица.
+Потребителят или организацията, която определя съдържанието на локалните материали, носи собствена отговорност за legal basis, minimization, access и retention на данни на ученици/други трети лица.
 
 ## 14. Версионност на политиката
 
-Тази публична редакция е синхронизирана с ArsExam 3.2.1 Stable и 3.2.x privacy/security модела. При нов публичен release документът трябва да бъде прегледан и синхронизиран с действителното поведение на конкретната версия.
+Тази редакция е технически синхронизирана с **ArsExam 3.5.0 Stable** към 31.08.2026 г. и е проверена срещу exact release source и Setup legal-document contract.
 
-Release-specific документът, доставен с конкретен Setup, остава част от release evidence за тази версия.
+Release-specific policy, доставена с конкретен Setup, остава част от release evidence за тази версия.
