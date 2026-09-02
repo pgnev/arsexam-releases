@@ -1,6 +1,6 @@
 # ArsExam Security Policy
 
-Revision: 31 August 2026
+Revision: 2 September 2026 — ArsExam 3.6.2 Stable
 
 ## Reporting a vulnerability
 
@@ -8,13 +8,20 @@ Report suspected ArsExam security vulnerabilities **privately** to **petkoganev@
 
 Do **not** publish exploitable details, credentials, personal data, examination-bank content, Recovery Keys, Backup passwords, Transfer codes or private diagnostic material in a public GitHub issue.
 
-## Current public security model — ArsExam 3.5.0 Stable
+## Current public security model — ArsExam 3.6.2 Stable
 
-ArsExam 3.5.0 is the current official Stable release. Security-sensitive areas include authentication/lock state, Recovery Key lifecycle, encrypted local storage, protected Backup/Restore, Desktop ↔ Portable data movement, Recycler/import staging, workflow/generator eligibility, difficulty methodology state, Media disclosure boundaries, update integrity, diagnostics/privacy boundaries, dependency vulnerabilities and release provenance.
+ArsExam **3.6.2** is the current official Stable release. The authoritative Stable identity is `update/stable-manifest.json` plus the latest public release in this repository.
 
-ArsExam 3.5.0 introduces schema-v8 workflow/generator-eligibility and difficulty-methodology companion state and covers that state through Backup/Restore/recovery regression gates.
+Canonical 3.6.2 release binding:
 
-The official `v3.5.0` source tag is bound to commit `6adc5a17f79f2396ca9eb4c5aa855d0c8841aa17`. The exact-tag Windows Release and public publisher completed successfully.
+- source repository: `pgnev/arsexam-source`;
+- immutable tag: `v3.6.2`;
+- source/merge SHA: `1b52a37a186535435160fa19a6c4f92199687e9c`;
+- validated release tree: `a96986932a527f72d0d0a54031588966081c3f5f`;
+- Setup SHA-256: `A5D4A81500307059171E49624BAB061CBA281BFFF5CAA7E6C2E802BA90BF80A6`;
+- Update ZIP SHA-256: `B8F46EC121D5BBA08627CCBBDDC124080EB20655887309F63E54B88B102DC051`.
+
+Published Stable bytes are immutable. A defect in 3.6.2 must be corrected in a new version/tag; the existing tag/assets/hashes must not be silently replaced.
 
 ## Credentials and secrets
 
@@ -24,7 +31,7 @@ Support must never request a user's plaintext profile password, Recovery Key, Ba
 
 ## Password recovery
 
-ArsExam 3.5.0 uses a **local single-use Recovery Key**. There is no Supabase recovery backend, recovery e-mail enrollment, Request ID, support code or universal server-side/master-key bypass.
+ArsExam uses a **local single-use Recovery Key**. There is no Supabase recovery backend, recovery e-mail enrollment, Request ID, support code or universal server-side/master-key bypass.
 
 On successful forgotten-password recovery:
 
@@ -33,90 +40,55 @@ On successful forgotten-password recovery:
 - the new profile password becomes active;
 - a new independent Recovery Key is generated.
 
-When the profile supports the encrypted profile-bound Recovery Key vault, the active Recovery Key can be retained encrypted and re-viewed/re-exported only after authentication with the current profile password.
+When supported by the profile, the active Recovery Key may be retained in an encrypted profile-bound vault and re-viewed/re-exported only after authentication with the current profile password.
 
 ## Local-data boundary
 
 The main SQLite database is accessed through an encrypted SQLite3 Multiple Ciphers connection path after the local security envelope is unlocked. The profile password is not the direct database-encryption key.
 
-Standalone files in `Media` are **not individually encrypted** solely because the SQLite database is encrypted. Deployments requiring full device/removable-media confidentiality should also use appropriate Windows/storage controls such as BitLocker/BitLocker To Go.
+Standalone files in `Media` and Recycler source snapshots are **not individually encrypted** solely because the SQLite database is encrypted. Deployments requiring full device/removable-media confidentiality should also use appropriate Windows/storage controls such as BitLocker/BitLocker To Go.
 
 Protected Backup and Transfer packages use authenticated encryption independently of the live database. No at-rest mechanism protects against malware or sufficiently privileged access to data in an already unlocked process/session.
 
-## Schema-v8 workflow and difficulty integrity
+## Workflow, generator and Recycler integrity
 
-Schema v8 persists:
+Schema v8 persists official-bank workflow state, explicit generator eligibility, versioned difficulty methodologies, assessments and expert overrides.
 
-- official-bank workflow state;
-- explicit generator eligibility;
-- versioned difficulty methodologies;
-- content difficulty assessments and expert overrides.
+Generator eligibility is not inferred merely from record existence or from a staged status. ArsExam 3.6.2 uses a canonical six-state workflow vocabulary and fail-closed generator readiness/eligibility checks.
 
-Generator eligibility is not inferred merely from record existence. Backup validation rejects a v2 state that marks a non-Approved workflow row as generator-eligible.
+Recycler/import processing preserves explicit per-record state/outcome so analyzed records do not silently disappear. Ambiguous Media/key associations are not resolved by random fallback. Atomic Recycler source snapshots are local provenance/workflow artifacts and are not remote telemetry.
 
-Factory `ArsExam Standard 1.0` is protected; expert overrides are preserved across supported recalculation/migration paths.
+## Backup / Restore and Desktop / Portable safety
 
-## Recycler/import staging
+Normal `.arsexam-backup` files are protected data-only backups, not clones of the user's security identity. Mutating Restore creates a Safety Backup before live mutation and retains rollback semantics.
 
-Staged import update/delete operations use the already unlocked/keyed database service. Raw plaintext SQLite access to the protected `ArsExam.db` is not an authorized mutation path.
-
-Recycler/import processing preserves explicit per-record state/outcome so analyzed records do not silently disappear. Ambiguous Media is not bound by random fallback; explicit expert manual assignment does not authorize approval or generator eligibility.
-
-Supported image OCR uses the local Windows OCR path and does not require a cloud OCR service for that workflow.
-
-## Data-only Backup v2
-
-A normal `.arsexam-backup` remains a **data-only protected Backup**, not a clone of the user's security identity.
-
-Snapshot v2 preserves working content plus official-bank workflow/generator-eligibility and difficulty methodology/assessment state required by ArsExam 3.5.
-
-It deliberately does not restore old:
-
-- profile password/hash;
-- Recovery Key/security envelope;
-- Backup Registry secret vault;
-- diagnostics/update settings;
-- import-history credentials.
-
-Workflow `source_batch_id` is cleared when import-history tables are not part of the data-only snapshot, preventing dangling operational identity from being treated as restored provenance.
-
-Backup creation validates schema-v8 semantic consistency before the protected package is registered as successful. Mutating Restore creates a Safety Backup before live mutation and keeps rollback behavior.
-
-Merge is fail-closed for conflicting methodology definitions with the same ID/version and preserves the target installation's active methodology/existing-record companion state.
-
-Legacy v1 snapshots remain readable but cannot contain provenance that the v1 format never stored; missing schema-v8 companion state is reconstructed by documented compatibility rules.
-
-## Desktop / Portable boundary
-
-Desktop and Portable data movement is not the GitHub update channel.
-
-Supported Portable→Desktop import creates a Safety Backup before copying persistent work data and excludes device-local UpdateCache/Diagnostics. Protected Desktop↔Portable transfer has its own staging/authentication/recovery contract where used.
-
-## Desktop install/update ownership boundary
-
-Desktop uninstall and update cleanup remove only ArsExam-owned program state/version directories. Unmarked/foreign folders in a custom/shared install root must not be recursively deleted merely because they are located under a directory named `versions`.
-
-Persistent user data under `%LOCALAPPDATA%\ArsExam` is separate from the program root under `%LOCALAPPDATA%\Programs\ArsExam`.
+Desktop/Portable transfer is a local data workflow and is separate from the GitHub update channel. Update/uninstall cleanup may remove only ArsExam-owned program state; persistent user data remains separate from the program root.
 
 ## Crash/error diagnostics
 
 Crash/error diagnostics are **OFF by default** and require opt-in. ArsExam does not send usage/behavior analytics for visited screens, banks, workflow states or functions.
 
-When remote diagnostics are configured, production ingest is restricted to the approved Sentry EU/DE host pattern `*.ingest.de.sentry.io` and requires current consent. Local minimized diagnostic history is limited to **20** reports and **30 days**. Remote diagnostic payloads must not contain profile passwords, Recovery Keys, Backup passwords, Transfer codes, question-bank content, databases, Media, screenshots or clipboard content.
+When remote diagnostics are configured, production ingest is restricted to the approved Sentry EU/DE host pattern `*.ingest.de.sentry.io` and requires current consent. Remote diagnostic payloads must not contain profile passwords, Recovery Keys, Backup passwords, Transfer codes, question-bank content, databases, Media, screenshots or clipboard content.
+
+The current public 3.6.2 privacy contract is defined by `PRIVACY_POLICY_BG.md`. Any future material change to deferred delivery/caching or diagnostic fields requires an updated consent/privacy contract before publication.
 
 ## Update and release integrity
 
 Official public binaries and manifests are distributed only through `pgnev/arsexam-releases` after controlled validation from the private canonical source repository.
 
-A successful historical build does not validate a newer commit. Public promotion uses exact-source/exact-tag evidence and SHA-256 binding of release assets. Published Stable bytes are treated as immutable; fixes require a new version/tag rather than silent replacement.
+The current Stable feed is `update/stable-manifest.json` and currently resolves to **3.6.2**. Update packages are accepted only after SHA-256 verification against the authoritative manifest.
 
-ArsExam 3.5.0 Stable is published from source tag `v3.5.0` and is **unsigned with Authenticode** under the current policy. HTTPS and SHA-256 provide transport/integrity controls but are not Authenticode publisher identity. Windows may therefore display SmartScreen/Unknown Publisher warnings depending on local policy/reputation state.
+A temporary DNS/transport failure must not mutate the current installation or persistent user data. Current post-3.6.2 development work may improve retry/fallback behavior, but such work is not retroactively part of immutable 3.6.2 binaries.
 
-Current public Stable feed: `update/stable-manifest.json` in this repository.
+## Code signing
+
+**ArsExam 3.6.2 Stable is unsigned with Authenticode.** HTTPS and SHA-256 provide transport/integrity controls but are not publisher-identity signing. Windows may therefore display SmartScreen/Unknown Publisher warnings depending on local policy and reputation state.
+
+Future code signing is planned as a separate release hardening step. Public documentation must not claim signing until the exact final release evidence proves a valid sign/timestamp/verification path for the required artifacts.
 
 ## Reverse engineering and security research
 
-ArsExam is proprietary software. The EULA restricts reverse engineering, decompilation, disassembly, source-code reconstruction and circumvention of technical protection measures **except to the extent applicable mandatory law expressly permits such activity or prevents contractual exclusion**. This security policy does not remove statutory rights or rights granted by licenses of third-party components.
+ArsExam is proprietary software. The EULA restricts reverse engineering, decompilation, disassembly, source-code reconstruction and circumvention of technical protection measures **except to the extent applicable mandatory law expressly permits such activity or prevents contractual exclusion**. Third-party licenses retain their own rights.
 
 Responsible vulnerability research should minimize access to real user/examination data and should be reported privately as described above.
 

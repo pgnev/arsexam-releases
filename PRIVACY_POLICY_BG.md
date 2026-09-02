@@ -1,9 +1,9 @@
 # Политика за поверителност — ArsExam Desktop
 
-Редакция: 31.08.2026 г. — ArsExam 3.5.0 Stable
-В сила от: публичното публикуване на ArsExam 3.5.0
+Редакция: 02.09.2026 г. — ArsExam 3.6.2 Stable
+В сила от: публичното публикуване на ArsExam 3.6.2 Stable
 
-Тази редакция описва техническото поведение на ArsExam 3.5.0 Stable и се доставя с официалния Setup.
+Тази редакция описва техническото поведение на ArsExam 3.6.x и е предназначена за ArsExam 3.6.2 Stable Setup. 3.6.2 не въвежда нов remote telemetry/privacy канал спрямо 3.6.1; актуализацията синхронизира release identity и текущата workflow терминология. Published version-specific assets остават immutable.
 
 ## 1. Администратор и контакт
 
@@ -27,7 +27,8 @@ ArsExam Desktop е **offline-first** приложение. Основните р
 - въпросни банки, задачи, теми, answer keys и generated tests;
 - schema-v8 workflow status и generator eligibility за official-bank content;
 - versioned difficulty methodologies, automatic assessments, rationale и expert overrides;
-- Recycler/import staging, review context и operation history според използваната функция;
+- Recycler/import staging, review context, outcome information и operation history според използваната функция;
+- Atomic Recycler source snapshots и provenance/evidence данни, включително приложими source/file/page/region и SHA-256 идентификатори;
 - изображения, аудио и други `Media` файлове;
 - import/export файлове;
 - защитени Manual Backup-и и вътрешни Safety Backup-и;
@@ -43,9 +44,9 @@ ArsExam Desktop е **offline-first** приложение. Основните р
 
 ### Recycler, import и workflow state
 
-Recycler/import review работи локално върху предоставените от потребителя материали. Source document, key, OCR/Media evidence и staged review context могат да съдържат изпитно или друго работно съдържание.
+Recycler/import review работи локално върху предоставените от потребителя материали. Source document, key, OCR/Media evidence, Atomic snapshots и staged review context могат да съдържат изпитно или друго работно съдържание.
 
-ArsExam 3.5 пази explicit per-record workflow/outcome information, за да не изчезват анализирани записи без видим резултат. Това е локална operational traceability функция; не е remote analytics.
+ArsExam 3.6.x пази explicit per-record workflow/outcome information, за да не изчезват анализирани записи без видим резултат. Atomic Recycler може да създава локални content-addressed source snapshots в `Data\RecyclerWorkspace\atomic-sources`, така че pending review да не зависи от оригиналния USB/външен път. Тези snapshots са локална operational/provenance функция; не са remote analytics.
 
 Локалният Windows OCR, използван от Recycler за поддържаните изображения, не изпраща source images към cloud OCR услуга като част от описания Recycler path.
 
@@ -57,7 +58,7 @@ ArsExam използва application-level encryption за основната SQ
 
 ### Важна граница
 
-Standalone файловете в локалните `Media` папки **не трябва да се считат за индивидуално криптирани при покой само защото SQLite базата е криптирана**. При чувствителни removable devices използвайте подходящи Windows/storage controls, например BitLocker/BitLocker To Go, когато рискът го изисква.
+Standalone файловете в локалните `Media` папки и Recycler source snapshots **не трябва да се считат за индивидуално криптирани при покой само защото SQLite базата е криптирана**. При чувствителни removable devices използвайте подходящи Windows/storage controls, например BitLocker/BitLocker To Go, когато рискът го изисква.
 
 Ръчните `.arsexam-backup` архиви и защитените transfer packages използват собствено authenticated encryption и не са обикновени plaintext ZIP архиви.
 
@@ -65,7 +66,7 @@ Application-level encryption не защитава от malware/keylogger или
 
 ## 4. Recovery Key и забравена парола
 
-Функцията **„Забравена парола?“** работи локално. Текущият ArsExam 3.5 client не използва Supabase, recovery e-mail, Request ID, support code или друг online control plane за password recovery.
+Функцията **„Забравена парола?“** работи локално. Текущият ArsExam 3.6.x client не използва Supabase, recovery e-mail, Request ID, support code или друг online control plane за password recovery.
 
 Recovery Key:
 
@@ -86,9 +87,9 @@ Manual Backup е local protected `.arsexam-backup` archive. Всеки Backup и
 
 Backup password е отделна от profile password и Recovery Key. За Backup-и, създадени от текущия профил, ArsExam може да пази recoverable копие в **криптиран локален Backup Registry**, за да позволи последващо reveal/copy/export след step-up authentication.
 
-### Data-only Backup v2 в ArsExam 3.5
+### Data-only Backup v2 в ArsExam 3.6.x
 
-Backup snapshot v2 пази work data, включително official-bank schema-v8 workflow/generator-eligibility и difficulty methodology/assessment state, необходими за коректно Restore на 3.5 работното съдържание.
+Backup snapshot v2 пази work data, включително official-bank schema-v8 workflow/generator-eligibility и difficulty methodology/assessment state, необходими за коректно Restore на 3.6.x работното съдържание.
 
 Data-only Backup **не възстановява като стара security identity**:
 
@@ -171,13 +172,15 @@ Support correspondence се пази само доколкото е необхо
 - **Sentry EU/DE** — само при explicit opt-in remote diagnostics и valid configured release;
 - e-mail providers на страните — при доброволна support correspondence.
 
-ArsExam 3.5 **не използва Supabase за password recovery**.
+ArsExam 3.6.x **не използва Supabase за password recovery**.
 
 Външните providers могат да използват инфраструктура в различни държави според собствените си договорни/privacy mechanisms. ArsExam не гарантира, че всяка standard network metadata operation остава физически само в България/ЕИП, когато provider не предоставя такава гаранция.
 
 ## 11. Срокове и изтриване
 
 Local work data, Backups, registries и settings остават под user control и се пазят до deletion/uninstall/cleanup според съответната функция.
+
+Pending Atomic Recycler source snapshots могат да бъдат задържани, докато staged пакет ги реферира. Orphan snapshot cleanup се извършва само когато няма pending reference и fail-closed проверките позволяват безопасно изтриване.
 
 Local diagnostic history е ограничена до до 20 minimized reports и до 30 дни според diagnostics consent/settings.
 
@@ -199,6 +202,6 @@ ArsExam не използва public update/support/diagnostics channels с це
 
 ## 14. Версионност на политиката
 
-Тази редакция е технически синхронизирана с **ArsExam 3.5.0 Stable** към 31.08.2026 г. и е проверена срещу exact release source и Setup legal-document contract.
+Тази редакция е технически синхронизирана с **ArsExam 3.6.2 Stable** към 02.09.2026 г. и е проверена спрямо 3.6.x offline/recovery/backup/update/diagnostics/Recycler behavior.
 
 Release-specific policy, доставена с конкретен Setup, остава част от release evidence за тази версия.
