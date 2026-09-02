@@ -1,12 +1,12 @@
 # ArsExam Desktop — Third-Party Notices
 
-Revision: 31 August 2026
+Revision: 2 September 2026 — ArsExam 3.6.2 Stable
 
 ArsExam Desktop is proprietary software, but it incorporates open-source components distributed under their own licenses. Those licenses apply to the corresponding third-party components and are not replaced by the ArsExam EULA.
 
-## Direct runtime dependencies — ArsExam 3.5.0 Stable
+## Direct runtime dependencies — ArsExam 3.6.2 Stable
 
-The ArsExam 3.5.0 project file currently pins the following direct runtime packages:
+The ArsExam 3.6.2 release source pins the following direct runtime packages:
 
 | Component | Version | License | Project / license |
 |---|---:|---|---|
@@ -17,15 +17,17 @@ The ArsExam 3.5.0 project file currently pins the following direct runtime packa
 | SQLite3MC.PCLRaw.bundle | 2.4.0 | MIT | https://github.com/utelle/SQLite3MultipleCiphers-NuGet |
 | Sentry .NET SDK | 6.9.0 | MIT | https://github.com/getsentry/sentry-dotnet |
 
-This list is reconciled against `src/ArsExam.Desktop/ArsExam.Desktop.csproj` for the exact 3.5.0 Stable release source. The release pipeline repeats the NuGet vulnerability check on the tagged commit.
+This list is reconciled against `src/ArsExam.Desktop/ArsExam.Desktop.csproj` for the immutable `v3.6.2` release source. The release pipeline performs a NuGet vulnerability audit on the exact release source.
 
 PdfPig is used locally by the Exam Recycler to extract text/content from PDF files. PDF parsing does not require a cloud service and does not upload exam documents.
 
 `SQLite3MC.PCLRaw.bundle` provides the SQLitePCLRaw integration and native SQLite3 Multiple Ciphers runtime used for ArsExam encrypted local databases.
 
-## Current public Stable line — ArsExam 3.5.0
+## Current public Stable line — ArsExam 3.6.2
 
-ArsExam 3.5.0 is the current public Stable release line as of 31 August 2026. ArsExam 3.3.0 is the previous public Stable; 3.4.0 remained an unpublished development predecessor whose accepted functionality is included in 3.5.0.
+ArsExam **3.6.2** is the current public Stable release. Current Stable identity is authoritative from `update/stable-manifest.json` and the latest public release in this repository.
+
+Historical version-specific notices remain historical evidence and are not rewritten to claim that older binaries contained later dependencies or behavior.
 
 ## Known transitive runtime dependencies
 
@@ -53,7 +55,7 @@ GitHub Actions and the official GitHub release infrastructure are release/build/
 
 ## Hosted services
 
-The embedded Sentry .NET SDK is MIT-licensed client software. Hosted Sentry use is separate; ArsExam remote crash/error delivery remains opt-in and restricted to approved EU/DE ingest configuration. GitHub is used for official release/update distribution and is not a user-authentication or password-recovery service. ArsExam 3.5.0 does not use Supabase for password recovery.
+The embedded Sentry .NET SDK is MIT-licensed client software. Hosted Sentry use is separate; ArsExam remote crash/error delivery remains opt-in and restricted to the approved EU/DE ingest configuration. GitHub is used for official release/update distribution and is not a user-authentication or password-recovery service. ArsExam 3.6.2 does not use Supabase for password recovery.
 
 ## Proprietary ArsExam code vs third-party rights
 
@@ -67,6 +69,7 @@ Release validation must confirm:
 - successful NuGet vulnerability audit;
 - any material dependency/license changes since this revision;
 - native SQLite3MC provenance;
-- alignment of this notice with the actual runtime, installer tooling and hosted services used by the release.
+- alignment of this notice with the actual runtime, installer tooling and hosted services used by the release;
+- current Stable version alignment with `update/stable-manifest.json`.
 
 Where a third-party license requires complete license/copyright notice distribution, that notice must be included with the official distribution.
