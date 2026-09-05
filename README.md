@@ -10,48 +10,58 @@
 
 | Канал | Версия | Статус |
 |---|---:|---|
-| **Stable** | **3.6.3** | **CURRENT STABLE — публикуван на 03.09.2026** |
-| Previous Stable | 3.6.2 | immutable historical release |
+| **Stable** | **3.7.1** | **CURRENT STABLE — публикуван на 05.09.2026** |
+| Previous Stable | 3.6.3 | immutable historical release |
 | Test feed | отделен prerelease/testing channel | authoritative: `update/test-manifest.json` |
 
 Авторитетни за инсталираните update канали са `update/stable-manifest.json` и `update/test-manifest.json`.
 
-## ArsExam 3.6.3 Stable
+## ArsExam 3.7.1 Stable
 
-Official release: `v3.6.3`
+Official release: `v3.7.1`
 
 Основни assets:
 
-- `ArsExam_Setup_3.6.3_win-x64.exe`
-- `ArsExam_Update_3.6.3_win-x64.zip`
+- `ArsExam_Setup_3.7.1_win-x64.exe`
+- `ArsExam_Update_3.7.1_win-x64.zip`
 - `update-manifest.json`
 
-Stable feed `update/stable-manifest.json` е промотиран до **3.6.3**.
+Stable feed `update/stable-manifest.json` е промотиран до **3.7.1**.
 
 ### SHA-256
 
-- Setup: `8C611D1A32A0835D3DCC07F3F327E874871F948D3D2C74A7C02C24030B5509DB`
-- Update ZIP: `3BA2E518D63F648C46E23658765041BD320365767D4637A523171246AAFCCA49`
+- Setup: `EA3E7CB9D9D24D910A183412A9124015CE92A005FFC4FBDEE3B3018E952856F3`
+- Update ZIP: `64B151B2514635C718D72CB6C9ECDD318F6EF1FED539BD72BF3F09F34ABA26B2`
 
 ### Release binding
 
 - canonical source repository: `pgnev/arsexam-source`;
-- immutable source tag: `v3.6.3`;
-- source/merge SHA: `ff852752ea802ae9e72046b9bd76d40a87a0a179`;
-- validated source tree SHA: `b7735f3284a3980ff781737ce7496e483368b159`;
-- exact-tag Upgrade Matrix #555: **SUCCESS**;
-- exact-tag Windows Release #1196: **SUCCESS**;
-- Public Distribution #793: **SUCCESS**.
+- immutable source tag: `v3.7.1`;
+- exact tagged source SHA: `7eed9fafbe89cc399f0980856632dfc11637cc88`;
+- validated source tree SHA: `882779e4c1b27999547c085b411020a8b0b9e5ad`;
+- source merge commit on `main`: `adff78b8d0190a59b42330ecd709a76547dc8da7`;
+- exact-tag local release gate: **PASS** — 735/735 tests, 7/7 updater matrix;
+- exact-tag Windows/Sentry acceptance: **PASS**;
+- hosted exact-tag Actions attempt failed at startup before jobs; the documented exact-tag local fallback was used under release policy.
 
-## Какво включва 3.6.3
+## Какво включва 3.7.1
 
-3.6.3 е corrective hardening release върху 3.6.2. Включва по-устойчив updater с bounded retry/fallback и задължителна SHA-256 проверка, fail-closed обработка на повредени security envelope данни, diagnostics consent 4.0 с ограничен store-and-forward cache, локален Launcher incident bridge, по-безопасни user-facing technical errors и release-time protection на реалния single-file payload преди bundling.
+3.7.1 е Stable finalization release върху валидирания, но непубликуван 3.7.0 scope. Основният user-facing функционален акцент е checkbox multi-select търсене в банките на Модули 1–3:
+
+- OR вътре в един categorical filter и AND между различни filters;
+- Module 1 cumulative properties и master state `Всички свойства`;
+- contextual Module 1 themes спрямо union-а на избраните сектори;
+- multi-select Difficulty/Status/Discipline/Profile/Topic filters според модула;
+- безопасно spacing/layout поведение около `Изчисти`;
+- Module 3 new-topic creation изисква точно един selected profile.
+
+3.7.1 също финализира release/documentation consistency: Privacy и Third-party surfaces показват реалната installed version, Setup инсталира само curated end-user documentation, а upgrade cleanup премахва само известни ArsExam source-only документи и запазва чужди/потребителски файлове.
 
 Desktop и Portable използват един и същ валидиран application payload; различават се по deployment/persistent-data режима.
 
 ## Code signing
 
-**ArsExam 3.6.3 Stable е публикуван без Authenticode подпис.** Windows може да покаже SmartScreen/Unknown Publisher предупреждение според локалната policy/reputation state. Изтегляйте само от официалния release и проверявайте SHA-256 binding-а от manifest-а.
+**ArsExam 3.7.1 Stable е публикуван без Authenticode подпис.** Windows може да покаже SmartScreen/Unknown Publisher предупреждение според локалната policy/reputation state. Изтегляйте само от официалния release и проверявайте SHA-256 binding-а от manifest-а.
 
 HTTPS + SHA-256 са transport/integrity controls; те не са Authenticode publisher-identity signing.
 
@@ -78,4 +88,4 @@ Password recovery е локално чрез Recovery Key; няма universal se
 
 ## Operational check
 
-На ArsExam 3.6.2 Stable → „Провери за обновление“ трябва да предложи **3.6.3**, ако Stable update channel-ът е разрешен и мрежата е достъпна. При временен network отказ приложението трябва да остане на текущата работеща версия без промяна на persistent data.
+На ArsExam 3.6.3 Stable → „Провери за обновление“ трябва да предложи **3.7.1**, ако Stable update channel-ът е разрешен и мрежата е достъпна. При временен network отказ приложението трябва да остане на текущата работеща версия без промяна на persistent data.
