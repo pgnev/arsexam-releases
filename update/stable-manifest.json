@@ -8,6 +8,6 @@
   "requiresInstaller": true,
   "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.7.1/ArsExam_Setup_3.7.1_win-x64.exe",
   "installerSha256": "EA3E7CB9D9D24D910A183412A9124015CE92A005FFC4FBDEE3B3018E952856F3",
-  "releaseNotes": "ArsExam 3.7.1 — официално Stable издание с checkbox multi-select филтри в банките на Модули 1–3, runtime version binding за Privacy/Third-party документите и curated installer documentation. Изданието е без Authenticode; използвайте само официалния GitHub release и SHA-256 проверката от manifest-а.",
+  "releaseNotes": "ArsExam 3.7.1 - locally generated release candidate. Publish only after Windows acceptance and explicit owner approval.",
   "publishedAtUtc": "2026-09-05T07:57:46.8865997Z"
 }
