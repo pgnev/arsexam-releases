@@ -13,3 +13,9 @@ Third-party libraries and components remain subject to their own licenses and co
 This public repository exists for official binary distribution, update metadata and public notices. Its public availability does not grant permission to redistribute modified or misleadingly branded ArsExam binaries as official releases.
 
 For licensing enquiries: petkoganev@gmail.com
+
+## Граница на съдържанието
+
+Софтуерът ArsExam не съдържа, не разпространява и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Програмата представлява единствено софтуерен инструмент за създаване, редактиране, организиране и управление на съдържание, въведено или създадено от надлежно оторизирани потребители.
+
+Публично разпространяваният изходен код и/или изпълнимият софтуер не включват база данни с реални служебни изпитни материали, задачи, отговори или други защитени данни.

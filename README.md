@@ -327,14 +327,40 @@ Self-contained distribution не изисква предварително ин�
 
 | Канал | Версия | Статус |
 |---|---:|---|
-| **Stable** | **3.7.1** | **CURRENT STABLE — публикуван на 05.09.2026** |
-| Previous Stable | 3.6.3 | immutable historical release |
+| **Stable** | **3.8.0** | **CURRENT STABLE — публикуван на 09.09.2026** |
+| Previous Stable | 3.7.1 | immutable historical release |
 | Test | отделен prerelease/testing channel | authority: `update/test-manifest.json` |
 
 Machine-readable update authority са:
 
 - `update/stable-manifest.json`;
 - `update/test-manifest.json`.
+
+---
+
+## ArsExam 3.8.0 Stable
+
+Официален release: **v3.8.0**
+
+Основни assets:
+
+- ArsExam_Setup_3.8.0_win-x64.exe;
+- ArsExam_Update_3.8.0_win-x64.zip;
+- update-manifest.json.
+
+### SHA-256
+
+- Setup: 116AE12099572FDE26D4E406043E7316355A7B787F0945A23D18A5401C211380
+- Update ZIP: 2DC6DA5F12861CC4874EE40EA92F856B1FDCD40672D9F1D2902949DA28696C4F
+
+### Source/release binding
+
+- canonical source: pgnev/arsexam-source;
+- immutable source tag: v3.8.0;
+- tagged source SHA: 01edd1aaa88a6ce650a5250d73e5479356b783ac;
+- validated Stable candidate SHA: 6e2891987479edd81ee7133f2e5c426bbdb10ae5;
+- regression suite: **746 passed / 0 failed / 0 skipped**;
+- update stage/verify: **PASS**.
 
 ---
 
@@ -418,7 +444,7 @@ Hosted exact-tag Actions опитът е приключил със startup failu
 За проверка на SHA-256 в PowerShell:
 
 ```powershell
-Get-FileHash .\ArsExam_Setup_3.7.1_win-x64.exe -Algorithm SHA256
+Get-FileHash .\ArsExam_Setup_3.8.0_win-x64.exe -Algorithm SHA256
 ```
 
 Полученият hash трябва да съвпада точно с публикувания за съответния asset.
@@ -469,3 +495,9 @@ Get-FileHash .\ArsExam_Setup_3.7.1_win-x64.exe -Algorithm SHA256
 # 19. Най-важното накратко
 
 > **ArsExam Desktop е локална професионална система за изпитни банки, Recycler/Import, approval workflow, генератори, Word/Excel обмен и защитено Backup/Restore. Това repository е единственият официален публичен източник за неговите binaries и update manifests.**
+
+## Граница на съдържанието
+
+Софтуерът ArsExam не съдържа, не разпространява и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Програмата представлява единствено софтуерен инструмент за създаване, редактиране, организиране и управление на съдържание, въведено или създадено от надлежно оторизирани потребители.
+
+Публично разпространяваният изходен код и/или изпълнимият софтуер не включват база данни с реални служебни изпитни материали, задачи, отговори или други защитени данни.

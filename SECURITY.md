@@ -86,3 +86,9 @@ Responsible vulnerability research should minimize access to real user/examinati
 ## Disclosure
 
 Please allow reasonable time for validation and remediation before public disclosure. No bug-bounty or guaranteed response-time program is offered unless explicitly announced in writing.
+
+## Граница на съдържанието
+
+Софтуерът ArsExam не съдържа, не разпространява и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Програмата представлява единствено софтуерен инструмент за създаване, редактиране, организиране и управление на съдържание, въведено или създадено от надлежно оторизирани потребители.
+
+Публично разпространяваният изходен код и/или изпълнимият софтуер не включват база данни с реални служебни изпитни материали, задачи, отговори или други защитени данни.

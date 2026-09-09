@@ -77,3 +77,9 @@ Release validation must confirm:
 - current Stable identity alignment with the canonical source record and the public Stable manifest.
 
 Where a third-party license requires complete license/copyright notice distribution, that notice must be included with the official distribution.
+
+## Граница на съдържанието
+
+Софтуерът ArsExam не съдържа, не разпространява и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Програмата представлява единствено софтуерен инструмент за създаване, редактиране, организиране и управление на съдържание, въведено или създадено от надлежно оторизирани потребители.
+
+Публично разпространяваният изходен код и/или изпълнимият софтуер не включват база данни с реални служебни изпитни материали, задачи, отговори или други защитени данни.
