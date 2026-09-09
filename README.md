@@ -177,7 +177,6 @@ Missing/conflicting/ambiguous Media остава review-gated.
 Destructive operations използват приложим preview/confirmation/audit/Safety Backup contract.
 
 ---
-
 # 4. Offline-first работа
 
 Основните функции работят локално и не изискват постоянен internet:
@@ -337,7 +336,6 @@ Machine-readable update authority са:
 - `update/test-manifest.json`.
 
 ---
-
 ## ArsExam 3.8.0 Stable
 
 Официален release: **v3.8.0**
@@ -419,7 +417,7 @@ Hosted exact-tag Actions опитът е приключил със startup failu
 
 # 14. Code signing — важно за Windows предупрежденията
 
-**ArsExam 3.7.1 Stable е публикуван без Authenticode подпис.**
+**ArsExam 3.8.0 Stable е публикуван без Authenticode подпис.**
 
 Поради това Windows/SmartScreen може да покаже предупреждение като **Unknown Publisher**, в зависимост от локалната policy и reputation state.
 
@@ -429,7 +427,7 @@ Hosted exact-tag Actions опитът е приключил със startup failu
 - SHA-256 позволява сравнение с authoritative release hash;
 - Authenticode удостоверява publisher identity чрез code-signing certificate.
 
-За 3.7.1 третият механизъм не е наличен.
+За 3.8.0 третият механизъм не е наличен.
 
 ---
 
