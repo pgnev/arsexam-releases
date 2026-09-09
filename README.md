@@ -327,8 +327,9 @@ Self-contained distribution не изисква предварително ин�
 
 | Канал | Версия | Статус |
 |---|---:|---|
-| **Stable** | **3.8.0** | **CURRENT STABLE — публикуван на 09.09.2026** |
-| Previous Stable | 3.7.1 | immutable historical release |
+| **Stable** | **3.7.1** | **CURRENT STABLE — възстановен като Stable authority на 09.09.2026 след неуспешна startup health acceptance на 3.8.0** |
+| Withdrawn | 3.8.0 | **WITHDRAWN — production startup health check failed; не инсталирайте и не обновявайте към тази версия** |
+| Previous Stable | 3.6.3 | immutable historical release |
 | Test | отделен prerelease/testing channel | authority: `update/test-manifest.json` |
 
 Machine-readable update authority са:
@@ -338,11 +339,14 @@ Machine-readable update authority са:
 
 ---
 
-## ArsExam 3.8.0 Stable
+## ArsExam 3.8.0 — WITHDRAWN
 
-Официален release: **v3.8.0**
+Официалният release `v3.8.0` се пази immutable за audit/history, но **не е текущ Stable и не трябва да бъде инсталиран или използван като update target**.
 
-Основни assets:
+> [!CAUTION]
+> При реална Windows startup acceptance версия 3.8.0 не създаде изисквания launcher health acknowledgement в допустимия прозорец. ArsExam Launcher правилно задейства automatic rollback към предишната healthy версия и възстанови резервното копие на данните. До публикуването на коригираща версия Stable authority остава 3.7.1.
+
+Исторически assets:
 
 - ArsExam_Setup_3.8.0_win-x64.exe;
 - ArsExam_Update_3.8.0_win-x64.zip;
@@ -360,7 +364,8 @@ Machine-readable update authority са:
 - tagged source SHA: 01edd1aaa88a6ce650a5250d73e5479356b783ac;
 - validated Stable candidate SHA: 6e2891987479edd81ee7133f2e5c426bbdb10ae5;
 - regression suite: **746 passed / 0 failed / 0 skipped**;
-- update stage/verify: **PASS**.
+- update stage/verify: **PASS**;
+- production startup health acceptance: **FAIL — automatic rollback observed on Windows**.
 
 ---
 
@@ -419,7 +424,7 @@ Hosted exact-tag Actions опитът е приключил със startup failu
 
 # 14. Code signing — важно за Windows предупрежденията
 
-**ArsExam 3.8.0 Stable е публикуван без Authenticode подпис.**
+**ArsExam 3.7.1 Stable и оттеглената версия 3.8.0 са публикувани без Authenticode подпис.**
 
 Поради това Windows/SmartScreen може да покаже предупреждение като **Unknown Publisher**, в зависимост от локалната policy и reputation state.
 
@@ -429,22 +434,23 @@ Hosted exact-tag Actions опитът е приключил със startup failu
 - SHA-256 позволява сравнение с authoritative release hash;
 - Authenticode удостоверява publisher identity чрез code-signing certificate.
 
-За 3.8.0 третият механизъм не е наличен.
+За тези releases третият механизъм не е наличен.
 
 ---
 
 # 15. Как да изтеглите безопасно
 
 1. Отворете официалната секция **Releases** на `pgnev/arsexam-releases`.
-2. Изберете текущия Stable release.
+2. Използвайте версията, посочена в `update/stable-manifest.json` като текущ Stable.
 3. За нормална инсталация използвайте съответния `ArsExam_Setup_<version>_win-x64.exe`.
 4. При необходимост сравнете SHA-256 с публикуваните authoritative данни.
-5. Не заменяйте ръчно persistent `Data`/`Backup` директории с файлове от непознат source.
+5. Не инсталирайте release, който е маркиран като Withdrawn, дори assets да са запазени за audit/history.
+6. Не заменяйте ръчно persistent `Data`/`Backup` директории с файлове от непознат source.
 
-За проверка на SHA-256 в PowerShell:
+За проверка на SHA-256 на текущия Stable в PowerShell:
 
 ```powershell
-Get-FileHash .\ArsExam_Setup_3.8.0_win-x64.exe -Algorithm SHA256
+Get-FileHash .\ArsExam_Setup_3.7.1_win-x64.exe -Algorithm SHA256
 ```
 
 Полученият hash трябва да съвпада точно с публикувания за съответния asset.
@@ -458,7 +464,7 @@ Get-FileHash .\ArsExam_Setup_3.8.0_win-x64.exe -Algorithm SHA256
 - текущата working installation трябва да остане работеща;
 - persistent user data не трябва да се променят;
 - може да повторите update check по-късно;
-- официалният fallback е Setup asset-ът от текущия release в това repository.
+- официалният fallback е Setup asset-ът от текущия Stable release в това repository.
 
 Не изтривайте ръчно локалните банки или Backup файлове само защото update check е неуспешен.
 
