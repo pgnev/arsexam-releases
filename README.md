@@ -177,6 +177,7 @@ Missing/conflicting/ambiguous Media остава review-gated.
 Destructive operations използват приложим preview/confirmation/audit/Safety Backup contract.
 
 ---
+
 # 4. Offline-first работа
 
 Основните функции работят локално и не изискват постоянен internet:
@@ -336,6 +337,7 @@ Machine-readable update authority са:
 - `update/test-manifest.json`.
 
 ---
+
 ## ArsExam 3.8.0 Stable
 
 Официален release: **v3.8.0**
