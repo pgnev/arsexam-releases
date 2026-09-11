@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "3.2.0",
+  "version": "3.9.0-rc.1",
   "minimumSupportedVersion": "3.0.1",
-  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.2.0/ArsExam_Update_3.2.0_win-x64.zip",
-  "packageSha256": "641432FD5582DF70E771295E83FEE321F37E13CFC1037A31E51BFA0F1BBEB33E",
+  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.0-rc.1/ArsExam_Update_3.9.0-rc.1_win-x64.zip",
+  "packageSha256": "3367EE5013220410D2462F98877C0970DE43B9FDC267405E214E7301D7A58041",
   "requiresInstaller": true,
-  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.2.0/ArsExam_Setup_3.2.0_win-x64.exe",
-  "installerSha256": "89FFB45081CF54C9F86069100B71CE65AEC5A29B82191AEA2EBFE9A34BE1C982",
-  "releaseNotes": "Test каналът временно е синхронизиран с официалния ArsExam 3.2.0 Stable. Няма активен prerelease; старият 3.1.0-rc.9 е изведен от употреба.",
-  "publishedAtUtc": "2026-08-27T08:41:00Z"
+  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.0-rc.1/ArsExam_Setup_3.9.0-rc.1_win-x64.exe",
+  "installerSha256": "B10FF0C702BE67C771D58331154EA3CC724ECB1929B045BD0E4983E9E0EA8A1D",
+  "releaseNotes": "ArsExam 3.9.0 RC1 - generator correctness, Bank Quality edit hand-off, portability/integrity hardening, updater resilience and keyboard accessibility.",
+  "publishedAtUtc": null
 }
