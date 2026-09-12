@@ -1,13 +1,13 @@
 {
-  "schemaVersion": 1,
-  "channel": "stable",
-  "version": "3.9.0",
-  "minimumSupportedVersion": "3.0.1",
-  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.0/ArsExam_Update_3.9.0_win-x64.zip",
-  "packageSha256": "ACE473F3819A7E5CF9F58A8EE6A9882AC62CADDA2FDFE7BA54D257C0AE823F28",
-  "requiresInstaller": true,
-  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.0/ArsExam_Setup_3.9.0_win-x64.exe",
-  "installerSha256": "DF77E7B1729A57C07E8E9D0A3996E7FB3D772199E4BD3047602760593EC75A58",
-  "releaseNotes": "ArsExam 3.9.0 Stable - generator/readiness, Bank Quality edit, portability, updater/recovery, keyboard/accessibility and protected release hardening.",
-  "publishedAtUtc": "2026-09-12T11:16:26Z"
+    "schemaVersion":  1,
+    "channel":  "stable",
+    "version":  "3.9.1",
+    "minimumSupportedVersion":  "3.0.1",
+    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.1/ArsExam_Update_3.9.1_win-x64.zip",
+    "packageSha256":  "94F413E8E6BC1E60A9D5413907F7E1F361F735C98CF3C514B5222A933CBE30E9",
+    "requiresInstaller":  true,
+    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.1/ArsExam_Setup_3.9.1_win-x64.exe",
+    "installerSha256":  "634A702F0AB6C7FB010F3D55C15D542ABC490CB2C863B153B51BEC68DE14B1D8",
+    "releaseNotes":  "ArsExam 3.9.1 - bounded maintenance update completing user-safe error handling while preserving existing exam and data behavior; includes owner-local release reliability hardening.",
+    "publishedAtUtc":  "2026-09-12T19:30:36Z"
 }
