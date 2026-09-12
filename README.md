@@ -327,15 +327,46 @@ Self-contained distribution не изисква предварително ин�
 
 | Канал | Версия | Статус |
 |---|---:|---|
-| **Stable** | **3.7.1** | **CURRENT STABLE — възстановен като Stable authority на 09.09.2026 след неуспешна startup health acceptance на 3.8.0** |
-| Withdrawn | 3.8.0 | **WITHDRAWN — production startup health check failed; не инсталирайте и не обновявайте към тази версия** |
-| Previous Stable | 3.6.3 | immutable historical release |
-| Test | отделен prerelease/testing channel | authority: `update/test-manifest.json` |
+| **Stable** | **3.9.0** | **CURRENT STABLE — публикуван на 12.09.2026; authority: `update/stable-manifest.json` + официалния `v3.9.0` release** |
+| Previous Stable | 3.8.2 | immutable historical release |
+| Withdrawn | 3.8.0 | **WITHDRAWN / DO NOT INSTALL — production startup health acceptance failed; assets се пазят само за audit/history** |
+| Test | 3.9.0-rc.2 | текущият `update/test-manifest.json`; prerelease/testing channel, не е Stable |
 
 Machine-readable update authority са:
 
 - `update/stable-manifest.json`;
 - `update/test-manifest.json`.
+
+`3.7.1` и `3.8.1` остават по-ранни исторически Stable releases. Публичният current Stable статус не се определя от README самостоятелно, а от съгласуването на Stable manifest, latest non-draft/non-prerelease release и immutable source identity.
+
+---
+
+## ArsExam 3.9.0 — CURRENT STABLE
+
+Официален release: **`v3.9.0`**  
+Публикуван: **12.09.2026, 11:16:26 UTC**
+
+Основни assets:
+
+- `ArsExam_Setup_3.9.0_win-x64.exe`;
+- `ArsExam_Update_3.9.0_win-x64.zip`.
+
+### SHA-256
+
+- Setup: `DF77E7B1729A57C07E8E9D0A3996E7FB3D772199E4BD3047602760593EC75A58`
+- Update ZIP: `ACE473F3819A7E5CF9F58A8EE6A9882AC62CADDA2FDFE7BA54D257C0AE823F28`
+
+### Source/release binding
+
+- canonical source: `pgnev/arsexam-source`;
+- immutable source tag: `v3.9.0`;
+- exact tagged source commit: `ecbfba285593d4b72c20e5f2c04643f5c51d16d4`;
+- exact source tree: `426c850725aea10ab9f72e1fc61fa3f6d7daab61`;
+- exact-tag Windows qualification: PASS;
+- full regression and Module 1 solver stress: included in Stable qualification;
+- WPF validation: **84/84 PASS**;
+- Stable manifest / public release / asset SHA-256 reconciliation: PASS;
+- Authenticode signing: **NO — intentionally unsigned**.
 
 ---
 
@@ -344,87 +375,75 @@ Machine-readable update authority са:
 Официалният release `v3.8.0` се пази immutable за audit/history, но **не е текущ Stable и не трябва да бъде инсталиран или използван като update target**.
 
 > [!CAUTION]
-> При реална Windows startup acceptance версия 3.8.0 не създаде изисквания launcher health acknowledgement в допустимия прозорец. ArsExam Launcher правилно задейства automatic rollback към предишната healthy версия и възстанови резервното копие на данните. До публикуването на коригираща версия Stable authority остава 3.7.1.
+> При реална Windows startup acceptance версия 3.8.0 не създаде изисквания launcher health acknowledgement в допустимия прозорец. ArsExam Launcher правилно задейства automatic rollback към предишната healthy версия и възстанови резервното копие на данните. Историческият failure остава част от release provenance; текущият Stable authority вече е **3.9.0**.
 
 Исторически assets:
 
-- ArsExam_Setup_3.8.0_win-x64.exe;
-- ArsExam_Update_3.8.0_win-x64.zip;
-- update-manifest.json.
+- `ArsExam_Setup_3.8.0_win-x64.exe`;
+- `ArsExam_Update_3.8.0_win-x64.zip`;
+- `update-manifest.json`.
 
 ### SHA-256
 
-- Setup: 116AE12099572FDE26D4E406043E7316355A7B787F0945A23D18A5401C211380
-- Update ZIP: 2DC6DA5F12861CC4874EE40EA92F856B1FDCD40672D9F1D2902949DA28696C4F
+- Setup: `116AE12099572FDE26D4E406043E7316355A7B787F0945A23D18A5401C211380`
+- Update ZIP: `2DC6DA5F12861CC4874EE40EA92F856B1FDCD40672D9F1D2902949DA28696C4F`
 
 ### Source/release binding
 
-- canonical source: pgnev/arsexam-source;
-- immutable source tag: v3.8.0;
-- tagged source SHA: 01edd1aaa88a6ce650a5250d73e5479356b783ac;
-- validated Stable candidate SHA: 6e2891987479edd81ee7133f2e5c426bbdb10ae5;
+- canonical source: `pgnev/arsexam-source`;
+- immutable source tag: `v3.8.0`;
+- tagged source SHA: `01edd1aaa88a6ce650a5250d73e5479356b783ac`;
+- validated Stable candidate SHA: `6e2891987479edd81ee7133f2e5c426bbdb10ae5`;
 - regression suite: **746 passed / 0 failed / 0 skipped**;
 - update stage/verify: **PASS**;
 - production startup health acceptance: **FAIL — automatic rollback observed on Windows**.
 
 ---
 
-# 12. ArsExam 3.7.1 Stable
+# 12. ArsExam 3.8.2 — Previous Stable
 
-Официален release: **`v3.7.1`**
+Официален historical release: **`v3.8.2`**
 
 Основни assets:
 
-- `ArsExam_Setup_3.7.1_win-x64.exe`;
-- `ArsExam_Update_3.7.1_win-x64.zip`;
+- `ArsExam_Setup_3.8.2_win-x64.exe`;
+- `ArsExam_Update_3.8.2_win-x64.zip`;
 - `update-manifest.json`.
 
 ## SHA-256
 
-### Setup
-
-```text
-EA3E7CB9D9D24D910A183412A9124015CE92A005FFC4FBDEE3B3018E952856F3
-```
-
-### Update ZIP
-
-```text
-64B151B2514635C718D72CB6C9ECDD318F6EF1FED539BD72BF3F09F34ABA26B2
-```
+- Setup: `DE08B0133B9FA3995CF07B8789CD95FC07E6EC860869340ABC1FBA9DE3B05C50`
+- Update ZIP: `69D29EC85EF7BD5915650D915AB042D17D077588EBA47C087226791819CDC86C`
 
 ## Source/release binding
 
 - canonical source: `pgnev/arsexam-source`;
-- immutable source tag: `v3.7.1`;
-- exact tagged source SHA: `7eed9fafbe89cc399f0980856632dfc11637cc88`;
-- validated source tree SHA: `882779e4c1b27999547c085b411020a8b0b9e5ad`;
-- exact-tag local release gate: PASS — 735/735 tests, 7/7 updater matrix;
-- exact-tag Windows/Sentry acceptance: PASS.
+- immutable source tag: `v3.8.2`;
+- exact tagged source commit: `2d33fda7885bfbbb42672ab95bfbbbf2f975b459`;
+- exact source tree: `f1d39f76b48941fa71a207dcb7b7621d19a57d7b`;
+- Authenticode signing: **NO**.
 
-Hosted exact-tag Actions опитът е приключил със startup failure преди jobs; release policy е използвала документирания exact-tag local fallback.
+3.8.2 остава immutable historical release evidence и не е current Stable след публикуването на 3.9.0.
 
 ---
 
-# 13. Какво включва 3.7.1
+# 13. Какво включва 3.9.0
 
-Основният user-facing акцент на 3.7.1 е multi-select filtering в банковите модули:
+Основните акценти на 3.9.0 са:
 
-- checkbox categorical filters;
-- OR вътре в filter и AND между filters;
-- Module 1 cumulative properties и master `Всички свойства`;
-- contextual Module 1 themes;
-- Difficulty/Status/Discipline/Profile/Topic filters според модула;
-- layout/spacing подобрения;
-- Module 3 new-topic creation изисква точно един profile.
-
-Версията включва и release/documentation consistency подобрения, включително curated end-user documentation и коректно runtime version binding за приложимите Privacy/Third-party surfaces.
+- generator correctness и readiness consistency hardening;
+- Bank Quality edit workflow и fail-closed handoff;
+- Portable Backup и migration integrity подобрения;
+- updater retry, recovery и rollback hardening;
+- keyboard, accessibility и password/recovery UX подобрения;
+- protected Desktop/Launcher release-pipeline hardening;
+- exact-tag Windows qualification с full regression, solver stress и WPF 84/84 validation.
 
 ---
 
 # 14. Code signing — важно за Windows предупрежденията
 
-**ArsExam 3.7.1 Stable и оттеглената версия 3.8.0 са публикувани без Authenticode подпис.**
+**ArsExam 3.9.0 Stable е публикуван без Authenticode подпис.**
 
 Поради това Windows/SmartScreen може да покаже предупреждение като **Unknown Publisher**, в зависимост от локалната policy и reputation state.
 
@@ -434,7 +453,7 @@ Hosted exact-tag Actions опитът е приключил със startup failu
 - SHA-256 позволява сравнение с authoritative release hash;
 - Authenticode удостоверява publisher identity чрез code-signing certificate.
 
-За тези releases третият механизъм не е наличен.
+За 3.9.0 третият механизъм не е наличен. Signing state винаги е release-specific и не трябва да се предполага за бъдещи версии.
 
 ---
 
@@ -450,10 +469,14 @@ Hosted exact-tag Actions опитът е приключил със startup failu
 За проверка на SHA-256 на текущия Stable в PowerShell:
 
 ```powershell
-Get-FileHash .\ArsExam_Setup_3.7.1_win-x64.exe -Algorithm SHA256
+Get-FileHash .\ArsExam_Setup_3.9.0_win-x64.exe -Algorithm SHA256
 ```
 
-Полученият hash трябва да съвпада точно с публикувания за съответния asset.
+Очакван SHA-256 за официалния 3.9.0 Setup:
+
+```text
+DF77E7B1729A57C07E8E9D0A3996E7FB3D772199E4BD3047602760593EC75A58
+```
 
 ---
 
@@ -476,7 +499,7 @@ Get-FileHash .\ArsExam_Setup_3.7.1_win-x64.exe -Algorithm SHA256
 - `pgnev/arsexam-source` — private canonical source/development repository;
 - legacy/historical repositories не са текущият Desktop release authority.
 
-Публикуваните release assets са immutable. Ако след публикация бъде открит дефект, корекцията трябва да бъде публикувана с **нова версия**, а не чрез тиха подмяна на стария binary.
+Публикуваните release assets са immutable по release policy. Ако след публикация бъде открит дефект, корекцията трябва да бъде публикувана с **нова версия**, а не чрез тиха подмяна на стария binary.
 
 ---
 
@@ -500,10 +523,10 @@ Get-FileHash .\ArsExam_Setup_3.7.1_win-x64.exe -Algorithm SHA256
 
 # 19. Най-важното накратко
 
-> **ArsExam Desktop е локална професионална система за изпитни банки, Recycler/Import, approval workflow, генератори, Word/Excel обмен и защитено Backup/Restore. Това repository е единственият официален публичен източник за неговите binaries и update manifests.**
+> **ArsExam Desktop е локална професионална система за изпитни банки, Recycler/Import, approval workflow, генератори, Word/Excel обмен и защитено Backup/Restore. Това repository е единственият официален публичен източник за неговите binaries и update manifests. Текущият Stable е ArsExam 3.9.0.**
 
 ## Граница на съдържанието
 
 Софтуерът ArsExam не съдържа, не разпространява и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Програмата представлява единствено софтуерен инструмент за създаване, редактиране, организиране и управление на съдържание, въведено или създадено от надлежно оторизирани потребители.
 
-Публично разпространяваният изходен код и/или изпълнимият софтуер не включват база данни с реални служебни изпитни материали, задачи, отговори или други защитени данни.
+Публично разпространяваният изпълним софтуер не включва база данни с реални служебни изпитни материали, задачи, отговори или други защитени данни.

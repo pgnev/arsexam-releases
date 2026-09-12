@@ -1,9 +1,9 @@
 # Политика за поверителност — ArsExam Desktop
 
-Редакция: 05.09.2026 г. — ArsExam Desktop 3.7.1 Stable
-В сила от: публичното публикуване на ArsExam 3.7.1 Stable
+Редакция: 05.09.2026 г. — diagnostics consent 4.0; текуща публична Stable привръзка: ArsExam Desktop 3.9.0
+В сила от: diagnostics consent 4.0; current public Stable binding updated 12.09.2026 г.
 
-Тази политика описва действащия privacy/consent contract на **ArsExam Desktop 3.7.1 Stable**, включително diagnostics consent 4.0, bounded Sentry store-and-forward delivery и локалния Launcher update/rollback incident bridge. Инсталираното приложение version-bind-ва bundled копието към действително инсталираната версия; този публичен файл е release-specific snapshot за 3.7.1.
+Тази политика описва действащия privacy/consent contract на **ArsExam Desktop 3.9.0 Stable**, включително diagnostics consent 4.0, bounded Sentry store-and-forward delivery и локалния Launcher update/rollback incident bridge. Инсталираното приложение version-bind-ва bundled копието към действително инсталираната версия; този публичен файл е синхронизиран с текущия Stable authority.
 
 ## 1. Администратор и контакт
 
@@ -222,7 +222,7 @@ ArsExam не използва public update/support/diagnostics channels с це
 
 ## 14. Версионност на политиката
 
-Този публичен policy snapshot е обвързан с **ArsExam 3.7.1 Stable**. Инсталираното приложение version-bind-ва bundled policy към действително инсталираната версия, а публичният Stable статус се определя от официалния public release/update authority.
+Този публичен current-policy документ е синхронизиран с **ArsExam 3.9.0 Stable**. Инсталираното приложение version-bind-ва bundled policy към действително инсталираната версия, а публичният Stable статус се определя от официалния public release/update authority.
 
 Вече публикуваните release-specific policy/assets остават immutable historical evidence. При бъдеща промяна на privacy/consent contract-а се създава нова редакция и се минава приложимият legal/privacy review и release gate, без ретроактивно пренаписване на старите публични binaries/assets.
 
@@ -230,4 +230,4 @@ ArsExam не използва public update/support/diagnostics channels с це
 
 Софтуерът ArsExam не съдържа, не разпространява и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Програмата представлява единствено софтуерен инструмент за създаване, редактиране, организиране и управление на съдържание, въведено или създадено от надлежно оторизирани потребители.
 
-Публично разпространяваният изходен код и/или изпълнимият софтуер не включват база данни с реални служебни изпитни материали, задачи, отговори или други защитени данни.
+Публично разпространяваният изпълним софтуер не включва база данни с реални служебни изпитни материали, задачи, отговори или други защитени данни.

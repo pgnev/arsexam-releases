@@ -1,23 +1,27 @@
 # ArsExam Desktop — Third-Party Notices
 
-Revision: 5 September 2026 — ArsExam Desktop 3.7.1 Stable
+Revision: 12 September 2026 — ArsExam Desktop 3.9.0 Stable
 
 ArsExam Desktop is proprietary software, but it incorporates open-source components distributed under their own licenses. Those licenses apply to the corresponding third-party components and are not replaced by the ArsExam EULA.
 
-## Direct runtime dependencies — ArsExam Desktop 3.7.1
+## Content scope / Граница на съдържанието
 
-The release source pins the following direct runtime packages:
+Самата програма ArsExam не съдържа и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Тя предоставя единствено инструменти и работни процеси за упълномощени потребители за създаване, редактиране, организиране, валидиране и управление на такова съдържание.
+
+## Direct runtime dependencies — ArsExam Desktop 3.9.0
+
+The exact 3.9.0 release source pins the following direct runtime packages:
 
 | Component | Version | License | Project / license |
 |---|---:|---|---|
 | ClosedXML | 0.104.2 | MIT | https://github.com/ClosedXML/ClosedXML |
 | DocumentFormat.OpenXml | 3.1.1 | MIT | https://github.com/dotnet/Open-XML-SDK |
-| Microsoft.Data.Sqlite.Core | 8.0.10 | MIT | https://github.com/dotnet/efcore |
+| Microsoft.Data.Sqlite.Core | 10.0.11 | MIT | https://github.com/dotnet/efcore |
 | PdfPig | 0.1.16 | Apache-2.0 | https://github.com/UglyToad/PdfPig |
 | SQLite3MC.PCLRaw.bundle | 2.4.0 | MIT | https://github.com/utelle/SQLite3MultipleCiphers-NuGet |
 | Sentry .NET SDK | 6.9.0 | MIT | https://github.com/getsentry/sentry-dotnet |
 
-This list is reconciled against `src/ArsExam.Desktop/ArsExam.Desktop.csproj` for the exact `v3.7.1` release source. The release pipeline performs a NuGet vulnerability audit on the exact release source.
+This list is reconciled against `src/ArsExam.Desktop/ArsExam.Desktop.csproj` for the exact `v3.9.0` release source. The release pipeline performs a NuGet vulnerability audit on the exact release source.
 
 PdfPig is used locally by the Exam Recycler to extract text/content from PDF files. PDF parsing does not require a cloud service and does not upload exam documents.
 
@@ -25,9 +29,9 @@ PdfPig is used locally by the Exam Recycler to extract text/content from PDF fil
 
 ## Release identity
 
-This public notice is the release-specific snapshot for **ArsExam 3.7.1 Stable**. The installed application binds its bundled copy to the actual installed version at runtime.
+This public notice is the current release-specific snapshot for **ArsExam 3.9.0 Stable**.
 
-Public Stable status is determined by `pgnev/arsexam-releases/update/stable-manifest.json` and the latest non-draft, non-prerelease public release, with canonical source identity recorded in `pgnev/arsexam-source/Documentation/CURRENT_STABLE.json`.
+Public Stable status is determined by the canonical source Stable identity, `pgnev/arsexam-releases/update/stable-manifest.json` and the latest non-draft, non-prerelease public release.
 
 Historical version-specific notices remain historical evidence and are not rewritten to claim that older binaries contained later dependencies or behavior.
 
@@ -74,12 +78,6 @@ Release validation must confirm:
 - any material dependency/license changes since this revision;
 - native SQLite3MC provenance;
 - alignment of this notice with the actual runtime, installer tooling and hosted services used by the release;
-- current Stable identity alignment with the canonical source record and the public Stable manifest.
+- current Stable identity alignment with the canonical source Stable record and the public Stable manifest.
 
 Where a third-party license requires complete license/copyright notice distribution, that notice must be included with the official distribution.
-
-## Граница на съдържанието
-
-Софтуерът ArsExam не съдържа, не разпространява и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Програмата представлява единствено софтуерен инструмент за създаване, редактиране, организиране и управление на съдържание, въведено или създадено от надлежно оторизирани потребители.
-
-Публично разпространяваният изходен код и/или изпълнимият софтуер не включват база данни с реални служебни изпитни материали, задачи, отговори или други защитени данни.
