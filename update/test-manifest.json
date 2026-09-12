@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "3.9.0-rc.1",
+  "version": "3.9.0-rc.2",
   "minimumSupportedVersion": "3.0.1",
-  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.0-rc.1/ArsExam_Update_3.9.0-rc.1_win-x64.zip",
-  "packageSha256": "3367EE5013220410D2462F98877C0970DE43B9FDC267405E214E7301D7A58041",
+  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.0-rc.2/ArsExam_Update_3.9.0-rc.2_win-x64.zip",
+  "packageSha256": "8AD8FD34F67E71034D3AD4F0A03CE1A5EA90C0CECC965A3B47EF87AC19BD984C",
   "requiresInstaller": true,
-  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.0-rc.1/ArsExam_Setup_3.9.0-rc.1_win-x64.exe",
-  "installerSha256": "B10FF0C702BE67C771D58331154EA3CC724ECB1929B045BD0E4983E9E0EA8A1D",
-  "releaseNotes": "ArsExam 3.9.0 RC1 - generator correctness, Bank Quality edit hand-off, portability/integrity hardening, updater resilience and keyboard accessibility.",
-  "publishedAtUtc": "2026-09-11T19:41:56Z"
+  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.0-rc.2/ArsExam_Setup_3.9.0-rc.2_win-x64.exe",
+  "installerSha256": "72D1C4693573BC7856C81945DA094253A6158B441C234D4E71F51DE86A86E4A3",
+  "releaseNotes": "ArsExam 3.9.0 RC2 - protected Portable persistence fix, recovery UX/diagnostics hardening and desktop keyboard interaction fixes.",
+  "publishedAtUtc": "2026-09-12T09:07:21Z"
 }
