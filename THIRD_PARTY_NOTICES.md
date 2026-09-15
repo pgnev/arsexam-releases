@@ -1,6 +1,6 @@
 # ArsExam Desktop — Third-Party Notices
 
-Revision: 12 September 2026 — ArsExam Desktop 3.9.1 Stable
+Revision: 15 September 2026 — ArsExam Desktop 3.9.2 Stable
 
 ArsExam Desktop is proprietary software, but it incorporates open-source components distributed under their own licenses. Those licenses apply to the corresponding third-party components and are not replaced by the ArsExam EULA.
 
@@ -8,9 +8,9 @@ ArsExam Desktop is proprietary software, but it incorporates open-source compone
 
 Самата програма ArsExam не съдържа и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Тя предоставя единствено инструменти и работни процеси за упълномощени потребители за създаване, редактиране, организиране, валидиране и управление на такова съдържание.
 
-## Direct runtime dependencies — ArsExam Desktop 3.9.1
+## Direct runtime dependencies — ArsExam Desktop 3.9.2
 
-The exact 3.9.1 release source pins the following direct runtime packages:
+The exact 3.9.2 release source pins the following direct runtime packages:
 
 | Component | Version | License | Project / license |
 |---|---:|---|---|
@@ -21,7 +21,7 @@ The exact 3.9.1 release source pins the following direct runtime packages:
 | SQLite3MC.PCLRaw.bundle | 2.4.0 | MIT | https://github.com/utelle/SQLite3MultipleCiphers-NuGet |
 | Sentry .NET SDK | 6.9.0 | MIT | https://github.com/getsentry/sentry-dotnet |
 
-This list is reconciled against `src/ArsExam.Desktop/ArsExam.Desktop.csproj` for the exact `v3.9.1` release source. The release pipeline performs a NuGet vulnerability audit on the exact release source.
+This list is reconciled against `src/ArsExam.Desktop/ArsExam.Desktop.csproj` for the exact `v3.9.2` release source. The release pipeline performs a NuGet vulnerability audit on the exact release source.
 
 PdfPig is used locally by the Exam Recycler to extract text/content from PDF files. PDF parsing does not require a cloud service and does not upload exam documents.
 
@@ -29,7 +29,7 @@ PdfPig is used locally by the Exam Recycler to extract text/content from PDF fil
 
 ## Release identity
 
-This public notice is the current release-specific snapshot for **ArsExam 3.9.1 Stable**.
+This public notice is the current release-specific snapshot for **ArsExam 3.9.2 Stable**.
 
 Public Stable status is determined by the canonical source Stable identity, `pgnev/arsexam-releases/update/stable-manifest.json` and the latest non-draft, non-prerelease public release.
 

@@ -1,6 +1,6 @@
 # ArsExam Security Policy
 
-Revision: 12 September 2026 — public Stable binding: ArsExam 3.9.1
+Revision: 15 September 2026 — public Stable binding: ArsExam 3.9.2
 
 ## Reporting a vulnerability
 
@@ -8,23 +8,23 @@ Report suspected ArsExam security vulnerabilities **privately** to **petkoganev@
 
 Do **not** publish exploitable details, credentials, personal data, examination-bank content, Recovery Keys, Backup passwords, Transfer codes or private diagnostic material in a public GitHub issue.
 
-## Current public Stable binding — ArsExam 3.9.1
+## Current public Stable binding — ArsExam 3.9.2
 
-The current official Stable release is **ArsExam 3.9.1**. Public Stable authority is the agreement of `update/stable-manifest.json`, the latest non-draft/non-prerelease public release, and the immutable canonical source identity.
+The current official Stable release is **ArsExam 3.9.2**. Public Stable authority is the agreement of `update/stable-manifest.json`, the latest non-draft/non-prerelease public release, and the immutable canonical source identity.
 
 Canonical release binding:
 
 - source repository: `pgnev/arsexam-source`;
-- immutable source tag: `v3.9.1`;
-- exact tagged source commit: `6ba036ae5faf8bdd0aa06bb45e9dd405e48b7629`;
-- exact source tree: `a8216aa68c07b8f75c8723a5cca07b92ee382a44`;
-- Setup SHA-256: `634A702F0AB6C7FB010F3D55C15D542ABC490CB2C863B153B51BEC68DE14B1D8`;
-- Update ZIP SHA-256: `94F413E8E6BC1E60A9D5413907F7E1F361F735C98CF3C514B5222A933CBE30E9`;
+- immutable source tag: `v3.9.2`;
+- exact tagged source commit: `6b772dd2281d486fdd71f06e848e8ed4c92a2959`;
+- exact source tree: `a1f286ca0af99834a5f5c05a2e6a965c68f982af`;
+- Setup SHA-256: `07C25F4226CAD475134361EA79A22B648F464AFDF3945B9A53C97C9A1A7214F0`;
+- Update ZIP SHA-256: `1CF8F05511079CB7BB776237F0DFB12483677BFA66736E57725AC3E766D0710E`;
 - Authenticode: **unsigned**.
 
-Published Stable bytes are immutable by release policy. A defect in 3.9.1 must be corrected in a new version/tag; existing release assets and hashes must not be silently replaced.
+Published Stable bytes are immutable by release policy. A defect in 3.9.2 must be corrected in a new version/tag; existing release assets and hashes must not be silently replaced.
 
-**ArsExam 3.8.0 remains WITHDRAWN / DO NOT INSTALL.** ArsExam 3.9.0 is the previous Stable and remains immutable historical release evidence.
+**ArsExam 3.8.0 remains WITHDRAWN / DO NOT INSTALL.** ArsExam 3.9.1 is the previous Stable and remains immutable historical release evidence.
 
 ## Credentials and recovery
 
@@ -70,7 +70,7 @@ Persistent user data under `%LOCALAPPDATA%\ArsExam` is separate from the program
 
 Crash/error diagnostics are **OFF by default** and require explicit opt-in. ArsExam does not send usage/behavior analytics for visited screens, banks, workflow states or functions.
 
-ArsExam 3.9.1 uses diagnostics consent **4.0**. Eligible minimized application events may use a bounded Sentry store-and-forward cache. The Launcher has no Sentry SDK and does not send incidents remotely; it can record only a bounded local incident journal. A Launcher incident is eligible for later Desktop ingestion only when valid consent existed both at occurrence time and at ingestion time.
+ArsExam 3.9.2 uses diagnostics consent **4.0**. Eligible minimized application events may use a bounded Sentry store-and-forward cache. The Launcher has no Sentry SDK and does not send incidents remotely; it can record only a bounded local incident journal. A Launcher incident is eligible for later Desktop ingestion only when valid consent existed both at occurrence time and at ingestion time.
 
 Remote delivery, when configured, is restricted to the approved Sentry EU/DE host pattern `*.ingest.de.sentry.io`. Intended remote payloads exclude profile credentials, Recovery Keys, Backup passwords, Transfer codes, question-bank content, databases, Media, screenshots, clipboard, filesystem paths and raw exception messages.
 
@@ -80,15 +80,15 @@ The detailed privacy/diagnostics contract is in `PRIVACY_POLICY_BG.md`.
 
 Official public binaries and manifests are distributed only through `pgnev/arsexam-releases` after controlled validation from the private canonical source repository.
 
-The Stable feed is `update/stable-manifest.json` and resolves to **3.9.1**. Update packages are accepted only after SHA-256 verification against the authoritative manifest. Bounded retry/fallback behavior for recoverable transport/DNS failures preserves the existing installation and persistent data on failure.
+The Stable feed is `update/stable-manifest.json` and resolves to **3.9.2**. Update packages are accepted only after SHA-256 verification against the authoritative manifest. Bounded retry/fallback behavior for recoverable transport/DNS failures preserves the existing installation and persistent data on failure.
 
 The real Release single-file application payload is protected before bundling by the pinned release-protection process and validated before packaging. This is defense-in-depth and does not replace normal secure development, integrity verification or legal licensing terms.
 
-Exact-tag Windows qualification and final manual acceptance for 3.9.1 passed before Stable publication; the public release, Stable manifest, source tag and asset hashes were reconciled before promotion.
+Exact-tag Windows qualification, final exact-byte Windows acceptance, Sentry E2E and the real 3.9.1 → 3.9.2 updater handoff acceptance passed before Stable publication; the public release, Stable manifest, source tag and asset hashes are reconciled.
 
 ## Code signing
 
-**ArsExam 3.9.1 Stable is unsigned with Authenticode.** HTTPS and SHA-256 provide transport/integrity controls but are not publisher-identity signing. Windows may therefore display SmartScreen/Unknown Publisher warnings depending on local policy and reputation state.
+**ArsExam 3.9.2 Stable is unsigned with Authenticode.** HTTPS and SHA-256 provide transport/integrity controls but are not publisher-identity signing. Windows may therefore display SmartScreen/Unknown Publisher warnings depending on local policy and reputation state.
 
 Public documentation must not claim signing until exact final release evidence proves a valid sign/timestamp/verification path.
 
