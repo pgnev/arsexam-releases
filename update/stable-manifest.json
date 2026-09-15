@@ -1,13 +1,13 @@
 {
     "schemaVersion":  1,
     "channel":  "stable",
-    "version":  "3.9.1",
+    "version":  "3.9.2",
     "minimumSupportedVersion":  "3.0.1",
-    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.1/ArsExam_Update_3.9.1_win-x64.zip",
-    "packageSha256":  "94F413E8E6BC1E60A9D5413907F7E1F361F735C98CF3C514B5222A933CBE30E9",
+    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.2/ArsExam_Update_3.9.2_win-x64.zip",
+    "packageSha256":  "1CF8F05511079CB7BB776237F0DFB12483677BFA66736E57725AC3E766D0710E",
     "requiresInstaller":  true,
-    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.1/ArsExam_Setup_3.9.1_win-x64.exe",
-    "installerSha256":  "634A702F0AB6C7FB010F3D55C15D542ABC490CB2C863B153B51BEC68DE14B1D8",
-    "releaseNotes":  "ArsExam 3.9.1 - bounded maintenance update completing user-safe error handling while preserving existing exam and data behavior; includes owner-local release reliability hardening.",
-    "publishedAtUtc":  "2026-09-12T19:30:36Z"
+    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.2/ArsExam_Setup_3.9.2_win-x64.exe",
+    "installerSha256":  "07C25F4226CAD475134361EA79A22B648F464AFDF3945B9A53C97C9A1A7214F0",
+    "releaseNotes":  "ArsExam 3.9.2 - bounded maintenance update over Stable 3.9.1, including the accepted Module 1 mandatory-listening availability fix and release-tooling hardening.",
+    "publishedAtUtc":  "2026-09-15T17:10:38Z"
 }
