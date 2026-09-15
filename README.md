@@ -327,44 +327,47 @@ Self-contained distribution не изисква предварително ин�
 
 | Канал | Версия | Статус |
 |---|---:|---|
-| **Stable** | **3.9.1** | **CURRENT STABLE — публикуван на 12.09.2026; authority: `update/stable-manifest.json` + официалния `v3.9.1` release** |
-| Previous Stable | 3.9.0 | immutable historical release |
+| **Stable** | **3.9.2** | **CURRENT STABLE — публикуван на 15.09.2026; authority: `update/stable-manifest.json` + официалния `v3.9.2` release** |
+| Previous Stable | 3.9.1 | immutable historical release |
 | Withdrawn | 3.8.0 | **WITHDRAWN / DO NOT INSTALL — production startup health acceptance failed; assets се пазят само за audit/history** |
-| Test | 3.9.0-rc.2 | текущият `update/test-manifest.json`; prerelease/testing channel, не е Stable |
+| Test | 3.9.2-rc.2 | текущият `update/test-manifest.json`; prerelease/testing channel, не е Stable |
 
 Machine-readable update authority са:
 
 - `update/stable-manifest.json`;
 - `update/test-manifest.json`.
 
-`3.8.2`, `3.8.1` и `3.7.1` остават по-ранни исторически Stable releases. Публичният current Stable статус не се определя от README самостоятелно, а от съгласуването на Stable manifest, latest non-draft/non-prerelease release и immutable source identity.
+`3.9.0`, `3.8.2`, `3.8.1` и `3.7.1` остават по-ранни исторически Stable releases. Публичният current Stable статус не се определя от README самостоятелно, а от съгласуването на Stable manifest, latest non-draft/non-prerelease release и immutable source identity.
 
 ---
 
-## ArsExam 3.9.1 — CURRENT STABLE
+## ArsExam 3.9.2 — CURRENT STABLE
 
-Официален release: **`v3.9.1`**  
-Публикуван: **12.09.2026, 19:30:36 UTC**
+Официален release: **`v3.9.2`**  
+Публикуван: **15.09.2026, 17:10:38 UTC**
 
 Основни assets:
 
-- `ArsExam_Setup_3.9.1_win-x64.exe`;
-- `ArsExam_Update_3.9.1_win-x64.zip`.
+- `ArsExam_Setup_3.9.2_win-x64.exe`;
+- `ArsExam_Update_3.9.2_win-x64.zip`.
 
 ### SHA-256
 
-- Setup: `634A702F0AB6C7FB010F3D55C15D542ABC490CB2C863B153B51BEC68DE14B1D8`
-- Update ZIP: `94F413E8E6BC1E60A9D5413907F7E1F361F735C98CF3C514B5222A933CBE30E9`
+- Setup: `07C25F4226CAD475134361EA79A22B648F464AFDF3945B9A53C97C9A1A7214F0`
+- Update ZIP: `1CF8F05511079CB7BB776237F0DFB12483677BFA66736E57725AC3E766D0710E`
 
 ### Source/release binding
 
 - canonical source: `pgnev/arsexam-source`;
-- immutable source tag: `v3.9.1`;
-- exact tagged source commit: `6ba036ae5faf8bdd0aa06bb45e9dd405e48b7629`;
-- exact source tree: `a8216aa68c07b8f75c8723a5cca07b92ee382a44`;
+- immutable source tag: `v3.9.2`;
+- exact tagged source commit: `6b772dd2281d486fdd71f06e848e8ed4c92a2959`;
+- exact source tree: `a1f286ca0af99834a5f5c05a2e6a965c68f982af`;
 - exact-tag Windows qualification: PASS;
 - full regression and Module 1 solver stress: included in Stable qualification;
 - WPF validation: **84/84 PASS**;
+- final exact-byte Windows acceptance: PASS;
+- Sentry E2E: PASS;
+- real 3.9.1 → 3.9.2 updater handoff acceptance: PASS;
 - Stable manifest / public release / asset SHA-256 reconciliation: PASS;
 - Authenticode signing: **NO — intentionally unsigned**.
 
@@ -375,7 +378,7 @@ Machine-readable update authority са:
 Официалният release `v3.8.0` се пази immutable за audit/history, но **не е текущ Stable и не трябва да бъде инсталиран или използван като update target**.
 
 > [!CAUTION]
-> При реална Windows startup acceptance версия 3.8.0 не създаде изисквания launcher health acknowledgement в допустимия прозорец. ArsExam Launcher правилно задейства automatic rollback към предишната healthy версия и възстанови резервното копие на данните. Историческият failure остава част от release provenance; текущият Stable authority вече е **3.9.1**.
+> При реална Windows startup acceptance версия 3.8.0 не създаде изисквания launcher health acknowledgement в допустимия прозорец. ArsExam Launcher правилно задейства automatic rollback към предишната healthy версия и възстанови резервното копие на данните. Историческият failure остава част от release provenance; текущият Stable authority вече е **3.9.2**.
 
 Исторически assets:
 
@@ -400,48 +403,49 @@ Machine-readable update authority са:
 
 ---
 
-# 12. ArsExam 3.9.0 — Previous Stable
+# 12. ArsExam 3.9.1 — Previous Stable
 
-Официален historical release: **`v3.9.0`**
+Официален historical release: **`v3.9.1`**
 
 Основни assets:
 
-- `ArsExam_Setup_3.9.0_win-x64.exe`;
-- `ArsExam_Update_3.9.0_win-x64.zip`.
+- `ArsExam_Setup_3.9.1_win-x64.exe`;
+- `ArsExam_Update_3.9.1_win-x64.zip`.
 
 ## SHA-256
 
-- Setup: `DF77E7B1729A57C07E8E9D0A3996E7FB3D772199E4BD3047602760593EC75A58`
-- Update ZIP: `ACE473F3819A7E5CF9F58A8EE6A9882AC62CADDA2FDFE7BA54D257C0AE823F28`
+- Setup: `634A702F0AB6C7FB010F3D55C15D542ABC490CB2C863B153B51BEC68DE14B1D8`
+- Update ZIP: `94F413E8E6BC1E60A9D5413907F7E1F361F735C98CF3C514B5222A933CBE30E9`
 
 ## Source/release binding
 
 - canonical source: `pgnev/arsexam-source`;
-- immutable source tag: `v3.9.0`;
-- exact tagged source commit: `ecbfba285593d4b72c20e5f2c04643f5c51d16d4`;
-- exact source tree: `426c850725aea10ab9f72e1fc61fa3f6d7daab61`;
+- immutable source tag: `v3.9.1`;
+- exact tagged source commit: `6ba036ae5faf8bdd0aa06bb45e9dd405e48b7629`;
+- exact source tree: `a8216aa68c07b8f75c8723a5cca07b92ee382a44`;
 - Authenticode signing: **NO**.
 
-3.9.0 остава immutable historical release evidence и не е current Stable след публикуването на 3.9.1.
+3.9.1 остава immutable historical release evidence и не е current Stable след публикуването на 3.9.2.
 
 ---
 
-# 13. Какво включва 3.9.1
+# 13. Какво включва 3.9.2
 
-ArsExam 3.9.1 е bounded maintenance update върху 3.9.0. Той запазва установеното exam/data поведение и добавя:
+ArsExam 3.9.2 е bounded maintenance update върху 3.9.1. Той запазва установеното exam/data поведение и добавя:
 
-- завършен user-safe error handling contract;
-- по-ясни и безопасни error/reference съобщения без изтичане на чувствителни exception details;
-- release-pipeline reliability hardening за owner-local qualification/publication;
-- exact-tag квалификация, пълна updater/rollback matrix и повторна manual acceptance върху публикуваните bytes.
+- корекция в Модул 1, при която четирите задължителни слухови теми отразяват реалната candidate availability: при 0 допустими въпроса индикаторът е unchecked, а при поне 1 допустим въпрос се включва автоматично;
+- запазване на правилото, че и четирите слухови теми остават задължителни за генератора;
+- refresh на generator availability след промени в банката без ръчно toggle-ване на тези индикатори;
+- release-tooling hardening за Test/Stable feed promotion, exact-tag qualification и owner-gated publication;
+- exact-tag Windows qualification, final exact-byte acceptance, Sentry E2E и реално 3.9.1 → 3.9.2 updater handoff acceptance.
 
-Всички публикувани 3.9.1 binaries са обвързани с immutable `v3.9.1` source tag и authoritative SHA-256 стойности.
+Всички публикувани 3.9.2 binaries са обвързани с immutable `v3.9.2` source tag и authoritative SHA-256 стойности.
 
 ---
 
 # 14. Code signing — важно за Windows предупрежденията
 
-**ArsExam 3.9.1 Stable е публикуван без Authenticode подпис.**
+**ArsExam 3.9.2 Stable е публикуван без Authenticode подпис.**
 
 Поради това Windows/SmartScreen може да покаже предупреждение като **Unknown Publisher**, в зависимост от локалната policy и reputation state.
 
@@ -451,7 +455,7 @@ ArsExam 3.9.1 е bounded maintenance update върху 3.9.0. Той запаз�
 - SHA-256 позволява сравнение с authoritative release hash;
 - Authenticode удостоверява publisher identity чрез code-signing certificate.
 
-За 3.9.1 третият механизъм не е наличен. Signing state винаги е release-specific и не трябва да се предполага за бъдещи версии.
+За 3.9.2 третият механизъм не е наличен. Signing state винаги е release-specific и не трябва да се предполага за бъдещи версии.
 
 ---
 
@@ -467,13 +471,13 @@ ArsExam 3.9.1 е bounded maintenance update върху 3.9.0. Той запаз�
 За проверка на SHA-256 на текущия Stable в PowerShell:
 
 ```powershell
-Get-FileHash .\ArsExam_Setup_3.9.1_win-x64.exe -Algorithm SHA256
+Get-FileHash .\ArsExam_Setup_3.9.2_win-x64.exe -Algorithm SHA256
 ```
 
-Очакван SHA-256 за официалния 3.9.1 Setup:
+Очакван SHA-256 за официалния 3.9.2 Setup:
 
 ```text
-634A702F0AB6C7FB010F3D55C15D542ABC490CB2C863B153B51BEC68DE14B1D8
+07C25F4226CAD475134361EA79A22B648F464AFDF3945B9A53C97C9A1A7214F0
 ```
 
 ---
@@ -521,7 +525,7 @@ Get-FileHash .\ArsExam_Setup_3.9.1_win-x64.exe -Algorithm SHA256
 
 # 19. Най-важното накратко
 
-> **ArsExam Desktop е локална професионална система за изпитни банки, Recycler/Import, approval workflow, генератори, Word/Excel обмен и защитено Backup/Restore. Това repository е единственият официален публичен източник за неговите binaries и update manifests. Текущият Stable е ArsExam 3.9.1.**
+> **ArsExam Desktop е локална професионална система за изпитни банки, Recycler/Import, approval workflow, генератори, Word/Excel обмен и защитено Backup/Restore. Това repository е единственият официален публичен източник за неговите binaries и update manifests. Текущият Stable е ArsExam 3.9.2.**
 
 ## Граница на съдържанието
 
