@@ -1,13 +1,13 @@
 {
     "schemaVersion":  1,
     "channel":  "stable",
-    "version":  "3.9.2",
+    "version":  "3.9.3",
     "minimumSupportedVersion":  "3.0.1",
-    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.2/ArsExam_Update_3.9.2_win-x64.zip",
-    "packageSha256":  "1CF8F05511079CB7BB776237F0DFB12483677BFA66736E57725AC3E766D0710E",
+    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.3/ArsExam_Update_3.9.3_win-x64.zip",
+    "packageSha256":  "0699177CB36671425B27C07D28C59001A18F668E4DEF244E078C43BA73915B28",
     "requiresInstaller":  true,
-    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.2/ArsExam_Setup_3.9.2_win-x64.exe",
-    "installerSha256":  "07C25F4226CAD475134361EA79A22B648F464AFDF3945B9A53C97C9A1A7214F0",
-    "releaseNotes":  "ArsExam 3.9.2 - bounded maintenance update over Stable 3.9.1, including the accepted Module 1 mandatory-listening availability fix and release-tooling hardening.",
-    "publishedAtUtc":  "2026-09-15T17:10:38Z"
+    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.3/ArsExam_Setup_3.9.3_win-x64.exe",
+    "installerSha256":  "4D2A553F06408EB8019091C90B9D6848605925C6B61F1D1DB367906535E0AB73",
+    "releaseNotes":  "ArsExam 3.9.3 - bounded maintenance patch over Stable 3.9.2, including accepted Module 1 generation corrections, notation quota UI, adaptive execution-key image sizing, Word image sizing protection and conservative Bank Quality similarity analysis.",
+    "publishedAtUtc":  "2026-09-17T12:52:06Z"
 }
