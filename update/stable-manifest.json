@@ -1,13 +1,13 @@
 {
     "schemaVersion":  1,
     "channel":  "stable",
-    "version":  "3.9.3",
+    "version":  "3.9.4",
     "minimumSupportedVersion":  "3.0.1",
-    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.3/ArsExam_Update_3.9.3_win-x64.zip",
-    "packageSha256":  "0699177CB36671425B27C07D28C59001A18F668E4DEF244E078C43BA73915B28",
+    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.4/ArsExam_Update_3.9.4_win-x64.zip",
+    "packageSha256":  "6C0C1DDF127E47D9077DABA99BAE6700227E89576AA9B3010CEF27238566DFC9",
     "requiresInstaller":  true,
-    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.3/ArsExam_Setup_3.9.3_win-x64.exe",
-    "installerSha256":  "4D2A553F06408EB8019091C90B9D6848605925C6B61F1D1DB367906535E0AB73",
-    "releaseNotes":  "ArsExam 3.9.3 - bounded maintenance patch over Stable 3.9.2, including accepted Module 1 generation corrections, notation quota UI, adaptive execution-key image sizing, Word image sizing protection and conservative Bank Quality similarity analysis.",
-    "publishedAtUtc":  "2026-09-17T12:52:06Z"
+    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.4/ArsExam_Setup_3.9.4_win-x64.exe",
+    "installerSha256":  "1D79812EBDC2DE18B65D600B5A9228DA8A81C2060E6986429FC8B0D08BCB79C0",
+    "releaseNotes":  "ArsExam 3.9.4: Module 1 and Recycler corrections; protected Recycler JSON fix; readable and independently adjustable Module 2 Word images; independent 50-400% image preview magnification.",
+    "publishedAtUtc":  "2026-09-20T22:29:51Z"
 }
