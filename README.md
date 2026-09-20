@@ -490,13 +490,13 @@ ArsExam 3.9.2 е bounded maintenance update върху 3.9.1. Той запаз�
 За проверка на SHA-256 на текущия Stable в PowerShell:
 
 ```powershell
-Get-FileHash .\ArsExam_Setup_3.9.2_win-x64.exe -Algorithm SHA256
+Get-FileHash .\ArsExam_Setup_3.9.4_win-x64.exe -Algorithm SHA256
 ```
 
-Очакван SHA-256 за официалния 3.9.2 Setup:
+Очакван SHA-256 за официалния 3.9.4 Setup:
 
 ```text
-07C25F4226CAD475134361EA79A22B648F464AFDF3945B9A53C97C9A1A7214F0
+1D79812EBDC2DE18B65D600B5A9228DA8A81C2060E6986429FC8B0D08BCB79C0
 ```
 
 ---
