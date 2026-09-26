@@ -1,13 +1,13 @@
 {
     "schemaVersion":  1,
     "channel":  "stable",
-    "version":  "3.9.4",
+    "version":  "3.9.5",
     "minimumSupportedVersion":  "3.0.1",
-    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.4/ArsExam_Update_3.9.4_win-x64.zip",
-    "packageSha256":  "6C0C1DDF127E47D9077DABA99BAE6700227E89576AA9B3010CEF27238566DFC9",
+    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.5/ArsExam_Update_3.9.5_win-x64.zip",
+    "packageSha256":  "3F032EB6D3AEC3AB4AFE89FE2D73CA9A49D11A90B1F836B6EB6A31BED9710BDF",
     "requiresInstaller":  true,
-    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.4/ArsExam_Setup_3.9.4_win-x64.exe",
-    "installerSha256":  "1D79812EBDC2DE18B65D600B5A9228DA8A81C2060E6986429FC8B0D08BCB79C0",
-    "releaseNotes":  "ArsExam 3.9.4: Module 1 and Recycler corrections; protected Recycler JSON fix; readable and independently adjustable Module 2 Word images; independent 50-400% image preview magnification.",
-    "publishedAtUtc":  "2026-09-20T22:29:51Z"
+    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.5/ArsExam_Setup_3.9.5_win-x64.exe",
+    "installerSha256":  "85E677E1445A05A49A6DB0585A1A9D254022CF4D646279E22AD5881E84091961",
+    "releaseNotes":  "ArsExam 3.9.5 - third-party license documentation, release packaging, and installer DPI/layout corrections.",
+    "publishedAtUtc":  "2026-09-26T10:38:33Z"
 }
