@@ -222,7 +222,7 @@ ArsExam не използва public update/support/diagnostics channels с це
 
 ## 14. Версионност на политиката
 
-Този публичен current-policy документ е синхронизиран с **ArsExam 3.9.4 Stable**. Съдържанието на diagnostics consent 4.0 е проверено спрямо privacy документа в immutable source tag `v3.9.6`; тази документална актуализация не изменя условията на инсталирания release. Инсталираното приложение version-bind-ва bundled policy към действително инсталираната версия, а публичният Stable статус се определя от официалния public release/update authority.
+Този публичен current-policy документ е синхронизиран с **ArsExam 3.9.6 Stable**. Съдържанието на diagnostics consent 4.0 е проверено спрямо privacy документа в immutable source tag `v3.9.6`; тази документална актуализация не изменя условията на инсталирания release. Инсталираното приложение version-bind-ва bundled policy към действително инсталираната версия, а публичният Stable статус се определя от официалния public release/update authority.
 
 Вече публикуваните release-specific policy/assets остават immutable historical evidence. При бъдеща промяна на privacy/consent contract-а се създава нова редакция и се минава приложимият legal/privacy review и release gate, без ретроактивно пренаписване на старите публични binaries/assets.
 
