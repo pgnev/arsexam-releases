@@ -358,7 +358,7 @@ Immutable source tag `v3.9.6` сочи към commit `13992dbf4c4e52f07883a3e3d7
 
 **Microsoft Store:** 3.9.6 добавя отделен MSIX distribution channel. Store пакетът използва Microsoft Store-managed updates; Desktop/Portable продължава с GitHub Stable feed/ArsExamLauncher.
 
-## ArsExam 3.9.3 — HISTORICAL STABLE
+## ArsExam 3.9.5 / 3.9.4 / 3.9.3 — HISTORICAL STABLES
 
 Официалните releases `v3.9.5`, `v3.9.4` и `v3.9.3` остават immutable historical Stable evidence; от 27.09.2026 г. текущият Stable е 3.9.6.
 
