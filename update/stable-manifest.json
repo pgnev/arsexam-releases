@@ -1,13 +1,13 @@
 {
     "schemaVersion":  1,
     "channel":  "stable",
-    "version":  "3.9.6",
+    "version":  "3.9.8",
     "minimumSupportedVersion":  "3.0.1",
-    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.6/ArsExam_Update_3.9.6_win-x64.zip",
-    "packageSha256":  "95F3E6019A3BFBAC026F21E37D358C13C448D3A9C39401731270D204F996758A",
+    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.8/ArsExam_Update_3.9.8_win-x64.zip",
+    "packageSha256":  "1281663254B73124BC80F482B72E45ED978538794BC834D42B241EB93E774C78",
     "requiresInstaller":  true,
-    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.6/ArsExam_Setup_3.9.6_win-x64.exe",
-    "installerSha256":  "43FC5AD69CB3827A8BE6F4CE21A6B4F3632CC9BFE308D28DE35FA17D2A366632",
-    "releaseNotes":  "ArsExam 3.9.6 — Recycler historical visual/PDF fixes, Microsoft Store distribution support, synchronized version identity, corrected Store icon assets, restored Sentry diagnostics configuration, and Store-managed update UX.",
-    "publishedAtUtc":  "2026-09-27T07:08:37Z"
+    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.8/ArsExam_Setup_3.9.8_win-x64.exe",
+    "installerSha256":  "347F6DFD219BCE068842AAADEFF1D1BB45BA3A69FC6D5D0193301F76F9DB8CE9",
+    "releaseNotes":  "ArsExam 3.9.8 - documentation-finalization corrective Stable candidate carrying the qualified Recycler, Bank Quality, protected printing, historical Module 2 key recovery and update reliability work forward.",
+    "publishedAtUtc":  "2026-10-02T16:10:16Z"
 }
