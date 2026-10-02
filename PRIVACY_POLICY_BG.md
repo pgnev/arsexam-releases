@@ -1,9 +1,9 @@
 # Политика за поверителност — ArsExam Desktop
 
-Редакция: 27.09.2026 г. — diagnostics consent 4.0; публична Stable привръзка: ArsExam Desktop 3.9.6
-В сила от: diagnostics consent 4.0; current public Stable binding updated 27.09.2026 г.
+Редакция: 02.10.2026 г. — diagnostics consent 4.0; публична Stable привръзка: ArsExam Desktop 3.9.8
+В сила от: diagnostics consent 4.0; current public Stable binding updated 02.10.2026 г.
 
-Тази политика описва действащия privacy/consent contract на **ArsExam Desktop 3.9.6 Stable**, включително diagnostics consent 4.0, bounded Sentry store-and-forward delivery и локалния Launcher update/rollback incident bridge. Инсталираното приложение version-bind-ва bundled копието към действително инсталираната версия; този публичен файл е синхронизиран с текущия Stable authority.
+Тази политика описва действащия privacy/consent contract на **ArsExam Desktop 3.9.8 Stable**, включително diagnostics consent 4.0, bounded Sentry store-and-forward delivery и локалния Launcher update/rollback incident bridge. Инсталираното приложение version-bind-ва bundled копието към действително инсталираната версия; този публичен файл е синхронизиран с текущия Stable authority.
 
 ## 1. Администратор и контакт
 
@@ -222,7 +222,7 @@ ArsExam не използва public update/support/diagnostics channels с це
 
 ## 14. Версионност на политиката
 
-Този публичен current-policy документ е синхронизиран с **ArsExam 3.9.6 Stable**. Съдържанието на diagnostics consent 4.0 е проверено спрямо privacy документа в immutable source tag `v3.9.6`; тази документална актуализация не изменя условията на инсталирания release. Инсталираното приложение version-bind-ва bundled policy към действително инсталираната версия, а публичният Stable статус се определя от официалния public release/update authority.
+Този публичен current-policy документ е синхронизиран с **ArsExam 3.9.8 Stable**. Съдържанието на diagnostics consent 4.0 е проверено спрямо privacy документа в immutable source tag `v3.9.8`; тази документална актуализация не изменя условията на инсталирания release. Инсталираното приложение version-bind-ва bundled policy към действително инсталираната версия, а публичният Stable статус се определя от официалния public release/update authority.
 
 Вече публикуваните release-specific policy/assets остават immutable historical evidence. При бъдеща промяна на privacy/consent contract-а се създава нова редакция и се минава приложимият legal/privacy review и release gate, без ретроактивно пренаписване на старите публични binaries/assets.
 

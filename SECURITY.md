@@ -1,6 +1,6 @@
 # ArsExam Security Policy
 
-Revision: 27 September 2026 — public Stable binding: ArsExam 3.9.6
+Revision: 2 October 2026 — public Stable binding: ArsExam 3.9.8
 
 ## Reporting a vulnerability
 
@@ -8,23 +8,23 @@ Report suspected ArsExam security vulnerabilities **privately** to **petkoganev@
 
 Do **not** publish exploitable details, credentials, personal data, examination-bank content, Recovery Keys, Backup passwords, Transfer codes or private diagnostic material in a public GitHub issue.
 
-## Current public Stable binding — ArsExam 3.9.6
+## Current public Stable binding — ArsExam 3.9.8
 
-The current official Stable release is **ArsExam 3.9.6**. Public Stable authority is the agreement of `update/stable-manifest.json`, the latest non-draft/non-prerelease public release, and the immutable canonical source identity.
+The current official Stable release is **ArsExam 3.9.8**. Public Stable authority is the agreement of `update/stable-manifest.json`, the latest non-draft/non-prerelease public release, and the immutable canonical source identity.
 
 Canonical release binding:
 
 - source repository: `pgnev/arsexam-source`;
-- immutable source tag: `v3.9.6`;
-- exact tagged source commit: `13992dbf4c4e52f07883a3e3d704110c0f546cc2`;
-- exact source tree: `716093e01eb4dc5b3828e8f37046724133396f3a`;
-- Setup SHA-256: `43FC5AD69CB3827A8BE6F4CE21A6B4F3632CC9BFE308D28DE35FA17D2A366632`;
-- Update ZIP SHA-256: `95F3E6019A3BFBAC026F21E37D358C13C448D3A9C39401731270D204F996758A`;
+- immutable source tag: `v3.9.8`;
+- exact tagged source commit: `050227888af9e46fb9f4705ad960966a124e9cc8`;
+- exact source tree: `8716b530c638cfbc1f8047f419623460bf49513d`;
+- Setup SHA-256: `347F6DFD219BCE068842AAADEFF1D1BB45BA3A69FC6D5D0193301F76F9DB8CE9`;
+- Update ZIP SHA-256: `1281663254B73124BC80F482B72E45ED978538794BC834D42B241EB93E774C78`;
 - Authenticode: **unsigned**.
 
-Published Stable bytes are immutable by release policy. A defect in 3.9.6 must be corrected in a new version/tag; existing release assets and hashes must not be silently replaced.
+Published Stable bytes are immutable by release policy. A defect in 3.9.8 must be corrected in a new version/tag; existing release assets and hashes must not be silently replaced.
 
-**ArsExam 3.8.0 remains WITHDRAWN / DO NOT INSTALL.** ArsExam 3.9.5 and 3.9.4 are previous Stable releases and remain immutable historical release evidence.
+**ArsExam 3.8.0 remains WITHDRAWN / DO NOT INSTALL.** ArsExam 3.9.6, 3.9.5 and 3.9.4 are previous Stable releases and remain immutable historical release evidence.
 
 ## Credentials and recovery
 
@@ -70,7 +70,7 @@ Persistent user data under `%LOCALAPPDATA%\ArsExam` is separate from the program
 
 Crash/error diagnostics are **OFF by default** and require explicit opt-in. ArsExam does not send usage/behavior analytics for visited screens, banks, workflow states or functions.
 
-ArsExam 3.9.6 uses diagnostics consent **4.0**. Eligible minimized application events may use a bounded Sentry store-and-forward cache. The Launcher has no Sentry SDK and does not send incidents remotely; it can record only a bounded local incident journal. A Launcher incident is eligible for later Desktop ingestion only when valid consent existed both at occurrence time and at ingestion time.
+ArsExam 3.9.8 uses diagnostics consent **4.0**. Eligible minimized application events may use a bounded Sentry store-and-forward cache. The Launcher has no Sentry SDK and does not send incidents remotely; it can record only a bounded local incident journal. A Launcher incident is eligible for later Desktop ingestion only when valid consent existed both at occurrence time and at ingestion time.
 
 Remote delivery, when configured, is restricted to the approved Sentry EU/DE host pattern `*.ingest.de.sentry.io`. Intended remote payloads exclude profile credentials, Recovery Keys, Backup passwords, Transfer codes, question-bank content, databases, Media, screenshots, clipboard, filesystem paths and raw exception messages.
 
@@ -80,15 +80,15 @@ The detailed privacy/diagnostics contract is in `PRIVACY_POLICY_BG.md`.
 
 Official public binaries and manifests are distributed only through `pgnev/arsexam-releases` after controlled validation from the private canonical source repository.
 
-The Stable feed is `update/stable-manifest.json` and resolves to **3.9.6** with `requiresInstaller=true`. Update packages are accepted only after SHA-256 verification against the authoritative manifest. Bounded retry/fallback behavior for recoverable transport/DNS failures preserves the existing installation and persistent data on failure.
+The Stable feed is `update/stable-manifest.json` and resolves to **3.9.8** with `requiresInstaller=true`. Update packages are accepted only after SHA-256 verification against the authoritative manifest. Bounded retry/fallback behavior for recoverable transport/DNS failures preserves the existing installation and persistent data on failure.
 
 The real Release single-file application payload is protected before bundling by the pinned release-protection process and validated before packaging. This is defense-in-depth and does not replace normal secure development, integrity verification or legal licensing terms.
 
-Exact-tag owner-local Windows qualification passed for v3.9.6, including full regression, the seven-scenario updater/rollback matrix, final Sentry E2E acceptance, and Store/MSIX WACK qualification. The public release, Stable manifest, source tag and asset hashes are reconciled.
+Exact-tag owner-local Windows qualification passed for v3.9.8, including full regression, updater/rollback qualification, installed-documentation acceptance, isolated upgrade acceptance and final Sentry EU E2E acceptance. The public release, Stable manifest, source tag and asset hashes are reconciled.
 
 ## Code signing
 
-**ArsExam 3.9.6 Stable is not Authenticode-signed.** HTTPS and SHA-256 provide transport/integrity controls but are not publisher-identity signing. Windows may therefore display SmartScreen/Unknown Publisher warnings depending on local policy and reputation state.
+**ArsExam 3.9.8 Stable is not Authenticode-signed.** HTTPS and SHA-256 provide transport/integrity controls but are not publisher-identity signing. Windows may therefore display SmartScreen/Unknown Publisher warnings depending on local policy and reputation state.
 
 Public documentation must not claim signing until exact final release evidence proves a valid sign/timestamp/verification path.
 
