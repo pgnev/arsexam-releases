@@ -35,6 +35,17 @@ Do **not** send by ordinary e-mail plaintext profile passwords, Recovery Keys, B
 
 Support should never ask for your old plaintext password, Recovery Key, Backup password or Transfer code.
 
+## Лицензиране и активация за изданията с актуализирания механизъм
+
+След инсталиране първоначалната активация изисква интернет връзка. Потребителят подава заявка за лиценз до поддръжката и след одобрение активира съответното устройство.
+
+- индивидуален лиценз — 1 устройство;
+- институционален лиценз — до 2 устройства.
+
+След успешната активация основната работа с ArsExam остава локална и не изисква постоянна интернет връзка. Интернет връзка може да се използва и за официални обновления, доброволна диагностика при сривове и грешки и доброволна кореспонденция с поддръжката.
+
+При проблем със заявката за лиценз посочете версията на ArsExam, вида на лиценза и показаното съобщение за грешка. Не изпращайте профилна парола, ключ за възстановяване, парола за резервно копие, код за прехвърляне или други ненужни чувствителни данни.
+
 ## Password recovery
 
 Forgotten-password recovery is **local** and uses the active Recovery Key. ArsExam does not use recovery e-mail enrollment, support-issued reset codes or a universal server-side/master password.
