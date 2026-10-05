@@ -1,12 +1,12 @@
 # ArsExam Desktop — официални версии, изтегляне и описание на програмата
 
-**ArsExam Desktop** е native Windows, offline-first система за управление на дигитални ресурси, свързани с Държавния зрелостен изпит по Теория на професията **„Музикално изкуство“**.
+**ArsExam Desktop** е локално настолно приложение за Windows за управление на дигитални ресурси, свързани с Държавния зрелостен изпит по Теория на професията **„Музикално изкуство“**.
 
 Това repository — **`pgnev/arsexam-releases`** — е единственият официален публичен канал за:
 
 - ArsExam Setup файлове;
-- application update пакети;
-- Stable/Test update manifests;
+- пакети за обновяване на приложението;
+- Stable/Test manifest-и за обновяване;
 - immutable public release assets;
 - публични release notes и integrity информация.
 
@@ -178,9 +178,9 @@ Destructive operations използват приложим preview/confirmation/
 
 ---
 
-# 4. Offline-first работа
+# 4. Локална работа и интернет връзка
 
-Основните функции работят локално и не изискват постоянен internet:
+Основните функции работят локално и не изискват постоянна интернет връзка:
 
 - локален профил и вход;
 - банки;
@@ -191,12 +191,17 @@ Destructive operations използват приложим preview/confirmation/
 - Backup/Restore;
 - Desktop/Portable data workflows.
 
-Интернет се използва за:
+За изданията с актуализирания механизъм за лицензиране **първоначалната активация след инсталиране изисква интернет връзка**. Подавате заявка за лиценз до поддръжката и след одобрение активирате съответното устройство. Индивидуалният лиценз е за **1 устройство**, а институционалният — за **до 2 устройства**.
 
-1. официална проверка/изтегляне на update;
-2. доброволна opt-in crash/error диагностика, когато е включена.
+След успешната активация основната работа с ArsExam остава локална и не изисква постоянна интернет връзка.
 
-Няма задължителен cloud account за normal bank/generator workflow.
+Интернет връзка може да се използва и за:
+
+1. официална проверка и изтегляне на обновления;
+2. доброволна диагностика при сривове и грешки, когато е включена;
+3. доброволна кореспонденция с поддръжката.
+
+Няма задължителен облачен профил за основната локална работа.
 
 ---
 
@@ -291,7 +296,7 @@ flowchart LR
     E -- FAIL --> G[Rollback към healthy версия]
 ```
 
-Потребителските `Data/Media/Import/Export/Backup` не са normal application update payload.
+Потребителските `Data/Media/Import/Export/Backup` не са част от нормалния пакет за обновяване на приложението.
 
 Подробно описание: [`update/README.md`](update/README.md).
 
@@ -299,7 +304,7 @@ flowchart LR
 
 # 9. Privacy и diagnostics
 
-Crash/error diagnostics са:
+Диагностиката при сривове и грешки е:
 
 - OFF по подразбиране;
 - opt-in;
@@ -503,22 +508,22 @@ Get-FileHash .\ArsExam_Setup_3.9.6_win-x64.exe -Algorithm SHA256
 
 ---
 
-# 16. Какво да направите при update/network проблем
+# 16. Какво да направите при проблем с обновяване или мрежова връзка
 
 При временен network failure:
 
 - текущата working installation трябва да остане работеща;
 - persistent user data не трябва да се променят;
-- може да повторите update check по-късно;
+- може да повторите проверката за обновление по-късно;
 - официалният fallback е Setup asset-ът от текущия Stable release в това repository.
 
-Не изтривайте ръчно локалните банки или Backup файлове само защото update check е неуспешен.
+Не изтривайте ръчно локалните банки или Backup файлове само защото проверката за обновление е неуспешна.
 
 ---
 
 # 17. Repository роли
 
-- **`pgnev/arsexam-releases`** — единствен официален публичен binary/update authority;
+- **`pgnev/arsexam-releases`** — единственият официален публичен източник за двоични пакети и обновления;
 - `pgnev/arsexam-source` — private canonical source/development repository;
 - legacy/historical repositories не са текущият Desktop release authority.
 
@@ -546,7 +551,7 @@ Get-FileHash .\ArsExam_Setup_3.9.6_win-x64.exe -Algorithm SHA256
 
 # 19. Най-важното накратко
 
-> **ArsExam Desktop е локална професионална система за изпитни банки, Recycler/Import, approval workflow, генератори, Word/Excel обмен и защитено Backup/Restore. Това repository е единственият официален публичен източник за неговите binaries и update manifests. Текущият Stable е ArsExam 3.9.8.**
+> **ArsExam Desktop е локална професионална система за изпитни банки, Recycler/Import, approval workflow, генератори, Word/Excel обмен и защитено Backup/Restore. Това repository е единственият официален публичен източник за неговите двоични пакети и manifest-и за обновяване. Текущият Stable е ArsExam 3.9.8.**
 
 ## Граница на съдържанието
 
