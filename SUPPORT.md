@@ -1,4 +1,4 @@
-# ArsExam Support
+# Поддръжка на ArsExam
 
 Revision: 2 October 2026 — ArsExam 3.9.8 Stable
 
@@ -6,7 +6,7 @@ Revision: 2 October 2026 — ArsExam 3.9.8 Stable
 
 **petkoganev@gmail.com**
 
-For normal product support, prefer the in-application **Help → Contact support** flow when available.
+За обичайни въпроси за продукта използвайте вградената команда **Помощ → Свържете се с поддръжката**, когато е налична.
 
 ## Current supported public line
 
@@ -27,13 +27,13 @@ A useful support request should contain only the minimum information necessary:
 - affected module/workflow state, when relevant;
 - a minimal privacy-safe diagnostic/support bundle only when relevant and intentionally attached.
 
-For update problems also include source version, target version and the visible failure stage when known. Do not send raw credentials or complete databases merely to diagnose an update problem.
+При проблеми с обновяване посочете също изходната версия, целевата версия и видимия етап на грешката, когато е известен. Do not send raw credentials or complete databases merely to diagnose an update problem.
 
 ## Do not send
 
 Do **not** send by ordinary e-mail plaintext profile passwords, Recovery Keys, Backup passwords, Transfer codes, complete databases/full Backup archives, confidential examination content that is not strictly required, signing material, API keys or unrelated personal data.
 
-Support should never ask for your old plaintext password, Recovery Key, Backup password or Transfer code.
+Поддръжката никога не трябва да изисква старата Ви парола в открит вид, Recovery Key, парола за Backup или Transfer code.
 
 ## Лицензиране и активация за изданията с актуализирания механизъм
 
@@ -76,7 +76,7 @@ Desktop program files normally live under `%LOCALAPPDATA%\Programs\ArsExam`, whi
 
 Supported updater and migration paths are designed to preserve persistent work data. Microsoft Store builds use Store-managed updates and do not use the Desktop/Portable ArsExamLauncher self-update path.
 
-## Update assistance
+## Помощ при обновяване
 
 Current Stable feed: `update/stable-manifest.json`; it resolves to **3.9.8** with `requiresInstaller=true`.
 
@@ -85,20 +85,20 @@ Official 3.9.8 assets:
 - `ArsExam_Setup_3.9.8_win-x64.exe` — SHA-256 `347F6DFD219BCE068842AAADEFF1D1BB45BA3A69FC6D5D0193301F76F9DB8CE9`;
 - `ArsExam_Update_3.9.8_win-x64.zip` — SHA-256 `1281663254B73124BC80F482B72E45ED978538794BC834D42B241EB93E774C78`.
 
-If automatic update fails because of a temporary DNS/network problem, the current installation should remain unchanged. Retry after connectivity recovers or use the official Setup from this repository.
+Ако автоматичното обновяване се провали поради временен проблем с DNS или мрежовата връзка, текущата инсталация трябва да остане непроменена. Опитайте отново след възстановяване на връзката или използвайте официалния инсталатор от това хранилище.
 
 The current Test feed is separate and currently resolves to **3.9.2-rc.2**. It is a prerelease/testing channel and must not be treated as Stable authority.
 
-## Crash/error diagnostics
+## Диагностика при сривове и грешки
 
-Crash/error diagnostics are opt-in and OFF by default. ArsExam 3.9.8 uses diagnostics consent 4.0 and does not send usage/behavior analytics. When enabled/configured, minimized remote delivery is restricted to the approved Sentry EU/DE ingest configuration. See `PRIVACY_POLICY_BG.md` for the current contract.
+Диагностиката при сривове и грешки е изключена по подразбиране и се включва само по желание на потребителя. ArsExam 3.9.8 uses diagnostics consent 4.0 and does not send usage/behavior analytics. When enabled/configured, minimized remote delivery is restricted to the approved Sentry EU/DE ingest configuration. See `PRIVACY_POLICY_BG.md` for the current contract.
 
-## Security and licensing
+## Сигурност и лицензиране
 
 Suspected vulnerabilities should be reported privately with subject `ArsExam security report`; see `SECURITY.md`.
 
 ArsExam is proprietary software. Licensing questions should refer to the EULA, `LICENSE.md` and `COPYRIGHT.md`. Applicable mandatory-law and third-party-license rights are preserved.
 
-## Availability
+## Достъпност на поддръжката
 
 Support is provided according to available capacity and is not a guaranteed service-level agreement unless explicitly agreed in writing.
