@@ -4,7 +4,7 @@ Revision: 8 October 2026 — ArsExam 4.0.0 Stable
 
 ## Official contact
 
-**petkoganev@gmail.com**
+**support@arsexam.com**
 
 For normal product support, prefer the in-application **Help → Contact support** flow when available.
 
