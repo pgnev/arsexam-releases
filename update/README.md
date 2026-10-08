@@ -39,7 +39,7 @@ Production Stable channel.
 
 ### `test-manifest.json`
 
-Test/Beta/RC channel.
+Test/Beta/RC channel. От 8 октомври 2026 г. активна публична предварителна версия няма. Manifest-ът запазва `channel=test` за съществуващите клиенти, но предлага вече публикувания лицензиран Stable 4.0.0 чрез пълния Setup (`requiresInstaller=true`). URL адресите, SHA-256 и `publishedAtUtc` са тези на действителното издание v4.0.0. Това е оттегляне на стария Test download target и преход към текущото издание, а не нормална prerelease promotion. Каналната проверка и проверката на целостта остават приложими. Стандартното публикуване на бъдещи Test prerelease издания продължава да изисква отделната квалификация и авторизация.
 
 Използва се само при изричен opt-in към testing/prerelease линия.
 
