@@ -4,7 +4,7 @@ Revision: 8 October 2026 — public Stable binding: ArsExam 4.0.0
 
 ## Reporting a vulnerability
 
-Report suspected ArsExam security vulnerabilities **privately** to **petkoganev@gmail.com** with subject `ArsExam security report`.
+Report suspected ArsExam security vulnerabilities **privately** to **support@arsexam.com** with subject `ArsExam security report`.
 
 Do **not** publish exploitable details, credentials, personal data, examination-bank content, Recovery Keys, Backup passwords, Transfer codes or private diagnostic material in a public GitHub issue.
 
