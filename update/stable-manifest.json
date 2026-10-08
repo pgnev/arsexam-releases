@@ -9,5 +9,5 @@
   "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.0.0/ArsExam_Setup_4.0.0_win-x64.exe",
   "installerSha256": "F65A7561CB280D791E9754396E094D18586C643B78D387BC5F5BECB499EFA8CA",
   "releaseNotes": "ArsExam 4.0.0: лицензиране след одобрение от автора за едно индивидуално или до две институционални устройства, еднократна онлайн активация и импорт на подписан лиценз. Обновена Owner Admin Console с безопасно автоматично опресняване. Подобрени защити на активацията и актуализирани български упътвания и условия.",
-  "publishedAtUtc": "10/08/2026 05:02:01"
+  "publishedAtUtc": "2026-10-08T05:02:01Z"
 }
