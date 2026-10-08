@@ -12,7 +12,7 @@ Third-party libraries and components remain subject to their own licenses and co
 
 This public repository exists for official binary distribution, update metadata and public notices. Its public availability does not grant permission to redistribute modified or misleadingly branded ArsExam binaries as official releases.
 
-For licensing enquiries: petkoganev@gmail.com
+For licensing enquiries: support@arsexam.com
 
 ## Граница на съдържанието
 
