@@ -1,13 +1,13 @@
 {
-    "schemaVersion": 1,
-    "channel": "stable",
-    "version": "3.9.8",
-    "minimumSupportedVersion": "3.0.1",
-    "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.8/ArsExam_Update_3.9.8_win-x64.zip",
-    "packageSha256": "1281663254B73124BC80F482B72E45ED978538794BC834D42B241EB93E774C78",
-    "requiresInstaller": true,
-    "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v3.9.8/ArsExam_Setup_3.9.8_win-x64.exe",
-    "installerSha256": "347F6DFD219BCE068842AAADEFF1D1BB45BA3A69FC6D5D0193301F76F9DB8CE9",
-    "releaseNotes": "ArsExam 3.9.8 - published documentation-finalization corrective Stable release carrying the qualified Recycler, Bank Quality, protected printing, historical Module 2 key recovery and update reliability work forward.",
-    "publishedAtUtc": "2026-10-02T16:10:16Z"
+  "schemaVersion": 1,
+  "channel": "stable",
+  "version": "4.0.0",
+  "minimumSupportedVersion": "3.0.1",
+  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.0.0/ArsExam_Update_4.0.0_win-x64.zip",
+  "packageSha256": "52B9374020E0DBF77C825EFDF415A0E2268107F490E5F6CBD6A335E8F9C510CB",
+  "requiresInstaller": true,
+  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.0.0/ArsExam_Setup_4.0.0_win-x64.exe",
+  "installerSha256": "F65A7561CB280D791E9754396E094D18586C643B78D387BC5F5BECB499EFA8CA",
+  "releaseNotes": "ArsExam 4.0.0: лицензиране след одобрение от автора за едно индивидуално или до две институционални устройства, еднократна онлайн активация и импорт на подписан лиценз. Обновена Owner Admin Console с безопасно автоматично опресняване. Подобрени защити на активацията и актуализирани български упътвания и условия.",
+  "publishedAtUtc": "10/08/2026 05:02:01"
 }
