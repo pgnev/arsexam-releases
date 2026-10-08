@@ -4,7 +4,7 @@ Copyright © 2026 Petko Ganev. All rights reserved.
 
 ArsExam is **proprietary software**. The ArsExam application, its original source code, branding, documentation and other original materials are not licensed under MIT, GPL, Apache or another open-source license unless a specific file or third-party component explicitly states otherwise.
 
-Use of official ArsExam binary distributions is governed by the ArsExam End User License Agreement (`EULA_BG.txt`) supplied with the corresponding release.
+Use of official ArsExam binary distributions is governed by the ArsExam End User License Agreement (`EULA_BG.txt`) supplied with the corresponding release. ArsExam 4.0.0 remains free to use and requires an owner-approved signed license for its expressly authorized devices; installation or updating alone does not activate a new device.
 
 Except to the extent expressly permitted by the EULA or by applicable mandatory law, publication or possession of ArsExam binaries does **not** grant permission to copy, modify, redistribute, reverse-engineer, decompile, disassemble, extract or reconstruct source code, circumvent technical protection measures, sublicense, sell, or create derivative versions of the original ArsExam application.
 

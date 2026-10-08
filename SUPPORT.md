@@ -1,6 +1,6 @@
 # ArsExam Support
 
-Revision: 2 October 2026 — ArsExam 3.9.8 Stable
+Revision: 8 October 2026 — ArsExam 4.0.0 Stable
 
 ## Official contact
 
@@ -10,9 +10,9 @@ For normal product support, prefer the in-application **Help → Contact support
 
 ## Current supported public line
 
-The current official Stable release is **ArsExam 3.9.8**. The authoritative current-version source is `update/stable-manifest.json` together with the latest non-draft, non-prerelease public release in this repository.
+The current official Stable release is **ArsExam 4.0.0**. The authoritative current-version source is `update/stable-manifest.json` together with the latest non-draft, non-prerelease public release in this repository.
 
-ArsExam 3.9.8 is intentionally **not Authenticode-signed** under the current release evidence; download only from the official release and verify SHA-256 against the Stable manifest/release metadata.
+ArsExam 4.0.0 signing state is UNSIGNED (no Authenticode signature); download only from the official release and verify SHA-256 against the Stable manifest/release metadata.
 
 **ArsExam 3.8.0 remains WITHDRAWN / DO NOT INSTALL.** ArsExam 3.9.6, 3.9.5 and 3.9.4 are previous Stable releases and remain immutable historical release evidence.
 
@@ -35,6 +35,12 @@ Do **not** send by ordinary e-mail plaintext profile passwords, Recovery Keys, B
 
 Support should never ask for your old plaintext password, Recovery Key, Backup password or Transfer code.
 
+## Licensing and activation in 4.0.0
+
+ArsExam is free but license-controlled. Individual licenses authorize one device; Institutional licenses authorize one or two explicitly listed devices. Standard new-license validity is 12 months, renewal warning begins 30 days before expiry, and an otherwise valid installed license has a 7-day grace period. Installation, Portable copying, Restore and data transfer do not authorize a new device.
+
+Submit the explicit activation request with city and separate EULA/Privacy acknowledgement, then check status and use the issued one-time code for the approved device. Offline request copy/save and signed-license import remain supported. Device replacement and renewal require owner review. A support request may include version, license type, public request identifier and visible error, but never the protected request token, activation code, administrative key or private signing material. Profile recovery remains a separate local flow.
+
 ## Password recovery
 
 Forgotten-password recovery is **local** and uses the active Recovery Key. ArsExam does not use recovery e-mail enrollment, support-issued reset codes or a universal server-side/master password.
@@ -45,11 +51,11 @@ After successful recovery, the used Recovery Key becomes invalid and a new indep
 
 Generator eligibility is a separate fail-closed condition and should not be inferred solely from a visible workflow state. When reporting generator-readiness issues include the module, selected difficulty band, active methodology where visible, relevant theme/topic and the readiness explanation shown by ArsExam.
 
-For Module 1 listening topics, availability depends on approved, generator-eligible questions in the selected difficulty band; a draft/unapproved record alone is not sufficient. In ArsExam 3.9.8 the four mandatory listening-topic indicators reflect actual candidate availability and are not manually toggled.
+For Module 1 listening topics, availability depends on approved, generator-eligible questions in the selected difficulty band; a draft/unapproved record alone is not sufficient. In ArsExam 4.0.0 the four mandatory listening-topic indicators reflect actual candidate availability and are not manually toggled.
 
 ## Bank search / Bank Quality assistance
 
-ArsExam 3.9.8 retains checkbox multi-select bank filters in Modules 1–3. OR applies inside one categorical filter and AND applies across different filters; Module 1 properties are cumulative/AND. If reporting a filter issue, include the module and the exact selected filters, but do not send confidential bank content unless strictly necessary.
+ArsExam 4.0.0 retains checkbox multi-select bank filters in Modules 1–3. OR applies inside one categorical filter and AND applies across different filters; Module 1 properties are cumulative/AND. If reporting a filter issue, include the module and the exact selected filters, but do not send confidential bank content unless strictly necessary.
 
 For Bank Quality edit/repair issues include the visible issue class, the attempted action and the fail-closed validation message. Do not bypass review gates by editing databases directly.
 
@@ -67,12 +73,12 @@ Supported updater and migration paths are designed to preserve persistent work d
 
 ## Update assistance
 
-Current Stable feed: `update/stable-manifest.json`; it resolves to **3.9.8** with `requiresInstaller=true`.
+Current Stable feed: `update/stable-manifest.json`; version 4.0.0 requires the full Setup (`requiresInstaller=true`), with minimum supported version 3.0.1.
 
-Official 3.9.8 assets:
+Official 4.0.0 assets:
 
-- `ArsExam_Setup_3.9.8_win-x64.exe` — SHA-256 `347F6DFD219BCE068842AAADEFF1D1BB45BA3A69FC6D5D0193301F76F9DB8CE9`;
-- `ArsExam_Update_3.9.8_win-x64.zip` — SHA-256 `1281663254B73124BC80F482B72E45ED978538794BC834D42B241EB93E774C78`.
+- `ArsExam_Setup_4.0.0_win-x64.exe` — SHA-256 `F65A7561CB280D791E9754396E094D18586C643B78D387BC5F5BECB499EFA8CA`;
+- `ArsExam_Update_4.0.0_win-x64.zip` — SHA-256 `52B9374020E0DBF77C825EFDF415A0E2268107F490E5F6CBD6A335E8F9C510CB`.
 
 If automatic update fails because of a temporary DNS/network problem, the current installation should remain unchanged. Retry after connectivity recovers or use the official Setup from this repository.
 
@@ -80,7 +86,7 @@ The current Test feed is separate and currently resolves to **3.9.2-rc.2**. It i
 
 ## Crash/error diagnostics
 
-Crash/error diagnostics are opt-in and OFF by default. ArsExam 3.9.8 uses diagnostics consent 4.0 and does not send usage/behavior analytics. When enabled/configured, minimized remote delivery is restricted to the approved Sentry EU/DE ingest configuration. See `PRIVACY_POLICY_BG.md` for the current contract.
+Crash/error diagnostics are opt-in and OFF by default. ArsExam 4.0.0 uses diagnostics consent 4.0 and does not send usage/behavior analytics. When enabled/configured, minimized remote delivery is restricted to the approved Sentry EU/DE ingest configuration. See `PRIVACY_POLICY_BG.md` for the current contract.
 
 ## Security and licensing
 
