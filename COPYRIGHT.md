@@ -1,7 +1,7 @@
 # ArsExam — Copyright and authorship
 
 **Author and developer:** Petko Ganev  
-**Author contact:** petkoganev@gmail.com
+**Author contact:** support@arsexam.com
 
 Copyright © 2026 Petko Ganev. All rights reserved.
 
