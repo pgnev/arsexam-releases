@@ -1,6 +1,6 @@
 # ArsExam Desktop — Third-Party Notices
 
-Revision: 7 October 2026 — ArsExam Desktop 4.0.0
+Revision: 7 October 2026 — ArsExam Desktop 4.1.1
 
 ArsExam Desktop is proprietary software, but it incorporates open-source components distributed under their own licenses. Those licenses apply to the corresponding third-party components and are not replaced by the ArsExam EULA.
 
@@ -8,7 +8,7 @@ ArsExam Desktop is proprietary software, but it incorporates open-source compone
 
 Самата програма ArsExam не съдържа и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Тя предоставя единствено инструменти и работни процеси за упълномощени потребители за създаване, редактиране, организиране, валидиране и управление на такова съдържание.
 
-## Direct runtime dependencies — ArsExam Desktop 4.0.0
+## Direct runtime dependencies — ArsExam Desktop 4.1.1
 
 The release source pins the following direct runtime packages (component names in the table match their NuGet package IDs):
 

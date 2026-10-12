@@ -1,580 +1,88 @@
-# ArsExam Desktop — официални версии, изтегляне и описание на програмата
+# ArsExam Desktop — официални версии и ръководство
 
-## Актуализация: ArsExam 4.1.1 за Microsoft Store и лицензиране (12 октомври 2026 г.)
+**Публикуван GitHub Stable 4.1.1: 12.10.2026 г., 09:44:08 Europe/Sofia / 2026-10-12T06:44:08Z.** Source commit 38a2e0c74b83b869058244b5a133fae8397e0eb0; [release notes](RELEASE-NOTES-4.1.1.md). Microsoft Store остава отделно в сертификация.
 
-**Проверка на публичния Stable канал и SHA-256:** [DOCS_FRESHNESS.md](DOCS_FRESHNESS.md). Статусът на Microsoft Store се потвърждава отделно в Partner Center.
+ArsExam е безплатно Windows приложение за локални изпитни банки, Recycler/Import, преглед и одобрение, подготовка на варианти, Word/Excel обмен и защитено Backup/Restore. Изисква отделен, одобряван от автора цифрово подписан лиценз за конкретните устройства. Инсталирането не предоставя автоматично лиценз.
 
-**Microsoft Store:** пакетът ArsExam **4.1.1.0 (x64)** е подаден чрез Partner Center за сертификация. Наличността му за потребителите се определя от Microsoft; самото подаване не е доказателство за публикуване. Вижте [бележките за Store кандидата 4.1.1](STORE-RELEASE-NOTES-4.1.1.md).
+Това хранилище, **pgnev/arsexam-releases**, е официалният публичен канал за Setup, Update ZIP, release notes и Stable/Test manifests. Изходният код се поддържа в частното pgnev/arsexam-source.
 
-**GitHub Stable:** последното потвърдено публично издание с проверени Setup/Update файлове тук е **4.0.0**. Официалният [Stable манифест](update/stable-manifest.json) умишлено остава 4.0.0; **не** изтегляйте файла на Store кандидата като заместител на GitHub Setup. 4.1.1 ще се описва като публично GitHub издание само след отделна квалификация, проверени SHA-256 и публикувани assets.
+## Канали и текуща версия
 
-**Лицензиране и отнемане:** на [arsexam.com](https://arsexam.com) Owner може да управлява заявленията, да изтрива неиздадени заявления или изрично да отнема подписани лицензни права. При отнемане е възможно заличаване на личните данни със запазване на минимален защитен регистър. Служебното писмо за отнемане се изпраща независимо от доброволните отметки за напомняния. Отнемането не гарантира мигновено деактивиране на устройство без интернет; приложението узнава при успешна онлайн проверка. На 12.10.2026 г. реален тест с тестов лиценз потвърди доставено еднократно известие.
+| Канал | Проверено състояние |
+|---|---|
+| GitHub Stable | **4.1.1**, съгласувано издание и [Stable manifest](update/stable-manifest.json). |
+| Квалификация 4.1.1 | Exact-commit protected Release, регресии, WACK и реални инсталации/обновявания PASS; [точен QA отчет](QA-REPORT-4.1.1.md). |
+| Microsoft Store | Активен пакет на Submission 2: **3.9.8.0**. Submission 3: **In certification**, Publishing **Not started**, задържано до Publish now; прочетено в Partner Center на 12.10.2026 г. |
 
-**Срокове:** стандартен лиценз **12 месеца**, предупредителен период **30 дни** преди изтичане и **7 дни** гратисен период за иначе валиден инсталиран лиценз; подновяване, смяна на устройство и преиздаване изискват преглед и одобрение. Тези срокове не са обещание за автоматично одобрение или гарантирана доставка на имейл. Повече: [поддръжка](SUPPORT.md), [политика за поверителност](PRIVACY_POLICY_BG.md) и [бележки за 4.1.1](STORE-RELEASE-NOTES-4.1.1.md).
+Подаване за сертификация, source merge и локален пакет са отделни от действително публикувано издание. Store и GitHub се обновяват независимо. Вижте [проверка на документацията и каналите](DOCS_FRESHNESS.md).
 
+## Изтегляне и проверка
 
-**ArsExam Desktop** е native Windows, offline-first система за управление на дигитални ресурси, свързани с Държавния зрелостен изпит по Теория на професията **„Музикално изкуство“**.
+Използвайте [официалното издание v4.1.1](https://github.com/pgnev/arsexam-releases/releases/tag/v4.1.1) и файловете, посочени в Stable manifest:
 
-Това repository — **`pgnev/arsexam-releases`** — е единственият официален публичен канал за:
-
-- ArsExam Setup файлове;
-- application update пакети;
-- Stable/Test update manifests;
-- immutable public release assets;
-- публични release notes и integrity информация.
-
-Изходният код **не се публикува тук**.
-
-**Актуално от 8 октомври 2026 г.:** публично се предоставя лицензираният ArsExam 4.0.0. Предишните 29 инсталационни издания са оттеглени от публичния достъп и се запазват като чернови за собственика. Тестовият канал насочва към официалния Setup на 4.0.0; той не предлага нова предварителна версия. За работа след инсталиране е необходим валиден лиценз. Вече изтеглени копия не могат да бъдат отнети дистанционно. Онлайн политиката е актуализирана на 8 октомври; публикуваните файлове на v4.0.0 и вградените в тях документи остават непроменени.
-
-**Автор и разработчик:** Petko Ganev  
-**Поддръжка:** support@arsexam.com  
-**Copyright © 2026 Petko Ganev. All rights reserved.**
-
-> [!IMPORTANT]
-> Изтегляйте ArsExam само от официалните Releases в това repository. Не приемайте binary от друг repository, mirror, чат или произволен file-sharing източник като официална версия само защото носи ArsExam име или икона.
-
----
-
-# 1. Какво е ArsExam
-
-ArsExam е специализирано Desktop приложение за целия локален жизнен цикъл на изпитното съдържание:
-
-```mermaid
-flowchart LR
-    A[Нови или исторически материали] --> B[Recycler / Import]
-    B --> C[Преглед и структуриране]
-    C --> D[Workflow / Approval]
-    D --> E[Официални банки]
-    E --> F[Generator eligibility]
-    F --> G[Генератори]
-    G --> H[Генерирани варианти]
-    H --> I[Word / Excel / Export]
-
-    E --> J[Protected Backup]
-    J --> K[Restore / Recovery]
-```
-
-Програмата е създадена така, че автоматизацията да подпомага експерта, но да не замества човешката преценка с догадка. Когато key, Media, provenance или структура са нееднозначни, съдържанието остава за преглед вместо да бъде автоматично „поправено“ по несигурен начин.
-
----
-
-# 2. За кого е предназначена
-
-ArsExam е предназначена за преподаватели, експерти, автори и редактори, които:
-
-- поддържат изпитни банки;
-- редактират въпроси и задачи;
-- анализират исторически изпитни материали;
-- изграждат и проверяват изпитни варианти;
-- работят с нотни примери, изображения и аудио;
-- трябва да пазят работните данни локално и да разполагат с надежден Backup/Restore механизъм.
-
----
-
-# 3. Основни функции
-
-## 3.1. Банки за трите изпитни модула
-
-ArsExam поддържа структурирано съдържание за:
-
-- **Модул 1** — въпроси с отговори, теми, сектори, свойства, Media, difficulty и generator rules;
-- **Модул 2.1** — комплексни задачи с главни въпроси/подвъпроси, точки, key и приложими Media;
-- **Модул 2.2** — отворени/практически задачи, включително Теория, Хармония и Музикални форми / анализ;
-- **Модул 3** — теми, профили, номер на тема и workflow/generator state.
-
-## 3.2. Workflow
-
-Потребителските работни статуси са:
-
-1. **Чернова**;
-2. **За преглед**;
-3. **За одобрение**;
-4. **Одобрен**;
-5. **Отхвърлен**;
-6. **Архивиран**.
-
-Важно: **„Одобрен“ не означава автоматично „Допустим за генератор“**. Generator eligibility се проверява отделно чрез модулните structural правила.
-
-## 3.3. Генератори
-
-### Модул 1
-
-Генераторът създава точно **30 въпроса**:
-
-| Група | Брой |
-|---|---:|
-| Слухови | 4 |
-| Теория | 6 |
-| Хармония | 7 |
-| Музикални форми / анализ | 6 |
-| История на музиката | 7 |
-| **Общо** | **30** |
-
-Прилагат се candidate availability, topic/structure правила, shuffle на въпросите и независимо shuffle на отговорите с запазване на верния answer mapping.
-
-### Модул 2
-
-Генераторите използват само structurally valid, approved и generator-eligible задачи и прилагат необходимия точков/структурен contract.
-
-### Модул 3
-
-Използва profile/topic generator workflow и отделни правила от числовата difficulty методология на Модул 1/2.
-
-## 3.4. Multi-select търсене
-
-Банките използват checkbox multi-select филтри:
-
-- OR вътре в един categorical filter;
-- AND между различни filters;
-- contextual Module 1 themes;
-- cumulative Module 1 properties;
-- Difficulty/Status/Discipline/Profile/Topic filters според модула.
-
-## 3.5. Difficulty methodology
-
-ArsExam поддържа versioned difficulty methodologies, automatic explainable assessment и отделен expert override.
-
-Модул 1/2 generator difficulty choices са concrete bands:
-
-- **Лесно**;
-- **Средно**;
-- **Трудно**.
-
-## 3.6. Recycler
-
-Recycler обработва исторически и нови source материали и ги превръща в reviewable structured content.
-
-Поддържаният модел включва:
-
-- цели изпитни документи;
-- смесени документи;
-- самостоятелни tasks/fragments;
-- key/criteria fragments;
-- нотни/графични материали;
-- audio;
-- local OCR/layout extraction при приложимите източници.
-
-Критичен принцип е **no silent drop**: неразпознат или нееднозначен материал трябва да остане видим чрез review state/evidence/outcome, а не да изчезне.
-
-## 3.7. Import / Approval
-
-Външното съдържание преминава през staging, validation, review и explicit workflow решение преди да стане official bank content.
-
-Manual Media/association действие не auto-approve-ва съдържанието и не включва generator eligibility автоматично.
-
-## 3.8. Media
-
-ArsExam работи с локални:
-
-- изображения;
-- notation/score материали;
-- аудио.
-
-Missing/conflicting/ambiguous Media остава review-gated.
-
-## 3.9. Word и Excel
-
-- DOCX output се създава чрез Open XML;
-- XLSX import/export използва ClosedXML;
-- Microsoft Word/Excel не са runtime requirement за самото генериране/обработване на файловете.
-
-## 3.10. Bank Quality
-
-Инструментите за качество могат да подпомагат откриване и контролирана обработка на:
-
-- duplicates;
-- key conflicts;
-- structural defects;
-- missing Media;
-- archive/merge/remove решения.
-
-Destructive operations използват приложим preview/confirmation/audit/Safety Backup contract.
-
----
-
-# 4. Offline-first работа
-
-Основните функции работят локално и не изискват постоянен internet:
-
-- локален профил и вход;
-- банки;
-- генератори;
-- Recycler;
-- Import/Approval;
-- Word/Excel;
-- Backup/Restore;
-- Desktop/Portable data workflows.
-
-Интернет се използва за:
-
-1. официална проверка/изтегляне на update;
-2. изрично подаване на лицензна заявка, проверка на състоянието и обмяна на еднократен код за активация през конфигурирания официален защитен канал;
-3. доброволна opt-in crash/error диагностика, когато е включена.
-
-Няма задължителен cloud account за normal bank/generator workflow.
-
----
-
-## Лицензиране и активация в ArsExam 4.0.0
-
-ArsExam 4.0.0 е безплатен, но изисква валиден подписан лиценз след одобрение от автора. Индивидуалният лиценз разрешава едно устройство, а институционалният — едно или две изрично посочени устройства. Стандартният срок е 12 месеца; предупреждението за подновяване започва 30 дни преди изтичане и има 7-дневен гратисен период за иначе валиден инсталиран лиценз. Не е въведена цена, платен абонамент или такса за подновяване.
-
-Попълнете заявката с имената, длъжността, институцията, града, контактите и мотивирания текст; приемете отделно EULA и потвърдете, че сте прочели Политиката за поверителност. Изпращането става само чрез „Подай заявка за активация“. След това използвайте „Провери състоянието“ и получения за конкретното устройство еднократен код. Подаването не е автоматично одобрение. Може да се копира/запази локална заявка или да се импортира подписан лиценз от файл.
-
-За институционални две устройства авторът трябва да получи двата кода на устройства преди издаване; всяко има отделен еднократен код. Portable/Restore/пренасяне на данни не активира друг компютър. При смяна на устройство или подновяване изпратете заявка за преглед. Валиден инсталиран лиценз позволява основната офлайн работа.
-
-# 5. Desktop и Portable
-
-## Desktop
-
-Desktop installation държи versioned application binaries отделно от persistent user data.
-
-## Portable
-
-Portable режимът позволява пренасяне на приложението и неговия portable data root между поддържани Windows x64 компютри.
-
-Типичните persistent категории включват:
-
-- `Data`;
-- `Media`;
-- `Import`;
-- `Export`;
-- `Backup`;
-- `Templates`;
-- `Documentation`.
-
-> [!CAUTION]
-> Portable storage не означава автоматично, че всеки Media файл е индивидуално криптиран. При чувствителен removable носител използвайте подходяща OS/storage защита.
-
----
-
-# 6. Локална сигурност
-
-ArsExam използва локален защитен профилен/storage модел.
-
-Основни принципи:
-
-- plaintext profile password не се съхранява;
-- profile password не е директно database encryption key;
-- local security envelope/master-key state отделя authentication от data encryption;
-- няма universal server-side master password/backdoor.
-
-## Recovery Key
-
-Recovery Key е локален single-use forgotten-password credential.
-
-Той:
-
-- не съдържа паролата;
-- не е Backup password;
-- не е transfer code;
-- след успешно recovery се инвалидира и се издава нов.
-
----
-
-# 7. Backup и Restore
-
-ArsExam използва защитен `.arsexam-backup` формат.
-
-Backup credential е отделен от profile password и Recovery Key.
-
-```mermaid
-flowchart LR
-    A[Manual Backup] --> B[Authenticated protected package]
-    B --> C{Restore}
-    C -- Replace --> D[Safety Backup -> Replace]
-    C -- Merge --> E[Safety Backup -> Conservative Merge]
-    D --> F[Validation]
-    E --> F
-    F -- Failure --> G[Rollback attempt]
-    F -- Success --> H[Completed]
-```
-
-### Replace
-
-Заменя приложимото work state след validation и Safety Backup.
-
-### Merge
-
-Добавя допустимото incoming content консервативно, като пази current target state за съществуващи записи и блокира конфликтни methodology/file definitions преди mutation.
-
----
-
-# 8. Актуализации
-
-ArsExam използва официалните manifests в това repository.
-
-```mermaid
-flowchart LR
-    A[Official manifest] --> B[HTTPS download]
-    B --> C[Version + channel + SHA-256 validation]
-    C --> D[Versioned deployment / Setup]
-    D --> E[Launcher health check]
-    E -- PASS --> F[Нова active версия]
-    E -- FAIL --> G[Rollback към healthy версия]
-```
-
-Потребителските `Data/Media/Import/Export/Backup` не са normal application update payload.
-
-Подробно описание: [`update/README.md`](update/README.md).
-
----
-
-# 9. Privacy и diagnostics
-
-Crash/error diagnostics са:
-
-- OFF по подразбиране;
-- opt-in;
-- без usage/behavior analytics;
-- ограничени до минимизиран technical payload според consent contract-а.
-
-Основните банки, генератори, Recycler и Backup/Restore не изискват remote diagnostics.
-
----
-
-# 10. Системни изисквания
-
-Официалната native Desktop линия е предназначена за:
-
-- Windows 10 / Windows 11;
-- x64 архитектура.
-
-Self-contained distribution не изисква предварително инсталиран .NET Runtime.
-
-Няма runtime зависимост от Python, Node.js, npm, Microsoft Access, browser или localhost server.
-
----
-
-# 11. Текущ официален статус
-
-| Канал | Версия | Статус |
-|---|---:|---|
-| Stable | 4.0.0 | Официална текуща версия; изтегляне от Releases и Stable manifest. |
-| Previous Stable | 3.9.8 | Предходна версия; файловете ѝ се запазват. |
-| Withdrawn | 3.8.0 | WITHDRAWN / DO NOT INSTALL |
-| Test | 4.0.0 | Преход към лицензирания Stable чрез официалния Setup; няма публична предварителна версия. |
-
-Текущият Stable се определя от update/stable-manifest.json и latest non-draft/non-prerelease release, обвързани с immutable source identity.
-
-## ArsExam 4.0.0 — официална версия
-
-[Официално издание v4.0.0](https://github.com/pgnev/arsexam-releases/releases/tag/v4.0.0), публикувано на **08.10.2026 г., 08:02:01 ч. (Europe/Sofia)** / `2026-10-08T05:02:01Z`.
-
-- [Windows Setup](https://github.com/pgnev/arsexam-releases/releases/download/v4.0.0/ArsExam_Setup_4.0.0_win-x64.exe).
-- [Update ZIP](https://github.com/pgnev/arsexam-releases/releases/download/v4.0.0/ArsExam_Update_4.0.0_win-x64.zip).
-- Минимална поддържана версия: **3.0.1**; `requiresInstaller=true` — обновяването се извършва чрез пълния Setup.
-- Setup и програмните файлове са **UNSIGNED с Authenticode**. Лицензните файлове използват отделен ECDSA подпис.
+- [Setup за Windows x64](https://github.com/pgnev/arsexam-releases/releases/download/v4.1.1/ArsExam_Setup_4.1.1_win-x64.exe).
+- [Update ZIP](https://github.com/pgnev/arsexam-releases/releases/download/v4.1.1/ArsExam_Update_4.1.1_win-x64.zip).
 
 | Файл | SHA-256 |
 |---|---|
-| ArsExam_Setup_4.0.0_win-x64.exe | F65A7561CB280D791E9754396E094D18586C643B78D387BC5F5BECB499EFA8CA |
-| ArsExam_Update_4.0.0_win-x64.zip | 52B9374020E0DBF77C825EFDF415A0E2268107F490E5F6CBD6A335E8F9C510CB |
+| ArsExam_Setup_4.1.1_win-x64.exe | A1FA607CAC04794E17A8B5A1977E907955416A902065B61FC11164D672159DF1 |
+| ArsExam_Update_4.1.1_win-x64.zip | 32CEBC650F755C90FD965A60495DD589CF239F5EFFC74D0B8C4DAD33E538F80D |
 
-Каноничен source commit: `8d9d6740f9dd7bd335351526d39838d3f452e14f`; tree: `9e841978d6b4b467b2c9e0c65027e8180ae14e08`.
+Setup и програмните файлове на това издание са **UNSIGNED с Authenticode**. HTTPS и SHA-256 проверяват целостта; те не са издателски подпис. ECDSA подписът на лицензния файл е отделен механизъм. Подписването се проверява и обявява отделно за всяко издание.
 
-Проверки: 19 release gates, 1385 .NET теста (един съществуващ opt-in skip), 58 licensing JavaScript теста; реални Desktop/Portable инсталации, обновяване от 3.9.8 и преинсталация със запазване на данните; лицензиране и Sentry диагностика — PASS. Собственикът прие документите от окончателната инсталация преди публикуване.
+`requiresInstaller=true`: обновяването се извършва чрез пълния Setup. Минимална поддържана версия на update канала: **3.0.1**. Не заменяйте Data/Media папки с update payload и не използвайте Store MSIX като GitHub Setup.
 
-Microsoft Store остава отделен канал със Store-managed updates. Публикуване на GitHub Desktop/Portable не означава автоматично одобрено Store издание.
+## Системни изисквания и режими
 
-## ArsExam 3.9.8 — предходна официална версия
+Поддържат се Windows 10/11 x64. Официалният self-contained пакет не изисква отделно инсталиран .NET Runtime, Python, Node.js, Microsoft Access или localhost услуга.
 
-Published 02.10.2026,16:10:16 UTC, immutable v3.9.8 source commit 050227888af9e46fb9f4705ad960966a124e9cc8, tree 8716b530c638cfbc1f8047f419623460bf49513d.
-Historical Setup SHA-256 347F6DFD219BCE068842AAADEFF1D1BB45BA3A69FC6D5D0193301F76F9DB8CE9; historical Update SHA-256 1281663254B73124BC80F482B72E45ED978538794BC834D42B241EB93E774C78. That release was unsigned and requiresInstaller=true; its assets are not changed by this transition.
+**Desktop** държи програмните файлове отделно от постоянните потребителски данни и се стартира чрез Launcher. **Portable** използва самостоятелна папка за приложение и данни. Пренасянето на Portable папка не лицензира нов компютър.
 
-## ArsExam 3.9.6 / 3.9.5 / 3.9.4 / 3.9.3 — HISTORICAL STABLES
+## Лиценз и първи старт
 
-Официалните releases `v3.9.6`, `v3.9.5`, `v3.9.4` и `v3.9.3` остават immutable historical Stable evidence; ArsExam 3.9.8 е публикуван на 02.10.2026 г. и се пази като immutable historical evidence.
+При първи старт подайте мотивирана заявка или активирайте одобрен лиценз. Индивидуален лиценз разрешава едно устройство; институционален — едно или две изрично посочени устройства. Институционалната принадлежност се проверява при кандидатстване. Стандартният срок е 12 месеца, освен ако подписаният лиценз определя друг срок. Предупреждението започва 30 дни преди изтичане; 7-дневният гратисен период е само за иначе валиден лиценз. Подновяване и смяна на устройство изискват нов преглед.
 
-## ArsExam 3.9.2 — HISTORICAL STABLE
+Копиране на лицензен файл, Backup или Portable папка не добавя разрешено устройство. След достъп до основната програма създайте защитения локален профил и запазете Recovery Key на сигурно място.
 
-Официален release: **`v3.9.2`**  
-Публикуван: **15.09.2026, 17:10:38 UTC**
+4.1.1 добавя защитено възстановяване на оригиналната заявка след прекъсване и на същия подписан лиценз след изгубен отговор от активация. Новите възможности се отнасят за съответната инсталирана версия; вижте [техническите бележки](TECHNICAL-REFERENCE-4.1.1.md).
 
-Основни assets:
+## Имейл известия и отнемане
 
-- `ArsExam_Setup_3.9.2_win-x64.exe`;
-- `ArsExam_Update_3.9.2_win-x64.zip`.
+Доброволните известия по заявката и за изтичане са OFF по подразбиране. В 4.1.1 се включват след изрично съгласие и потвърждение на адреса и имат статус и отказ в приложението. Този канал не разрешава маркетинг.
 
-### SHA-256
+Служебното известие при изрично отнемане на подписан лиценз е отделно от доброволните напомняния. Онлайн услугата може да предаде едно такова писмо чрез Brevo независимо от отметката. При неопределен резултат няма автоматично повторение; приемане от доставчика и потвърдена доставка са различни събития. Писмото не съдържа активационен код, лицензен подпис или идентификатор на устройство.
 
-- Setup: `07C25F4226CAD475134361EA79A22B648F464AFDF3945B9A53C97C9A1A7214F0`
-- Update ZIP: `1CF8F05511079CB7BB776237F0DFB12483677BFA66736E57725AC3E766D0710E`
+Owner „Изтрий“ обработва допустими неиздадени заявки. Издадени права се отнемат чрез „Отнеми всички лицензи“ с отделно потвърждение и възможност за заличаване на заявката. Минималният регистър и одит остават. Приложението 4.1 проверява отнемането онлайн; постоянно офлайн устройство не може да получи ново сървърно отнемане. Вижте [поверителност](PRIVACY_POLICY_BG.md) и [поддръжка](SUPPORT.md).
 
-### Source/release binding
+## Банки и генериране
 
-- canonical source: `pgnev/arsexam-source`;
-- immutable source tag: `v3.9.2`;
-- exact tagged source commit: `6b772dd2281d486fdd71f06e848e8ed4c92a2959`;
-- exact source tree: `a1f286ca0af99834a5f5c05a2e6a965c68f982af`;
-- exact-tag Windows qualification: PASS;
-- full regression and Module 1 solver stress: included in Stable qualification;
-- WPF validation: **84/84 PASS**;
-- final exact-byte Windows acceptance: PASS;
-- Sentry E2E: PASS;
-- real 3.9.1 → 3.9.2 updater handoff acceptance: PASS;
-- Stable manifest / public release / asset SHA-256 reconciliation: PASS;
-- Authenticode signing: **NO — intentionally unsigned**.
+ArsExam поддържа Модул 1, Модул 2.1, Модул 2.2 и Модул 3, с търсене, филтриране, редакция, архивиране и преглед. Workflow статусът е отделен от допустимостта за генератор. Включват се само одобрени, допустими и структурно валидни материали според съответния модул.
 
----
+Методологиите задават разпределение и оценяване. Заводската ArsExam Standard 1.0 е защитена; експертните корекции и основанията се пазят. Генераторите използват конкретните нива Лесно / Средно / Трудно. Обобщеното „Всички“ в readiness не е ниво за генериране. Генерираните варианти и ключове подлежат на професионален преглед.
 
-## ArsExam 3.8.0 — WITHDRAWN
+## Recycler, Import, Word/Excel и медии
 
-Официалният release `v3.8.0` се пази immutable за audit/history, но **не е текущ Stable и не трябва да бъде инсталиран или използван като update target**.
+Recycler структурира собствени исторически Word/PDF/изображения/аудио материали за преглед. Източници, асоциации и резултати имат проследимост. Всеки обработен материал получава видимо състояние, доказателство или окончателен резултат; не се допуска тихо отпадане.
 
-> [!CAUTION]
-> При реална Windows startup acceptance версия 3.8.0 не създаде изисквания launcher health acknowledgement в допустимия прозорец. ArsExam Launcher правилно задейства automatic rollback към предишната healthy версия и възстанови резервното копие на данните. Историческият failure остава част от release provenance; текущият Stable authority се определя от `update/stable-manifest.json` и последния официален Stable release.
+Atomic Recycler пази самостоятелни source snapshots. Непълни и противоречиви комплекти остават за преглед. Ръчната асоциация на медия или ключ не одобрява автоматично задачата. Модул 2.1 различава официалния ключ, а Модул 2.2 запазва контекста на визуалния ресурс. Поддържат се Word/DOCX документи, Excel/XLSX обмен и медии според съответния модул.
 
-Исторически assets:
+## Данни, Backup и Restore
 
-- `ArsExam_Setup_3.8.0_win-x64.exe`;
-- `ArsExam_Update_3.8.0_win-x64.zip`;
-- `update-manifest.json`.
+Банките използват защитено SQLite съхранение и отделен локален профил. Manual Backup създава удостоверен архив. Преди Replace или Merge Restore се изпълняват валидация и Safety Backup. Replace заменя приложимото състояние; Merge добавя допустимото съдържание консервативно и блокира конфликтни дефиниции преди промяна. При неуспех се изпълнява предвиденият rollback.
 
-### SHA-256
+Обновяването пази постоянните Data/Media/Import/Export/Backup папки. Пазете независимо резервно копие преди обновяване или преместване. Архивите и Recovery Key не предоставят нов лиценз.
 
-- Setup: `116AE12099572FDE26D4E406043E7316355A7B787F0945A23D18A5401C211380`
-- Update ZIP: `2DC6DA5F12861CC4874EE40EA92F856B1FDCD40672D9F1D2902949DA28696C4F`
+## Поверителност, съдържание и диагностика
 
-### Source/release binding
+Официалната дистрибуция не включва предварително заредени реални, непубликувани или поверителни материали за ДЗИ по Теория на професията „Музикално изкуство“. Упълномощени потребители въвеждат собствено съдържание. Приложението подпомага преподавателя и не заменя официалните правила или професионалната преценка.
 
-- canonical source: `pgnev/arsexam-source`;
-- immutable source tag: `v3.8.0`;
-- tagged source SHA: `01edd1aaa88a6ce650a5250d73e5479356b783ac`;
-- validated Stable candidate SHA: `6e2891987479edd81ee7133f2e5c426bbdb10ae5`;
-- regression suite: **746 passed / 0 failed / 0 skipped**;
-- update stage/verify: **PASS**;
-- production startup health acceptance: **FAIL — automatic rollback observed on Windows**.
+Crash/error diagnostics са OFF по подразбиране, с изрично съгласие и ограничени технически данни. Не се извършва behavioral usage analytics. Настроеният Sentry канал използва Germany ingest; Launcher няма собствен дистанционен диагностичен клиент. Вградените EULA, privacy и third-party notices се отнасят за действителната инсталирана версия. Онлайн поправка не променя вече публикуван инсталатор.
 
----
+## Документация и поддръжка
 
-# 12. ArsExam 3.9.1 — Historical Stable
+- [Техническа справка 4.1.1](TECHNICAL-REFERENCE-4.1.1.md), [Store бележки](STORE-RELEASE-NOTES-4.1.1.md), [проверка на каналите](DOCS_FRESHNESS.md), [обновяване](update/README.md).
+- [EULA](EULA_BG.txt), [privacy](PRIVACY_POLICY_BG.md), [third-party notices](THIRD_PARTY_NOTICES.md), [license](LICENSE.md), [security](SECURITY.md) и [поддръжка](SUPPORT.md).
 
-Официален historical release: **`v3.9.1`**
+Поддръжка: **support@arsexam.com**. Изпращайте минимални стъпки, версия и Support ID. Не изпращайте profile password, Recovery Key, Backup password, activation/transfer/retry credentials, цели бази или ненужни изпитни и лични данни.
 
-Основни assets:
-
-- `ArsExam_Setup_3.9.1_win-x64.exe`;
-- `ArsExam_Update_3.9.1_win-x64.zip`.
-
-## SHA-256
-
-- Setup: `634A702F0AB6C7FB010F3D55C15D542ABC490CB2C863B153B51BEC68DE14B1D8`
-- Update ZIP: `94F413E8E6BC1E60A9D5413907F7E1F361F735C98CF3C514B5222A933CBE30E9`
-
-## Source/release binding
-
-- canonical source: `pgnev/arsexam-source`;
-- immutable source tag: `v3.9.1`;
-- exact tagged source commit: `6ba036ae5faf8bdd0aa06bb45e9dd405e48b7629`;
-- exact source tree: `a8216aa68c07b8f75c8723a5cca07b92ee382a44`;
-- Authenticode signing: **NO**.
-
-3.9.1 остава immutable historical release evidence и не е current Stable след публикуването на 3.9.2.
-
----
-
-# 13. Какво включва 3.9.2
-
-ArsExam 3.9.2 е bounded maintenance update върху 3.9.1. Той запазва установеното exam/data поведение и добавя:
-
-- корекция в Модул 1, при която четирите задължителни слухови теми отразяват реалната candidate availability: при 0 допустими въпроса индикаторът е unchecked, а при поне 1 допустим въпрос се включва автоматично;
-- запазване на правилото, че и четирите слухови теми остават задължителни за генератора;
-- refresh на generator availability след промени в банката без ръчно toggle-ване на тези индикатори;
-- release-tooling hardening за Test/Stable feed promotion, exact-tag qualification и owner-gated publication;
-- exact-tag Windows qualification, final exact-byte acceptance, Sentry E2E и реално 3.9.1 → 3.9.2 updater handoff acceptance.
-
-Всички публикувани 3.9.2 binaries са обвързани с immutable `v3.9.2` source tag и authoritative SHA-256 стойности.
-
----
-
-# 14. Code signing — важно за Windows предупрежденията
-
-**ArsExam 3.9.2 Stable е публикуван без Authenticode подпис.**
-
-Поради това Windows/SmartScreen може да покаже предупреждение като **Unknown Publisher**, в зависимост от локалната policy и reputation state.
-
-Това трябва да се различава от integrity проверката:
-
-- HTTPS защитава transport path-а;
-- SHA-256 позволява сравнение с authoritative release hash;
-- Authenticode удостоверява publisher identity чрез code-signing certificate.
-
-За 3.9.2 третият механизъм не е наличен. Signing state винаги е release-specific и не трябва да се предполага за бъдещи версии.
-
----
-
-# 15. Как да изтеглите безопасно
-
-1. Отворете официалната секция **Releases** на `pgnev/arsexam-releases`.
-2. Използвайте версията, посочена в `update/stable-manifest.json` като текущ Stable.
-3. За нормална инсталация използвайте съответния `ArsExam_Setup_<version>_win-x64.exe`.
-4. При необходимост сравнете SHA-256 с публикуваните authoritative данни.
-5. Не инсталирайте release, който е маркиран като Withdrawn, дори assets да са запазени за audit/history.
-6. Не заменяйте ръчно persistent `Data`/`Backup` директории с файлове от непознат source.
-
-За проверка на SHA-256 на текущия Stable в PowerShell:
-
-```powershell
-Get-FileHash .\ArsExam_Setup_4.0.0_win-x64.exe -Algorithm SHA256
-```
-
-Очакван SHA-256 за официалния 4.0.0 Setup:
-
-```text
-F65A7561CB280D791E9754396E094D18586C643B78D387BC5F5BECB499EFA8CA
-```
-
----
-
-# 16. Какво да направите при update/network проблем
-
-При временен network failure:
-
-- текущата working installation трябва да остане работеща;
-- persistent user data не трябва да се променят;
-- може да повторите update check по-късно;
-- официалният fallback е Setup asset-ът от текущия Stable release в това repository.
-
-Не изтривайте ръчно локалните банки или Backup файлове само защото update check е неуспешен.
-
----
-
-# 17. Repository роли
-
-- **`pgnev/arsexam-releases`** — единствен официален публичен binary/update authority;
-- `pgnev/arsexam-source` — private canonical source/development repository;
-- legacy/historical repositories не са текущият Desktop release authority.
-
-Публикуваните release assets са immutable по release policy. Ако след публикация бъде открит дефект, корекцията трябва да бъде публикувана с **нова версия**, а не чрез тиха подмяна на стария binary.
-
----
-
-# 18. Поддръжка
-
-За техническа поддръжка:
-
-**support@arsexam.com**
-
-Не изпращайте по email:
-
-- profile password;
-- Recovery Key;
-- Backup password;
-- transfer code;
-- цели databases или ненужни изпитни/лични данни.
-
-Споделяйте само минималната информация, необходима за диагностика.
-
----
-
-# 19. Най-важното накратко
-
-> **ArsExam Desktop е локална професионална система за изпитни банки, Recycler/Import, approval workflow, генератори, Word/Excel обмен и защитено Backup/Restore. Това repository е единственият официален публичен източник за неговите binaries и update manifests. Текущият Stable се определя от съгласуваните официален release и Stable manifest.**
-
-## Граница на съдържанието
-
-Софтуерът ArsExam не съдържа, не разпространява и не предоставя достъп до служебно, поверително или защитено съдържание, свързано с ДЗИ по Теория на професията „Музикално изкуство“. Програмата представлява единствено софтуерен инструмент за създаване, редактиране, организиране и управление на съдържание, въведено или създадено от надлежно оторизирани потребители.
-
-Публично разпространяваният изпълним софтуер не включва база данни с реални служебни изпитни материали, задачи, отговори или други защитени данни.
+Публикуваните tags и assets остават неизменяеми; корекция се издава с нова версия. **3.8.0 е WITHDRAWN / DO NOT INSTALL.** Изданията преди 4.0.0 са архивирани като owner drafts; 4.0.0 остава непроменено публично историческо издание; вече изтеглени копия не могат да се отнемат дистанционно. Copyright © 2026 Petko Ganev. All rights reserved.

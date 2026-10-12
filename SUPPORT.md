@@ -1,6 +1,6 @@
 # ArsExam Support
 
-Revision: 8 October 2026 — ArsExam 4.0.0 Stable
+Revision: 8 October 2026 — ArsExam 4.1.1 Stable
 
 ## Official contact
 
@@ -10,9 +10,9 @@ For normal product support, prefer the in-application **Help → Contact support
 
 ## Current supported public line
 
-The current official Stable release is **ArsExam 4.0.0**. The authoritative current-version source is `update/stable-manifest.json` together with the latest non-draft, non-prerelease public release in this repository.
+The current official Stable release is **ArsExam 4.1.1**. The authoritative current-version source is `update/stable-manifest.json` together with the latest non-draft, non-prerelease public release in this repository.
 
-ArsExam 4.0.0 signing state is UNSIGNED (no Authenticode signature); download only from the official release and verify SHA-256 against the Stable manifest/release metadata.
+ArsExam 4.1.1 signing state is UNSIGNED (no Authenticode signature); download only from the official release and verify SHA-256 against the Stable manifest/release metadata.
 
 **ArsExam 3.8.0 remains WITHDRAWN / DO NOT INSTALL.** ArsExam 3.9.6, 3.9.5 and 3.9.4 are previous Stable releases and remain immutable historical release evidence.
 
@@ -35,7 +35,7 @@ Do **not** send by ordinary e-mail plaintext profile passwords, Recovery Keys, B
 
 Support should never ask for your old plaintext password, Recovery Key, Backup password or Transfer code.
 
-## Licensing and activation in 4.0.0
+## Licensing and activation in 4.1.1
 
 ArsExam is free but license-controlled. Individual licenses authorize one device; Institutional licenses authorize one or two explicitly listed devices. Standard new-license validity is 12 months, renewal warning begins 30 days before expiry, and an otherwise valid installed license has a 7-day grace period. Installation, Portable copying, Restore and data transfer do not authorize a new device.
 
@@ -43,7 +43,7 @@ Submit the explicit activation request with city and separate EULA/Privacy ackno
 
 ## ArsExam 4.1.1 — Microsoft Store и отнемане на лиценз (12.10.2026)
 
-4.1.1.0 е **подаден Store кандидат**, а не отделно потвърдено публично GitHub Stable издание. Актуалният публичен GitHub Stable Setup/Update остава 4.0.0 до отделно издание с проверени активи и SHA-256. Проверявайте реалния статус на Microsoft Store в Partner Center; не изтегляйте непубликувани MSIX от неофициални сайтове.
+GitHub Stable 4.1.1 е публикуван с квалифицирани Setup/Update файлове. Microsoft Store Submission 3 остава **In certification**, с публикуване на изчакване; активният Store пакет на Submission 2 е 3.9.8.0. Проверявайте реалния статус на Microsoft Store в Partner Center; не изтегляйте непубликувани MSIX от неофициални сайтове.
 
 Ако лицензът Ви бъде отнет, приложението може да установи това при следващата успешна онлайн проверка. Продуктовото отнемане и доброволното напомняне за изтичане са различни събития: за отнемане на вече издаден лиценз се изпраща еднократно **служебно съобщение** до адреса от одобрената заявка, независимо от отметката за доброволни известия. Съобщението не съдържа лицензни ключове или други тайни. При невъзможно изпращане или неопределен резултат не се гарантира доставка и не се прави автоматичен повторен опит.
 
@@ -61,11 +61,11 @@ After successful recovery, the used Recovery Key becomes invalid and a new indep
 
 Generator eligibility is a separate fail-closed condition and should not be inferred solely from a visible workflow state. When reporting generator-readiness issues include the module, selected difficulty band, active methodology where visible, relevant theme/topic and the readiness explanation shown by ArsExam.
 
-For Module 1 listening topics, availability depends on approved, generator-eligible questions in the selected difficulty band; a draft/unapproved record alone is not sufficient. In ArsExam 4.0.0 the four mandatory listening-topic indicators reflect actual candidate availability and are not manually toggled.
+For Module 1 listening topics, availability depends on approved, generator-eligible questions in the selected difficulty band; a draft/unapproved record alone is not sufficient. In ArsExam 4.1.1 the four mandatory listening-topic indicators reflect actual candidate availability and are not manually toggled.
 
 ## Bank search / Bank Quality assistance
 
-ArsExam 4.0.0 retains checkbox multi-select bank filters in Modules 1–3. OR applies inside one categorical filter and AND applies across different filters; Module 1 properties are cumulative/AND. If reporting a filter issue, include the module and the exact selected filters, but do not send confidential bank content unless strictly necessary.
+ArsExam 4.1.1 retains checkbox multi-select bank filters in Modules 1–3. OR applies inside one categorical filter and AND applies across different filters; Module 1 properties are cumulative/AND. If reporting a filter issue, include the module and the exact selected filters, but do not send confidential bank content unless strictly necessary.
 
 For Bank Quality edit/repair issues include the visible issue class, the attempted action and the fail-closed validation message. Do not bypass review gates by editing databases directly.
 
@@ -83,20 +83,20 @@ Supported updater and migration paths are designed to preserve persistent work d
 
 ## Update assistance
 
-Current Stable feed: `update/stable-manifest.json`; version 4.0.0 requires the full Setup (`requiresInstaller=true`), with minimum supported version 3.0.1.
+Current Stable feed: `update/stable-manifest.json`; version 4.1.1 requires the full Setup (`requiresInstaller=true`), with minimum supported version 3.0.1.
 
-Official 4.0.0 assets:
+Official 4.1.1 assets:
 
-- `ArsExam_Setup_4.0.0_win-x64.exe` — SHA-256 `F65A7561CB280D791E9754396E094D18586C643B78D387BC5F5BECB499EFA8CA`;
-- `ArsExam_Update_4.0.0_win-x64.zip` — SHA-256 `52B9374020E0DBF77C825EFDF415A0E2268107F490E5F6CBD6A335E8F9C510CB`.
+- `ArsExam_Setup_4.1.1_win-x64.exe` — SHA-256 `F65A7561CB280D791E9754396E094D18586C643B78D387BC5F5BECB499EFA8CA`;
+- `ArsExam_Update_4.1.1_win-x64.zip` — SHA-256 `52B9374020E0DBF77C825EFDF415A0E2268107F490E5F6CBD6A335E8F9C510CB`.
 
 If automatic update fails because of a temporary DNS/network problem, the current installation should remain unchanged. Retry after connectivity recovers or use the official Setup from this repository.
 
-The current Test feed is separate and currently resolves to **3.9.2-rc.2**. It is a prerelease/testing channel and must not be treated as Stable authority.
+The withdrawn Test feed retains channel=test for existing clients and directs them to the published Stable 4.1.1 full Setup. It offers no separate current prerelease and does not replace Stable authority.
 
 ## Crash/error diagnostics
 
-Crash/error diagnostics are opt-in and OFF by default. ArsExam 4.0.0 uses diagnostics consent 4.0 and does not send usage/behavior analytics. When enabled/configured, minimized remote delivery is restricted to the approved Sentry EU/DE ingest configuration. See `PRIVACY_POLICY_BG.md` for the current contract.
+Crash/error diagnostics are opt-in and OFF by default. ArsExam 4.1.1 uses diagnostics consent 4.0 and does not send usage/behavior analytics. When enabled/configured, minimized remote delivery is restricted to the approved Sentry EU/DE ingest configuration. See `PRIVACY_POLICY_BG.md` for the current contract.
 
 ## Security and licensing
 
