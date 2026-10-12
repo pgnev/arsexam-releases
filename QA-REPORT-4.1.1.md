@@ -2,6 +2,8 @@
 
 Квалифицирани са конкретните финални файлове, описани по-долу. Реалната GitHub публикация и независимо повторно изтеглените Setup/Update са потвърдени. Microsoft Store е отделен канал.
 
+**Допълнение след публикацията:** потвърден е дефект в маршрута активация → Privacy → Support. Предпубликационните проверки по-долу не са включвали тази команда. Публикуваните 4.1.1 файлове съдържат дефекта; отделно провереният кандидат с поправка още не е публикуван. Записаните PASS резултати се отнасят до описания им обхват.
+
 ## Изходен код и артефакти
 
 - Частен източник: `pgnev/arsexam-source`.
@@ -49,6 +51,26 @@ MSIX входът остава unsigned и непроменен. За WACK и St
 Инсталационните сценарии проверяват синтетични постоянни файлове и лицензна папка; не се представят за активация с реален лиценз или за тест върху клиентска база. Криптографската политика и реалните HTTP/DPAPI/отнемане са проверени отделно. Main Desktop/Launcher/Licensing source tree съвпада с по-рано квалифицирания `406d4624...`; неговите стари GUI отчети остават исторически, а не acceptance на новите bytes.
 
 Raw baseline Setup 3.9.8 SHA-256: `347F6DFD219BCE068842AAADEFF1D1BB45BA3A69FC6D5D0193301F76F9DB8CE9`. Baseline MSIX 3.9.8.0: `5DAEBA3E31C7E5EA9E2BFF44EFB361D01F2A9E6BA30435C893435C72F63264F3`. Baseline MSIX 4.1.0.0: `9E0D81085A67A6585F712082AC74AF2F87C57FBC1385BF2F5E45B9238381725B`.
+
+## Дефект в поддръжката, потвърден след публикацията
+
+На 12.10.2026 г. реалният Store лог показа `NullReferenceException` в `SupportWindow..ctor` при активация → Политика за поверителност → Връзка с поддръжката. `App.Diagnostics`, diagnostics settings и update settings се създават след лицензния gate, а старият конструктор ги ползва преди това. Същият дефект е потвърден в source на GitHub 4.1.1. За контакт при тази грешка използвайте **support@arsexam.com** директно, без изискване за Support ID или ZIP.
+
+Поправката в частния [source PR #270](https://github.com/pgnev/arsexam-source/pull/270) използва локални настройки преди създаването на нормалните услуги, без стартиране на транспорт или промяна на съгласието. Прозорецът и ZIP отчитат само съгласие за текущата версия на consent и съответния delivery target. Точно проверен implementation commit: `f31a4c3d1730f7336d1402edee300959adbaa02d`, tree `3c8eaea55b49fafe55e3485fc6ac627a4881e1ea`.
+
+| Отделна проверка на поправката | Реален резултат |
+|---|---|
+| Нов реален WPF window regression преди поправката | FAIL със същия constructor null reference |
+| Consent-target regression преди поправката | 2 FAIL / 2 PASS |
+| Фокусирани support тестове след поправката | 9 PASS, 0 FAIL, 0 SKIP |
+| Пълна .NET Release регресия | 1577 PASS, 0 FAIL, 2 съществуващи conditional skips; общо 1579 |
+| Protected Release кандидат | Obfuscar 2.2.50, bundle/protected input проверен; ProductVersion `4.1.1+f31a4c3d1730f7336d1402edee300959adbaa02d` |
+| Реален UI преди активация | Privacy → Support, диагностичен Preview и създаване на локален ZIP PASS |
+| Затваряне и локално състояние | Нормално затваряне, completed managed cleanup/base.OnExit, процесът приключи; consent OFF, без Sentry cache или нов ERROR; числовият exit code не беше достъпен |
+
+SHA-256 на непубликувания кандидат `ArsExam.exe`: `020B6CA183495947995D64D71455A7B2C5AC4671B47B31824ACB79C3A0A7E45C`; 187469722 bytes. Реалният UI ZIP съдържа само `README.txt`, `recent-crash-reports.txt`, `support-summary.txt`; неговият SHA-256 е `F2A41F6EED70DF3B24A341937DC0C5849F4C86B903A03CE019A2480495DF1BDC`.
+
+Тези резултати принадлежат на **непубликувания кандидат**, отделно от квалифицираните 4.1.1 bytes от `38a2e0c…`. Те не означават обновена Store инсталация или ново преминаване на WACK, Setup/upgrade matrix, Node/Worker регресии и двата conditional теста. Restore използва кеширани пакети с изключен NuGet audit; не се твърди нов dependency security audit. Не е изпращана заявка/имейл или променяна продукционна D1. Подробният [source correction QA](https://github.com/pgnev/arsexam-source/blob/fix/preactivation-support-20261012/Documentation/ARSEXAM_PREACTIVATION_SUPPORT_FIX_QA_20261012.md) изисква достъп до частното хранилище.
 
 ## Partner Center и продукционна услуга
 

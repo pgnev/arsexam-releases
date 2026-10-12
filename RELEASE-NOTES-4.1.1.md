@@ -23,6 +23,10 @@ All 19 Windows Release gates passed. Full .NET: 1572 passed, zero failed, two co
 
 The separately built final MSIX passed independent full WACK: overall PASS, 23/24 tests passed, zero required failures, one optional **Blocked executables** failure. Actual Store 3.9.8.0→4.1.1.0 and 4.1.0.0→4.1.1.0 upgrades preserved synthetic Data/Media/Licensing and launched/closed normally. QA signing was confined to the disposable Sandbox; it does not validate a Microsoft Store signature. See the [QA report](QA-REPORT-4.1.1.md) for exact evidence scopes, hashes and historical/superseded runs.
 
+## Known issue discovered after publication
+
+Before license activation, **Privacy policy → Contact support** fails to open the support window because it accesses services that are initialized only after the license gate. Use **support@arsexam.com** directly; no Support ID or diagnostic ZIP is required. The source correction has passed separate regressions and protected UI checks in an **unpublished candidate**; published v4.1.1 files remain affected. The original release checks did not exercise this route. See the [QA supplement](QA-REPORT-4.1.1.md#дефект-в-поддръжката-потвърден-след-публикацията).
+
 ## Microsoft Store remains separate
 
 Partner Center was independently read immediately before this GitHub publication: Submission 3 **In certification**, Publishing **Not started**, held until **Publish now**. Active Submission 2 package was 3.9.8.0. The new local QA MSIX was not uploaded, certification was not cancelled and Publish now was not pressed. This GitHub release does not announce a certified or published Store 4.1.1.

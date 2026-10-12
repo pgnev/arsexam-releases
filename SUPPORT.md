@@ -1,12 +1,14 @@
 # ArsExam Support
 
-Revision: 8 October 2026 — ArsExam 4.1.1 Stable
+Revision: 12 October 2026 — ArsExam 4.1.1 Stable
 
 ## Official contact
 
 **support@arsexam.com**
 
 For normal product support, prefer the in-application **Help → Contact support** flow when available.
+
+**Known issue in published 4.1.1:** before license activation, **Privacy policy → Contact support** fails to open the support window. Contact **support@arsexam.com** directly; a Support ID or diagnostic ZIP is not required when this window cannot open. A separately tested source fix has not yet been distributed in a published installer. See the [post-publication QA supplement](QA-REPORT-4.1.1.md#дефект-в-поддръжката-потвърден-след-публикацията).
 
 ## Current supported public line
 
@@ -87,8 +89,10 @@ Current Stable feed: `update/stable-manifest.json`; version 4.1.1 requires the f
 
 Official 4.1.1 assets:
 
-- `ArsExam_Setup_4.1.1_win-x64.exe` — SHA-256 `F65A7561CB280D791E9754396E094D18586C643B78D387BC5F5BECB499EFA8CA`;
-- `ArsExam_Update_4.1.1_win-x64.zip` — SHA-256 `52B9374020E0DBF77C825EFDF415A0E2268107F490E5F6CBD6A335E8F9C510CB`.
+- `ArsExam_Setup_4.1.1_win-x64.exe` — SHA-256 `A1FA607CAC04794E17A8B5A1977E907955416A902065B61FC11164D672159DF1`;
+- `ArsExam_Update_4.1.1_win-x64.zip` — SHA-256 `32CEBC650F755C90FD965A60495DD589CF239F5EFFC74D0B8C4DAD33E538F80D`.
+
+These values match the canonical [Stable manifest](update/stable-manifest.json). This section previously mislabeled the 4.0.0 hashes as 4.1.1; the published files and manifest themselves were not affected by that documentation error.
 
 If automatic update fails because of a temporary DNS/network problem, the current installation should remain unchanged. Retry after connectivity recovers or use the official Setup from this repository.
 
