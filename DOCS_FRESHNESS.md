@@ -19,3 +19,6 @@ Microsoft Store is independent. Partner Center was read before GitHub publicatio
 Cloudflare licensing was checked read-only: Worker `edbd0c64-1324-4e7a-95e3-7c7715442a4a`, migrations 0020/0021, 4 applications, 3 entitlements and one delivered essential revocation notice, with encrypted recipient cleared. No deployment, D1 write, new revocation or Brevo email was performed by the Work continuation.
 
 4.0.0 remains immutable public historical evidence; releases before 4.0.0 are retained as owner drafts. Historical results identify their own commits/packages and cannot be relabeled as acceptance of the 4.1.1 bytes. Documentation validation must compare both repositories, actual installed files and release/manifest hashes; no evidence means no PASS.
+
+
+Latest Partner Center status: Rechecked 12 October 2026 at 07:17 UTC / 10:17 Europe/Sofia: Submission 3 has passed certification and is **Ready to publish**, with **ArsExam_Store_4.1.1.0_x64.msix**, x64, 74.6 MB. Publishing remains **Not started**, held until Publish now. Store presence remains Submission 2 with package 3.9.8.0. The new local QA MSIX was not uploaded; the previously submitted package SHA-256 has not been matched to that QA input. Publish now was not pressed.

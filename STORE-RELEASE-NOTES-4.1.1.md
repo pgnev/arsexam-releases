@@ -1,6 +1,6 @@
 # ArsExam 4.1.1 — отделен Microsoft Store канал
 
-Проверено в Partner Center на 12 октомври 2026 г.: продукт `9PM6RKFN28HK`, Submission 3 **In certification**, Publishing **Not started**, задържано до **Publish now**. Активният пакет на Submission 2 е **3.9.8.0**. Не се твърди, че 4.1.1 е сертифицирана или публикувана в Store. Новият локален QA MSIX от source `38a2e0c7...` не е качван в това подаване.
+Продукт `9PM6RKFN28HK`. Проверено повторно на 12.10.2026 г., 07:17 UTC / 10:17 Europe/Sofia: Submission 3 е **Ready to publish** и е преминала сертификацията; пакетът е **ArsExam_Store_4.1.1.0_x64.msix**, x64, 74.6 MB. Publishing е **Not started**, задържано до Publish now. Store presence остава Submission 2 с пакет 3.9.8.0. Новият локален QA MSIX не е качван; съответствие на SHA-256 на вече подадения пакет с новия QA MSIX не е доказано. Не е натискан Publish now.
 
 GitHub Stable **[4.1.1](https://github.com/pgnev/arsexam-releases/releases/tag/v4.1.1)** е отделно публикуван на 12.10.2026 г., 09:44:08 Europe/Sofia. Setup/Update, хешове и квалификация: [release notes](RELEASE-NOTES-4.1.1.md), [Stable manifest](update/stable-manifest.json) и [QA отчет](QA-REPORT-4.1.1.md).
 

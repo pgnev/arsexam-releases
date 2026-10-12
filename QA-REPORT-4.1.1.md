@@ -75,3 +75,21 @@ Release prerequisite е сверена с support@arsexam.com. README, START_HER
 ### Независимо повторно изтегляне
 
 След публикацията двата действителни GitHub assets са изтеглени в нова локална директория и хеширани повторно: Setup **84 800 417 bytes**, SHA-256 A1FA607CAC04794E17A8B5A1977E907955416A902065B61FC11164D672159DF1; Update ZIP **74 956 125 bytes**, SHA-256 32CEBC650F755C90FD965A60495DD589CF239F5EFFC74D0B8C4DAD33E538F80D. И двата съвпадат с квалифицираните локални files и GitHub digests. Подробните source/public документационни промени са отделна post-publication metadata операция и не изменят tag или assets.
+### Документно съгласуване и независим authority audit
+
+Публичните README, legal/support/update документи, техническа справка, release notes и QA отчет са слети с [PR #14](https://github.com/pgnev/arsexam-releases/pull/14), merge commit `abce4f92553c424dc9cc92b4c7f8b0e4cf4a9f4b`. Release notes са прочетени след metadata update и съвпадат с пълните бележки, с абсолютни публични QA/manifest връзки.
+
+`Validate-PublicStableReconciliation.ps1` PASS за действителните 5 public docs, 3 source release-bound docs, 14 version-neutral authority docs и unversioned roadmap. Първият post-publication прогон откри остарял current Stable 4.0.0 ред в roadmap; редът и старият fixed release-identity contract са актуализирани. Целевите post-publication документационни/authority .NET тестове: **35 passed, 0 failed, 0 skipped**. Тези промени са само в документи и release-identity тест; runtime/tag/package bytes не се променят.
+
+`Test-ArsExamPublicReleaseAuthority.ps1` PASS, Mutation NONE: действителното latest release е v4.1.1; immutable source tag/commit/tree, canonical Stable blob `685070ef59f14d903730a8998bba350c3bc1a1b2`, publishedAtUtc, asset URLs/digests и checked-in CURRENT_STABLE са съгласувани.
+
+[Source v4.1.1 metadata-only marker](https://github.com/pgnev/arsexam-source/releases/tag/v4.1.1) е независимо потвърден с direct API: non-draft/non-prerelease, **0 binary assets**, точен source tag и връзка към public release. Скриптът създаде marker, но непосредственото list-based readback първоначално върна not-found; оригиналният log е запазен, а следващата независима direct API проверка и cross-authority audit потвърдиха действителния marker.
+
+### Последна промяна в Partner Center след GitHub публикацията
+
+Проверено повторно на 12.10.2026 г., 07:17 UTC / 10:17 Europe/Sofia: Submission 3 е **Ready to publish** и е преминала сертификацията; пакетът е **ArsExam_Store_4.1.1.0_x64.msix**, x64, 74.6 MB. Publishing е **Not started**, задържано до Publish now. Store presence остава Submission 2 с пакет 3.9.8.0. Новият локален QA MSIX не е качван; съответствие на SHA-256 на вече подадения пакет с новия QA MSIX не е доказано. Не е натискан Publish now.
+
+Проверени са и двата пакета през Manage packages и детайлите на Submission 3. Това е действителен certification резултат на вече подадения пакет; не променя обхвата на exact-byte локалната QA квалификация и не е Store publication.
+
+
+Source post-publication документацията и CURRENT_STABLE са слети с [PR #269](https://github.com/pgnev/arsexam-source/pull/269), merge commit `fe443e8707fc3c7e90ed428ee16f0caaba9ef184`. Qualified source commit/tag остава `38a2e0c74b83b869058244b5a133fae8397e0eb0`; documentation main commit не е преизграден или представян като release bytes.
