@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "channel": "test",
-  "version": "4.0.0",
+  "version": "4.1.1",
   "minimumSupportedVersion": "3.0.1",
-  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.0.0/ArsExam_Update_4.0.0_win-x64.zip",
-  "packageSha256": "52B9374020E0DBF77C825EFDF415A0E2268107F490E5F6CBD6A335E8F9C510CB",
+  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.1.1/ArsExam_Update_4.1.1_win-x64.zip",
+  "packageSha256": "32CEBC650F755C90FD965A60495DD589CF239F5EFFC74D0B8C4DAD33E538F80D",
   "requiresInstaller": true,
-  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.0.0/ArsExam_Setup_4.0.0_win-x64.exe",
-  "installerSha256": "F65A7561CB280D791E9754396E094D18586C643B78D387BC5F5BECB499EFA8CA",
-  "releaseNotes": "Тестовият канал е оттеглен. За поддържано използване преминете към лицензирания Stable ArsExam 4.0.0 чрез официалния Setup. Това не е ново Test prerelease издание.",
-  "publishedAtUtc": "2026-10-08T05:02:01Z"
+  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.1.1/ArsExam_Setup_4.1.1_win-x64.exe",
+  "installerSha256": "A1FA607CAC04794E17A8B5A1977E907955416A902065B61FC11164D672159DF1",
+  "releaseNotes": "Тестовият канал не предлага отделен prerelease. За поддържано използване преминете към лицензирания Stable ArsExam 4.1.1 чрез официалния Setup. Това не е ново Test prerelease издание.",
+  "publishedAtUtc": "2026-10-12T06:44:08Z"
 }
