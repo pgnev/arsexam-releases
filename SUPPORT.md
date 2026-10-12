@@ -41,6 +41,16 @@ ArsExam is free but license-controlled. Individual licenses authorize one device
 
 Submit the explicit activation request with city and separate EULA/Privacy acknowledgement, then check status and use the issued one-time code for the approved device. Offline request copy/save and signed-license import remain supported. Device replacement and renewal require owner review. A support request may include version, license type, public request identifier and visible error, but never the protected request token, activation code, administrative key or private signing material. Profile recovery remains a separate local flow.
 
+## ArsExam 4.1.1 — Microsoft Store и отнемане на лиценз (12.10.2026)
+
+4.1.1.0 е **подаден Store кандидат**, а не отделно потвърдено публично GitHub Stable издание. Актуалният публичен GitHub Stable Setup/Update остава 4.0.0 до отделно издание с проверени активи и SHA-256. Проверявайте реалния статус на Microsoft Store в Partner Center; не изтегляйте непубликувани MSIX от неофициални сайтове.
+
+Ако лицензът Ви бъде отнет, приложението може да установи това при следващата успешна онлайн проверка. Продуктовото отнемане и доброволното напомняне за изтичане са различни събития: за отнемане на вече издаден лиценз се изпраща еднократно **служебно съобщение** до адреса от одобрената заявка, независимо от отметката за доброволни известия. Съобщението не съдържа лицензни ключове или други тайни. При невъзможно изпращане или неопределен резултат не се гарантира доставка и не се прави автоматичен повторен опит.
+
+Отнемането се извършва от собственика в защитения лицензионен център; бутонът „Изтрий“ за неиздадени заявки не е еквивалент на отнемане на подписан лиценз. При въпроси относно отказ, отнемане, подновяване, промяна на устройство или оспорване на решение пишете на **support@arsexam.com**, като посочите версията на ArsExam и публичния идентификатор на заявката, но **не** изпращайте еднократни кодове, подписи или пароли.
+
+Подробности: [Бележки за Store 4.1.1](STORE-RELEASE-NOTES-4.1.1.md), [Поверителност](PRIVACY_POLICY_BG.md).
+
 ## Password recovery
 
 Forgotten-password recovery is **local** and uses the active Recovery Key. ArsExam does not use recovery e-mail enrollment, support-issued reset codes or a universal server-side/master password.
