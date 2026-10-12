@@ -1,6 +1,6 @@
 # ArsExam Desktop — официални версии и ръководство
 
-**Публикуван GitHub Stable 4.1.1: 12.10.2026 г., 09:44:08 Europe/Sofia / 2026-10-12T06:44:08Z.** Source commit 38a2e0c74b83b869058244b5a133fae8397e0eb0; [release notes](RELEASE-NOTES-4.1.1.md). Microsoft Store остава отделно в сертификация.
+**Публикуван GitHub Stable 4.1.1: 12.10.2026 г., 09:44:08 Europe/Sofia / 2026-10-12T06:44:08Z.** Source commit 38a2e0c74b83b869058244b5a133fae8397e0eb0; [release notes](RELEASE-NOTES-4.1.1.md). Microsoft Store Submission 3 е сертифицирана и Ready to publish, с Publishing Not started.
 
 ArsExam е безплатно Windows приложение за локални изпитни банки, Recycler/Import, преглед и одобрение, подготовка на варианти, Word/Excel обмен и защитено Backup/Restore. Изисква отделен, одобряван от автора цифрово подписан лиценз за конкретните устройства. Инсталирането не предоставя автоматично лиценз.
 
@@ -12,7 +12,7 @@ ArsExam е безплатно Windows приложение за локални �
 |---|---|
 | GitHub Stable | **4.1.1**, съгласувано издание и [Stable manifest](update/stable-manifest.json). |
 | Квалификация 4.1.1 | Exact-commit protected Release, регресии, WACK и реални инсталации/обновявания PASS; [точен QA отчет](QA-REPORT-4.1.1.md). |
-| Microsoft Store | Активен пакет на Submission 2: **3.9.8.0**. Submission 3: **In certification**, Publishing **Not started**, задържано до Publish now; прочетено в Partner Center на 12.10.2026 г. |
+| Microsoft Store | Store presence: Submission 2, **3.9.8.0**. Submission 3 с пакет **4.1.1.0**: сертификацията е премината, **Ready to publish**, Publishing **Not started**, задържано до Publish now; проверено на 12.10.2026 г., 07:17 UTC. |
 
 Подаване за сертификация, source merge и локален пакет са отделни от действително публикувано издание. Store и GitHub се обновяват независимо. Вижте [проверка на документацията и каналите](DOCS_FRESHNESS.md).
 

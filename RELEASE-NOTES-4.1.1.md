@@ -28,3 +28,6 @@ The separately built final MSIX passed independent full WACK: overall PASS, 23/2
 Partner Center was independently read immediately before this GitHub publication: Submission 3 **In certification**, Publishing **Not started**, held until **Publish now**. Active Submission 2 package was 3.9.8.0. The new local QA MSIX was not uploaded, certification was not cancelled and Publish now was not pressed. This GitHub release does not announce a certified or published Store 4.1.1.
 
 Support: **support@arsexam.com**. Previous public 4.0.0 bytes and source tag remain unchanged.
+
+
+Latest Partner Center status: Rechecked 12 October 2026 at 07:17 UTC / 10:17 Europe/Sofia: Submission 3 has passed certification and is **Ready to publish**, with **ArsExam_Store_4.1.1.0_x64.msix**, x64, 74.6 MB. Publishing remains **Not started**, held until Publish now. Store presence remains Submission 2 with package 3.9.8.0. The new local QA MSIX was not uploaded; the previously submitted package SHA-256 has not been matched to that QA input. Publish now was not pressed.
