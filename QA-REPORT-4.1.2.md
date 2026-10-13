@@ -51,7 +51,7 @@ The first UI harness could not discover nested WPF modal windows because it insp
 
 ## Публикация и независима верификация
 
-PUBLICATION_PENDING — GitHub release, Stable manifest и хешовете на действително изтеглените файлове се доказват след публикуването. За Microsoft Store 4.1.2 е необходимо отделно подаване и сертификация в Partner Center.
+**GITHUB STABLE ПУБЛИКУВАН И НЕЗАВИСИМО ПОТВЪРДЕН — 13.10.2026 г., 06:25:20 Europe/Sofia / 2026-10-13T03:25:20Z.** Официален non-draft/non-prerelease Release: https://github.com/pgnev/arsexam-releases/releases/tag/v4.1.2. Публичният `update/stable-manifest.json`, immutable private source tag `v4.1.2` и `Documentation/CURRENT_STABLE.json` са преминали cross-authority audit с PASS. Двата файла — Setup (84 793 033 байта) и Update ZIP (74 956 643 байта) — са свалени повторно от GitHub и изчислените върху изтеглените байтове SHA-256 хешове съвпадат с посочените по-горе. Публичната документация е актуализирана чрез PR #17; частният регистър на изданието — чрез source PR #272. **Microsoft Store 4.1.2.0 не е подаден или сертифициран с тази операция** и изисква отделно подаване през Partner Center.
 
 ## Поверителност и лицензи
 
