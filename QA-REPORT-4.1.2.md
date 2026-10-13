@@ -58,3 +58,11 @@ The first UI harness could not discover nested WPF modal windows because it insp
 Диагностиката остава изключена по подразбиране. Поправката не включва автоматично изпращане на отчети. В тази QA работа не са извършени Cloudflare deployments, нови отнемания или записи в продукционната D1.
 
 Пълните сурови доказателства и автоматизираните проверяващи скриптове се пазят в локалната QA работна директория на издателя. Публичният отчет не включва лични файлови пътища или инсталационни идентификатори.
+
+## Microsoft Store 4.1.2.0 — Submission 4 (13 October 2026)
+
+Partner Center accepted `ArsExam_Store_4.1.2.0_x64.msix` (x64, 78,204,135 bytes; local source SHA-256 `3812598F0ED3DC2A03FF89B543561B3ED0B4033B3D276D67417B7285967FECCF`) and displayed **Validated** in the Packages section. Submission 4 was submitted for certification and Partner Center subsequently reported **Update in certification**. Certification instructions were updated to include the preactivation Privacy → Contact support regression test and device-bound license review process. The `runFullTrust` capability rationale was present and the submission options were saved.
+
+At the verification time `2026-10-13T03:57:50.7317497Z`, Microsoft Store presence remained on published **Submission 3 / 4.1.1.0**. **Submission 4 / 4.1.2.0 has not passed certification and is not available to customers.** Automatic publishing is disabled: Partner Center explicitly states that publishing starts only after **Publish now**. The previous statements in this report that the Store candidate had not been submitted describe the earlier GitHub-only publication step; this section documents the later Partner Center submission.
+
+Partner Center may take hours or several business days to certify; this report does not infer a completion date. The MSIX is deliberately unsigned for Store ingestion, and previous Sandbox/WACK results are independent of Microsoft's certification decision.
