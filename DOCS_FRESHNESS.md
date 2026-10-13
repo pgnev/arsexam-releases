@@ -13,6 +13,16 @@
 
 ---
 
+## Microsoft Store Submission 4 status — 13 October 2026
+
+- Partner Center live status checked at `2026-10-13T03:57:50.7317497Z`: **ArsExam Submission 4 — Update in certification**.
+- Uploaded, validated candidate: `ArsExam_Store_4.1.2.0_x64.msix`, x64, **78,204,135 bytes**, local upload-source SHA-256 `3812598F0ED3DC2A03FF89B543561B3ED0B4033B3D276D67417B7285967FECCF`.
+- Previous **Submission 3 (MSIX 4.1.1.0)** remains live in Microsoft Store. Publishing remains on manual hold: **Publish now** is required after certification.
+- Reviewer notes were updated for the exact 4.1.2 source and licensing workflow; the `runFullTrust` rationale is present. **Submission 4 is not yet certified or published.**
+- Store product: https://apps.microsoft.com/detail/9PM6RKFN28HK. GitHub Stable 4.1.2 publication is independent of Microsoft Store certification.
+
+---
+
 ## Historical 4.1.1 authority snapshot (preserved for provenance)
 
 
