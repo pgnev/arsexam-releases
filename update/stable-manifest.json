@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "minimumSupportedVersion": "3.0.1",
-  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.1.1/ArsExam_Update_4.1.1_win-x64.zip",
-  "packageSha256": "32CEBC650F755C90FD965A60495DD589CF239F5EFFC74D0B8C4DAD33E538F80D",
+  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.1.2/ArsExam_Update_4.1.2_win-x64.zip",
+  "packageSha256": "CDEB7F22D7CA8FC32655432BA42E70E528F68CE869AC47BCBF8D4264A601FF87",
   "requiresInstaller": true,
-  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.1.1/ArsExam_Setup_4.1.1_win-x64.exe",
-  "installerSha256": "A1FA607CAC04794E17A8B5A1977E907955416A902065B61FC11164D672159DF1",
-  "releaseNotes": "ArsExam 4.1.1: защитено възстановяване на оригинални заявки и активация след прекъсване; доброволни имейл известия с потвърждение и отказ; изрично Owner отнемане и еднократни служебни известия; обновени инсталирани ръководства и правни текстове. Квалифицирани са точните Setup/Update файлове, чисти Desktop/Portable инсталации, обновяване от 3.9.8 и отделни Store 3.9.8.0/4.1.0.0 към 4.1.1.0 проверки, protected Release и регресии. GitHub файловете са без Authenticode подпис; SHA-256 удостоверява целостта, а лицензите използват отделен ECDSA подпис. Microsoft Store Submission 3 остава в сертификация и с публикуване на изчакване; GitHub публикацията не означава Store публикация.",
-  "publishedAtUtc": "2026-10-12T06:44:08Z"
+  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.1.2/ArsExam_Setup_4.1.2_win-x64.exe",
+  "installerSha256": "0FDB942B1E4EC000A13F600B0E5519BF3D2570781F0F66F5CDE8136E597CA18D",
+  "releaseNotes": "ArsExam 4.1.2: коригиран достъп до поддръжката преди активация, без промяна в доброволното съгласие за диагностика; актуализирана документация и защитени Windows пакети.",
+  "publishedAtUtc": "2026-10-13T03:25:20Z"
 }
