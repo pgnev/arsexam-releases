@@ -1,4 +1,20 @@
-# Documentation and release authority — 12 October 2026
+# Documentation and release authority — 13 October 2026
+
+## Current GitHub Stable: ArsExam 4.1.2
+
+- Official release: https://github.com/pgnev/arsexam-releases/releases/tag/v4.1.2
+- Immutable source tag: private `pgnev/arsexam-source/v4.1.2`, commit `7b3710377fbce8288b1488877e6a28b7ed2c3999`.
+- Setup SHA-256: `0FDB942B1E4EC000A13F600B0E5519BF3D2570781F0F66F5CDE8136E597CA18D`.
+- Update ZIP SHA-256: `CDEB7F22D7CA8FC32655432BA42E70E528F68CE869AC47BCBF8D4264A601FF87`.
+- `requiresInstaller=true`; minimum supported update version `3.0.1`.
+- GitHub Setup/Desktop/Launcher Authenticode: `NotSigned`. The Store MSIX is a separate candidate.
+- [Independent QA report](QA-REPORT-4.1.2.md).
+- Release publication time: 2026-10-13T03:25:20Z / 06:25:20 Europe/Sofia.
+
+---
+
+## Historical 4.1.1 authority snapshot (preserved for provenance)
+
 
 Current GitHub Stable is **[ArsExam v4.1.1](https://github.com/pgnev/arsexam-releases/releases/tag/v4.1.1)**, published `2026-10-12T06:44:08Z` / 09:44:08 Europe/Sofia. The latest public non-draft/non-prerelease release and [Stable manifest](update/stable-manifest.json) bind the qualified Setup/Update bytes to this version. The withdrawn Test feed follows the same installer and does not offer a separate prerelease.
 

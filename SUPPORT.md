@@ -1,6 +1,6 @@
 # ArsExam Support
 
-Revision: 12 October 2026 — ArsExam 4.1.1 Stable
+Revision: 13 October 2026 — ArsExam 4.1.2 Stable
 
 ## Official contact
 
@@ -8,13 +8,13 @@ Revision: 12 October 2026 — ArsExam 4.1.1 Stable
 
 For normal product support, prefer the in-application **Help → Contact support** flow when available.
 
-**Known issue in published 4.1.1:** before license activation, **Privacy policy → Contact support** fails to open the support window. Contact **support@arsexam.com** directly; a Support ID or diagnostic ZIP is not required when this window cannot open. A separately tested source fix has not yet been distributed in a published installer. See the [post-publication QA supplement](QA-REPORT-4.1.1.md#дефект-в-поддръжката-потвърден-след-публикацията).
+**Fixed in 4.1.2:** the published 4.1.1 release has a known issue: before license activation, **Privacy policy → Contact support** fails to open the support window. The exact protected 4.1.2 binary has passed this preactivation GUI route, including local diagnostic preview and ZIP creation. For affected 4.1.1 installations, contact **support@arsexam.com** directly; neither Support ID nor a ZIP is required. Existing 4.1.1 packages remain immutable. See the [post-publication QA supplement](QA-REPORT-4.1.1.md#дефект-в-поддръжката-потвърден-след-публикацията).
 
 ## Current supported public line
 
-The current official Stable release is **ArsExam 4.1.1**. The authoritative current-version source is `update/stable-manifest.json` together with the latest non-draft, non-prerelease public release in this repository.
+The current official Stable release is **ArsExam 4.1.2**. The authoritative current-version source is `update/stable-manifest.json` together with the latest non-draft, non-prerelease public release in this repository.
 
-ArsExam 4.1.1 signing state is UNSIGNED (no Authenticode signature); download only from the official release and verify SHA-256 against the Stable manifest/release metadata.
+ArsExam 4.1.2 signing state is UNSIGNED (no Authenticode signature); download only from the official release and verify SHA-256 against the Stable manifest/release metadata.
 
 **ArsExam 3.8.0 remains WITHDRAWN / DO NOT INSTALL.** ArsExam 3.9.6, 3.9.5 and 3.9.4 are previous Stable releases and remain immutable historical release evidence.
 

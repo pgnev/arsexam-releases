@@ -1,6 +1,6 @@
 # ArsExam Desktop — официални версии и ръководство
 
-**Публикуван GitHub Stable 4.1.1: 12.10.2026 г., 09:44:08 Europe/Sofia / 2026-10-12T06:44:08Z.** Source commit 38a2e0c74b83b869058244b5a133fae8397e0eb0; [release notes](RELEASE-NOTES-4.1.1.md). Microsoft Store Submission 3 е сертифицирана и Ready to publish, с Publishing Not started.
+**Публикуван GitHub Stable 4.1.2: 13.10.2026 г., 06:25:20 Europe/Sofia / 2026-10-13T03:25:20Z.** Source commit `7b3710377fbce8288b1488877e6a28b7ed2c3999`; [release notes](RELEASE-NOTES-4.1.2.md). GitHub и Microsoft Store са независими канали.
 
 ArsExam е безплатно Windows приложение за локални изпитни банки, Recycler/Import, преглед и одобрение, подготовка на варианти, Word/Excel обмен и защитено Backup/Restore. Изисква отделен, одобряван от автора цифрово подписан лиценз за конкретните устройства. Инсталирането не предоставя автоматично лиценз.
 
@@ -10,25 +10,25 @@ ArsExam е безплатно Windows приложение за локални �
 
 | Канал | Проверено състояние |
 |---|---|
-| GitHub Stable | **4.1.1**, съгласувано издание и [Stable manifest](update/stable-manifest.json). |
-| Квалификация 4.1.1 | Exact-commit protected Release, регресии, WACK и реални инсталации/обновявания PASS; [точен QA отчет](QA-REPORT-4.1.1.md). |
-| Microsoft Store | Store presence: Submission 2, **3.9.8.0**. Submission 3 с пакет **4.1.1.0**: сертификацията е премината, **Ready to publish**, Publishing **Not started**, задържано до Publish now; проверено на 12.10.2026 г., 07:17 UTC. |
+| GitHub Stable | **4.1.2**, съгласувано издание и [Stable manifest](update/stable-manifest.json). |
+| Квалификация 4.1.2 | Exact-commit защитена компилация, регресии, WACK, инсталиране и обновяване, както и реалният предактивационен Support интерфейс: PASS; [точен QA отчет](QA-REPORT-4.1.2.md). |
+| Microsoft Store | Последно документирано състояние (12.10.2026 г., 07:17 UTC): публикувана версия **3.9.8.0**, Submission 2; Submission 3 за **4.1.1.0** е сертифицирана и **Ready to publish**, но **Publishing Not started**. MSIX **4.1.2.0** е локално квалифициран кандидат, все още неподаден; необходима е независима проверка в Partner Center. |
 
 Подаване за сертификация, source merge и локален пакет са отделни от действително публикувано издание. Store и GitHub се обновяват независимо. Вижте [проверка на документацията и каналите](DOCS_FRESHNESS.md).
 
-**Известен дефект в 4.1.1, потвърден след публикацията:** преди активиране на лиценз „Политика за поверителност → Връзка с поддръжката“ показва, че прозорецът за поддръжка не може да бъде отворен. За контакт използвайте **support@arsexam.com**; Support ID или диагностичен ZIP не са необходими. Поправката е проверена отделно в непубликуван кандидат и още не е част от наличните 4.1.1 Setup/Update файлове. [Подробности и QA](QA-REPORT-4.1.1.md#дефект-в-поддръжката-потвърден-след-публикацията).
+**Поправено в 4.1.2:** маршрутът „Политика за поверителност → Връзка с поддръжката“ вече може да отваря прозореца и преди активация. Публикуваната 4.1.1 има [описания дефект](QA-REPORT-4.1.1.md#дефект-в-поддръжката-потвърден-след-публикацията). Диагностиката остава изключена по подразбиране и изисква съгласие.
 
 ## Изтегляне и проверка
 
-Използвайте [официалното издание v4.1.1](https://github.com/pgnev/arsexam-releases/releases/tag/v4.1.1) и файловете, посочени в Stable manifest:
+Използвайте [официалното издание v4.1.2](https://github.com/pgnev/arsexam-releases/releases/tag/v4.1.2) и файловете, посочени в Stable manifest:
 
-- [Setup за Windows x64](https://github.com/pgnev/arsexam-releases/releases/download/v4.1.1/ArsExam_Setup_4.1.1_win-x64.exe).
-- [Update ZIP](https://github.com/pgnev/arsexam-releases/releases/download/v4.1.1/ArsExam_Update_4.1.1_win-x64.zip).
+- [Setup за Windows x64](https://github.com/pgnev/arsexam-releases/releases/download/v4.1.2/ArsExam_Setup_4.1.2_win-x64.exe).
+- [Update ZIP](https://github.com/pgnev/arsexam-releases/releases/download/v4.1.2/ArsExam_Update_4.1.2_win-x64.zip).
 
 | Файл | SHA-256 |
 |---|---|
-| ArsExam_Setup_4.1.1_win-x64.exe | A1FA607CAC04794E17A8B5A1977E907955416A902065B61FC11164D672159DF1 |
-| ArsExam_Update_4.1.1_win-x64.zip | 32CEBC650F755C90FD965A60495DD589CF239F5EFFC74D0B8C4DAD33E538F80D |
+| ArsExam_Setup_4.1.2_win-x64.exe | 0FDB942B1E4EC000A13F600B0E5519BF3D2570781F0F66F5CDE8136E597CA18D |
+| ArsExam_Update_4.1.2_win-x64.zip | CDEB7F22D7CA8FC32655432BA42E70E528F68CE869AC47BCBF8D4264A601FF87 |
 
 Setup и програмните файлове на това издание са **UNSIGNED с Authenticode**. HTTPS и SHA-256 проверяват целостта; те не са издателски подпис. ECDSA подписът на лицензния файл е отделен механизъм. Подписването се проверява и обявява отделно за всяко издание.
 
