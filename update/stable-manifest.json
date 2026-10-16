@@ -1,13 +1,13 @@
 {
-  "schemaVersion": 1,
-  "channel": "stable",
-  "version": "4.1.2",
-  "minimumSupportedVersion": "3.0.1",
-  "packageUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.1.2/ArsExam_Update_4.1.2_win-x64.zip",
-  "packageSha256": "CDEB7F22D7CA8FC32655432BA42E70E528F68CE869AC47BCBF8D4264A601FF87",
-  "requiresInstaller": true,
-  "installerUrl": "https://github.com/pgnev/arsexam-releases/releases/download/v4.1.2/ArsExam_Setup_4.1.2_win-x64.exe",
-  "installerSha256": "0FDB942B1E4EC000A13F600B0E5519BF3D2570781F0F66F5CDE8136E597CA18D",
-  "releaseNotes": "ArsExam 4.1.2: коригиран достъп до поддръжката преди активация, без промяна в доброволното съгласие за диагностика; актуализирана документация и защитени Windows пакети.",
-  "publishedAtUtc": "2026-10-13T03:25:20Z"
+    "schemaVersion":  1,
+    "channel":  "stable",
+    "version":  "4.1.5",
+    "minimumSupportedVersion":  "3.0.1",
+    "packageUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v4.1.5/ArsExam_Update_4.1.5_win-x64.zip",
+    "packageSha256":  "DE8CCAA892111C6A82561CFF077E1F897A046458FB02EF76923539D4EF903455",
+    "requiresInstaller":  true,
+    "installerUrl":  "https://github.com/pgnev/arsexam-releases/releases/download/v4.1.5/ArsExam_Setup_4.1.5_win-x64.exe",
+    "installerSha256":  "7F1375787A160C34A1DB075211E4E45F37816DD0DEFC094CE75EFC10CA17A154",
+    "releaseNotes":  "ArsExam 4.1.5 corrects installed Portable README, EULA version labels and user documentation. Includes the protected startup and notification fixes from 4.1.4. Existing signed licenses, consent and local data remain unchanged.",
+    "publishedAtUtc":  "2026-10-16T04:09:52Z"
 }
